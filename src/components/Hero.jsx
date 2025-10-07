@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -12,8 +11,8 @@ const Hero = () => {
       subtitle: "SOLUTIONS",
       description: "Protect your business from cyber attacks, secure customer data, and respond fast with affordable AI-powered tools built for small teams.",
       cta: "Book A Free Consultation",
-      bgImage: "/images/slide1.webp", // Local image path
-      bgClass: "bg-gradient-to-br from-dark/80 via-secondary-dark/80 to-dark/80"
+      bgImage: "/images/slide1.webp",
+      bgClass: "bg-gradient-to-br from-dark/90 via-secondary-dark/90 to-dark/90"
     },
     {
       title: "ADVANCED THREAT",
@@ -21,8 +20,8 @@ const Hero = () => {
       subtitle: "& RESPONSE",
       description: "Stay ahead of cyber threats with our cutting-edge AI monitoring systems that detect and neutralize attacks before they impact your business.",
       cta: "Learn More",
-      bgImage: "/images/slide2.jpg", // Network/Server room image
-      bgClass: "bg-gradient-to-br from-dark/80 via-accent-dark/80 to-dark/80"
+      bgImage: "/images/slide2.jpg",
+      bgClass: "bg-gradient-to-br from-dark/90 via-accent-dark/90 to-dark/90"
     },
     {
       title: "SECURE YOUR",
@@ -30,8 +29,8 @@ const Hero = () => {
       subtitle: "FUTURE",
       description: "Comprehensive security audits and consulting services to ensure your business stays protected in an ever-evolving threat landscape.",
       cta: "Get Started",
-      bgImage: "/images/slide3.jpg", // Digital security/Lock image
-      bgClass: "bg-gradient-to-br from-dark/80 via-primary-dark/80 to-dark/80"
+      bgImage: "/images/slide3.jpg", 
+      bgClass: "bg-gradient-to-br from-dark/90 via-primary-dark/90 to-dark/90"
     }
   ];
 
@@ -44,9 +43,9 @@ const Hero = () => {
   }, [slides.length]);
 
   return (
-    <div className="relative h-screen overflow-hidden bg-dark">
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black/20 z-10" />
+    <div className="relative h-screen sm:h-[80vh] md:h-screen overflow-hidden bg-dark">
+      {/* Strong Background Overlay for Better Text Visibility */}
+      <div className="absolute inset-0 bg-black/75 z-10" />
       
       {/* Slides Container */}
       <div className="relative h-full w-full">
@@ -64,51 +63,55 @@ const Hero = () => {
               backgroundImage: `url(${slide.bgImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat'
+              backgroundRepeat: 'no-repeat',
+              filter: 'brightness(0.7)' // Additional dimming for the background image
             }}
           >
-            {/* Gradient Overlay */}
+            {/* Enhanced Gradient Overlay */}
             <div className={`absolute inset-0 ${slide.bgClass}`} />
             
             {/* Content */}
-            <div className="relative z-30 flex items-center justify-center h-full">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="relative z-30 flex items-center justify-center h-full px-4">
+              <div className="max-w-7xl mx-auto text-center">
                 <div className="max-w-4xl mx-auto">
-                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                  {/* Responsive Heading */}
+                  <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight drop-shadow-2xl">
                     {slide.title}{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-none">
                       {slide.highlight}
                     </span>{' '}
                     {slide.subtitle}
                   </h1>
                   
-                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+                  {/* Responsive Description */}
+                  <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-6 sm:mb-8 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed drop-shadow-lg px-2">
                     {slide.description}
                   </p>
                   
-                  <button className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-primary/80 hover:to-secondary/80 transition-all transform hover:scale-105 inline-flex items-center space-x-2 shadow-lg backdrop-blur-sm">
+                  {/* Responsive CTA Button */}
+                  <button className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 xs:px-6 xs:py-3 sm:px-8 sm:py-4 rounded-full text-sm xs:text-base sm:text-lg font-semibold hover:from-primary/80 hover:to-secondary/80 transition-all transform hover:scale-105 inline-flex items-center space-x-2 shadow-2xl backdrop-blur-sm">
                     <span>{slide.cta}</span>
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-4 h-4 xs:w-5 xs:h-5" />
                   </button>
                 </div>
               </div>
             </div>
             
-            {/* Decorative Elements */}
-            <div className="absolute top-1/4 left-10 w-20 h-20 border border-primary/50 rounded-full animate-pulse backdrop-blur-sm" />
-            <div className="absolute bottom-1/4 right-10 w-16 h-16 border border-secondary/50 rounded-full animate-pulse delay-1000 backdrop-blur-sm" />
-            <div className="absolute top-1/2 right-1/4 w-12 h-12 border border-primary/30 rounded-full animate-pulse delay-2000 backdrop-blur-sm" />
+            {/* Responsive Decorative Elements */}
+            <div className="absolute top-1/4 left-4 sm:left-10 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 border border-primary/50 rounded-full animate-pulse backdrop-blur-sm" />
+            <div className="absolute bottom-1/4 right-4 sm:right-10 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 border border-secondary/50 rounded-full animate-pulse delay-1000 backdrop-blur-sm" />
+            <div className="absolute top-1/2 right-1/4 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 border border-primary/30 rounded-full animate-pulse delay-2000 backdrop-blur-sm" />
           </div>
         ))}
       </div>
       
       {/* Navigation Dots */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-40 flex space-x-3">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-40 flex space-x-2 sm:space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
               index === currentSlide 
                 ? 'bg-primary scale-125 shadow-md' 
                 : 'bg-white/50 hover:bg-white/75'

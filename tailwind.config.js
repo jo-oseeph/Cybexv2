@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'orbitron': ['Orbitron', 'sans-serif'],
+      },
       colors: {
         // Primary Color (Cyan from your screenshot)
         primary: {
