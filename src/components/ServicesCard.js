@@ -10,7 +10,7 @@ const ServiceCard = ({
   gradient = "from-primary to-secondary"
 }) => {
   return (
-    <div className="relative bg-dark-light/90 backdrop-blur-sm border border-primary rounded-2xl p-6 sm:p-8 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:transform hover:scale-[1.02] group">
+    <div className="relative bg-dark border border-primary rounded-2xl p-6 sm:p-8 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:transform hover:scale-[1.02] group">
       {/* Top Gradient Border */}
       <div className="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-purple-500 via-primary to-blue-500 rounded-t-2xl"></div>
       
