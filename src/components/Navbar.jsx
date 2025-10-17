@@ -10,7 +10,8 @@ import {
   Server, 
   Users, 
   AlertTriangle, 
-  Lock 
+  Lock, 
+  Phone 
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -19,12 +20,14 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const services = [
-    { name: 'Threat Detection', icon: <Eye className="w-4 h-4" />, path: '/threat-monitoring' },
-    { name: 'Data Protection', icon: <FileText className="w-4 h-4" />, path: '/data-protection' },
-    { name: 'Network Security', icon: <Server className="w-4 h-4" />, path: '/network-security' },
-    { name: 'Identity Management', icon: <Users className="w-4 h-4" />, path: '/identity-management' },
-    { name: 'Risk Assessment', icon: <AlertTriangle className="w-4 h-4" />, path: '/risk-assessment' },
-    { name: 'Security Consulting', icon: <Lock className="w-4 h-4" />, path: '/security-consulting' }
+  { name: 'Threat Detection', icon: <Eye className="w-4 h-4" />, path: '/threat-monitoring' },
+  { name: 'Website Security Audit', icon: <Shield className="w-4 h-4" />, path: '/services/website-security-audit' },
+  { name: 'Device & Endpoint Protection', icon: <Phone className="w-4 h-4" />, path: '/services/device-endpoint-protection' },
+  { name: 'Cyber Awareness Training', icon: <Users className="w-4 h-4" />, path: '/services/cyber-awareness-training' },
+  { name: 'Network Security', icon: <Server className="w-4 h-4" />, path: '/network-security' },
+  { name: 'Identity Management', icon: <Users className="w-4 h-4" />, path: '/identity-management' },
+  { name: 'Risk Assessment', icon: <AlertTriangle className="w-4 h-4" />, path: '/risk-assessment' },
+  { name: 'Security Consulting', icon: <Lock className="w-4 h-4" />, path: '/security-consulting' }
   ];
 
   // Handle scroll effect

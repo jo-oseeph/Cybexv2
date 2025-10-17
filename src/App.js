@@ -5,6 +5,9 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import WebsiteSecurityAuditPage from './pages/services/WebsiteSecurityAuditPage';
+import DeviceEndpointProtectionPage from './pages/services/DeviceEndpointProtectionPage';
+import CyberAwarenessTrainingPage from './pages/services/CyberAwarenessTrainingPage';
 
 
 const App = () => {
@@ -16,6 +19,9 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/services/website-security-audit" element={<WebsiteSecurityAuditPage />} />
+          <Route path="/services/device-endpoint-protection" element={<DeviceEndpointProtectionPage />} />
+          <Route path="/services/cyber-awareness-training" element={<CyberAwarenessTrainingPage />} />
           {/* <Route path="/services" element={<ServicesPage />} />
           <Route path="/blogs" element={<BlogsPage />} /> */}
         </Routes>
