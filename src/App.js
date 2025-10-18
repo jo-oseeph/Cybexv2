@@ -8,6 +8,9 @@ import ContactPage from './pages/ContactPage';
 import WebsiteSecurityAuditPage from './pages/services/WebsiteSecurityAuditPage';
 import DeviceEndpointProtectionPage from './pages/services/DeviceEndpointProtectionPage';
 import CyberAwarenessTrainingPage from './pages/services/CyberAwarenessTrainingPage';
+import RealTimeThreatMonitoringPage from './pages/services/RealTimeThreatMonitoringPage';
+import EmailSecuritySetupPage from './pages/services/EmailSecuritySetupPage';
+import SecurityAuditAssessmentPage from './pages/services/SecurityAuditAssessmentPage';
 
 
 const App = () => {
@@ -22,6 +25,9 @@ const App = () => {
           <Route path="/services/website-security-audit" element={<WebsiteSecurityAuditPage />} />
           <Route path="/services/device-endpoint-protection" element={<DeviceEndpointProtectionPage />} />
           <Route path="/services/cyber-awareness-training" element={<CyberAwarenessTrainingPage />} />
+          <Route path="/services/real-time-threat-monitoring" element={<RealTimeThreatMonitoringPage />} />
+          <Route path="/services/email-security-setup" element={<EmailSecuritySetupPage />} />
+            <Route path="/services/security-audit-assessment" element={<SecurityAuditAssessmentPage />} />
           {/* <Route path="/services" element={<ServicesPage />} />
           <Route path="/blogs" element={<BlogsPage />} /> */}
         </Routes>

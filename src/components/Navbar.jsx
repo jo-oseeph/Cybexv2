@@ -11,7 +11,9 @@ import {
   Users, 
   AlertTriangle, 
   Lock, 
-  Phone 
+  Phone,
+  Mail,
+  ShieldCheck
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -20,14 +22,16 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const services = [
-  { name: 'Threat Detection', icon: <Eye className="w-4 h-4" />, path: '/threat-monitoring' },
-  { name: 'Website Security Audit', icon: <Shield className="w-4 h-4" />, path: '/services/website-security-audit' },
-  { name: 'Device & Endpoint Protection', icon: <Phone className="w-4 h-4" />, path: '/services/device-endpoint-protection' },
-  { name: 'Cyber Awareness Training', icon: <Users className="w-4 h-4" />, path: '/services/cyber-awareness-training' },
-  { name: 'Network Security', icon: <Server className="w-4 h-4" />, path: '/network-security' },
-  { name: 'Identity Management', icon: <Users className="w-4 h-4" />, path: '/identity-management' },
-  { name: 'Risk Assessment', icon: <AlertTriangle className="w-4 h-4" />, path: '/risk-assessment' },
-  { name: 'Security Consulting', icon: <Lock className="w-4 h-4" />, path: '/security-consulting' }
+    { name: 'Real-Time Threat Monitoring', icon: <Eye className="w-4 h-4" />, path: '/services/real-time-threat-monitoring' },
+    { name: 'Website Security Audit', icon: <Shield className="w-4 h-4" />, path: '/services/website-security-audit' },
+    { name: 'Device & Endpoint Protection', icon: <Phone className="w-4 h-4" />, path: '/services/device-endpoint-protection' },
+    { name: 'Cyber Awareness Training', icon: <Users className="w-4 h-4" />, path: '/services/cyber-awareness-training' },
+    { name: 'Email Security Setup', icon: <Mail className="w-4 h-4" />, path: '/services/email-security-setup' },
+    { name: 'Security Audit & Assessment', icon: <ShieldCheck className="w-4 h-4" />, path: '/services/security-audit-assessment' },
+    { name: 'Network Security', icon: <Server className="w-4 h-4" />, path: '/network-security' },
+    { name: 'Identity Management', icon: <Users className="w-4 h-4" />, path: '/identity-management' },
+    { name: 'Risk Assessment', icon: <AlertTriangle className="w-4 h-4" />, path: '/risk-assessment' },
+    { name: 'Security Consulting', icon: <Lock className="w-4 h-4" />, path: '/security-consulting' }
   ];
 
   // Handle scroll effect
