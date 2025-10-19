@@ -11,7 +11,7 @@ const Hero = () => {
       subtitle: "SOLUTIONS",
       description: "Protect your business from cyber attacks, secure customer data, and respond fast with affordable AI-powered tools built for small teams.",
       cta: "Book A Free Consultation",
-      bgImage: "/images/slide1.webp",
+      bgImage: "/images/slide4.webp",
       bgClass: "bg-gradient-to-br from-dark/90 via-secondary-dark/90 to-dark/90"
     },
     {
@@ -20,7 +20,7 @@ const Hero = () => {
       subtitle: "& RESPONSE",
       description: "Stay ahead of cyber threats with our cutting-edge AI monitoring systems that detect and neutralize attacks before they impact your business.",
       cta: "Learn More",
-      bgImage: "/images/slide2.jpg",
+      bgImage: "/images/slide4.webp",
       bgClass: "bg-gradient-to-br from-dark/90 via-accent-dark/90 to-dark/90"
     },
     {
@@ -29,7 +29,7 @@ const Hero = () => {
       subtitle: "FUTURE",
       description: "Comprehensive security audits and consulting services to ensure your business stays protected in an ever-evolving threat landscape.",
       cta: "Get Started",
-      bgImage: "/images/slide3.jpg", 
+      bgImage: "/images/slide4.webp", 
       bgClass: "bg-gradient-to-br from-dark/90 via-primary-dark/90 to-dark/90"
     }
   ];
@@ -64,20 +64,17 @@ const Hero = () => {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              filter: 'brightness(0.7)' // Additional dimming for the background image
+              filter: 'brightness(0.5)' // Dimming for the background image
             }}
-          >
-            {/* Enhanced Gradient Overlay */}
-            <div className={`absolute inset-0 ${slide.bgClass}`} />
-            
+          >  
             {/* Content */}
             <div className="relative z-30 flex items-center justify-center h-full px-4">
               <div className="max-w-7xl mx-auto text-center">
                 <div className="max-w-4xl mx-auto">
                   {/* Responsive Heading */}
-                  <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight drop-shadow-2xl">
+                  <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight drop-shadow-2xl font-orbitron">
                     {slide.title}{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-none">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-none font-orbitron">
                       {slide.highlight}
                     </span>{' '}
                     {slide.subtitle}
@@ -96,11 +93,6 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Responsive Decorative Elements */}
-            <div className="absolute top-1/4 left-4 sm:left-10 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 border border-primary/50 rounded-full animate-pulse backdrop-blur-sm" />
-            <div className="absolute bottom-1/4 right-4 sm:right-10 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 border border-secondary/50 rounded-full animate-pulse delay-1000 backdrop-blur-sm" />
-            <div className="absolute top-1/2 right-1/4 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 border border-primary/30 rounded-full animate-pulse delay-2000 backdrop-blur-sm" />
           </div>
         ))}
       </div>
