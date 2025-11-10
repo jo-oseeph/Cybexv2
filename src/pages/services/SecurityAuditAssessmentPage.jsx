@@ -45,7 +45,7 @@ const SecurityAuditAssessmentPage = () => (
           <div className="rounded-2xl border-2 border-cyan-700/40 shadow-lg overflow-hidden w-full max-w-md bg-[#10182b]/40">
             <img 
               src="/images/security-assessment.jpg" 
-              alt="Security Assessment Overview Image" 
+              alt="Security Assessment Overview " 
               className="object-cover object-center w-full h-80"
             />
           </div>
