@@ -14,12 +14,10 @@ const PostDetails = () => {
         const res = await axiosInstance.get(`/posts/${slugOrId}`);
         setPost(res.data.post);
 
-        // Fetch related posts by category
         if (res.data.post.category) {
           const relatedRes = await axiosInstance.get(
             `/posts?category=${res.data.post.category}&limit=3`
           );
-          // Exclude the current post
           setRelatedPosts(
             relatedRes.data.posts.filter((p) => p._id !== res.data.post._id)
           );
@@ -55,7 +53,7 @@ const PostDetails = () => {
     <section className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero Section */}
       <div
-        className="relative w-full h-[45vh] bg-black flex items-end"
+        className="relative w-full h-[70vh] bg-black flex items-end"
         style={{
           backgroundImage: `url(${post.featuredImage})`,
           backgroundSize: "cover",
@@ -66,8 +64,11 @@ const PostDetails = () => {
         <div className="relative p-5 sm:p-16 text-white z-10">
           <h1 className="text-3xl sm:text-5xl font-bold mb-2">{post.title}</h1>
           <p className="text-sm sm:text-base text-gray-300">
-            By <span className="text-red-500 font-semibold">{post.author.name}</span> •{" "}
-            {new Date(post.createdAt).toLocaleDateString()} • 6 min read
+            By{" "}
+            <span className="text-red-500 font-semibold">
+              {post.author.name}
+            </span>{" "}
+            • {new Date(post.createdAt).toLocaleDateString()} • 6 min read
           </p>
         </div>
       </div>
@@ -75,20 +76,46 @@ const PostDetails = () => {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <article className="prose lg:prose-lg max-w-none text-gray-800">
-          {post.content && post.content.map((block, idx) => {
-            if (block.type === "paragraph") return <p key={idx}>{block.text}</p>;
-            if (block.type === "heading") return <h2 key={idx}>{block.text}</h2>;
-            if (block.type === "image")
-              return (
-                <img
-                  key={idx}
-                  src={block.url}
-                  alt={block.alt || "Post image"}
-                  className="w-full rounded-lg shadow-md my-6"
-                />
-              );
-            return null;
-          })}
+          {post.content &&
+            post.content.map((block, idx) => {
+              if (block.type === "text")
+                return (
+                  <p key={idx} className="mb-4 leading-relaxed">
+                    {block.value}
+                  </p>
+                );
+
+              if (block.type === "subheading" || block.type === "heading")
+                return (
+                  <h2
+                    key={idx}
+                    className="text-2xl font-bold mt-8 mb-4 text-gray-900"
+                  >
+                    {block.value}
+                  </h2>
+                );
+
+              if (block.type === "image")
+                return (
+                  <img
+                    key={idx}
+                    src={block.value}
+                    alt={block.alt || "Post image"}
+                    className="w-full rounded-lg shadow-md my-6"
+                  />
+                );
+
+              if (block.type === "list")
+                return (
+                  <ul key={idx} className="list-disc pl-6 mb-4">
+                    {(block.items || block.value || []).map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                );
+
+              return null;
+            })}
         </article>
 
         {/* Tags & Share */}
@@ -115,23 +142,30 @@ const PostDetails = () => {
       {relatedPosts.length > 0 && (
         <div className="bg-white py-12">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-2xl font-bold mb-8 text-gray-800">Related Posts</h2>
+            <h2 className="text-2xl font-bold mb-8 text-gray-800">
+              Related Posts
+            </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedPosts.map((relPost) => (
                 <Link
                   key={relPost._id}
-                  to={`/posts/${relPost.slug}`}
+                  to={`/blog/${relPost.slug}`} // Ensure route matches App.js
                   className="bg-gray-50 rounded-lg shadow hover:shadow-lg transition overflow-hidden"
                 >
                   <img
-                    src={relPost.featuredImage || `https://source.unsplash.com/400x250/?tech,${relPost._id}`}
+                    src={
+                      relPost.featuredImage ||
+                      `https://source.unsplash.com/400x250/?tech,${relPost._id}`
+                    }
                     alt={relPost.title}
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-4">
-                    <h3 className="font-semibold text-lg mb-2">{relPost.title}</h3>
+                    <h3 className="font-semibold text-lg mb-2">
+                      {relPost.title}
+                    </h3>
                     <p className="text-sm text-gray-600">
-                      {relPost.content?.[0]?.text?.slice(0, 60)}...
+                      {relPost.content?.[0]?.value?.slice(0, 60)}...
                     </p>
                   </div>
                 </Link>

@@ -144,6 +144,14 @@ const Navbar = () => {
               Careers
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
+            <Link
+  to="/blog"
+  className="font-orbitron text-sm font-medium text-gray-300 hover:text-primary transition-all duration-300 relative group"
+>
+  Blogs
+  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+</Link>
+
             
             <Link
               to="/contact"
@@ -230,6 +238,14 @@ const Navbar = () => {
             >
               Careers
             </Link>
+            <Link
+  to="/blog"
+  onClick={handleNavClick}
+  className="block w-full text-left px-3 py-2 font-orbitron text-gray-300 hover:text-primary hover:bg-dark/50 rounded-lg transition-all duration-300 transform hover:translate-x-1"
+>
+  Blogs
+</Link>
+
             
             <Link
               to="/contact"
