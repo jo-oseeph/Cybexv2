@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Shield, 
   Menu, 
@@ -12,13 +12,21 @@ import {
   Lock, 
   Phone,
   Mail,
-  ShieldCheck
+  ShieldCheck,
+  LogOut,
+  User
 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext'; // Adjust path as needed
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  
+  const { user, logout, isAdmin } = useAuth();
+  const navigate = useNavigate();
 
   const services = [
     { name: 'Real-Time Threat Monitoring', icon: <Eye className="w-4 h-4" />, path: '/services/real-time-threat-monitoring' },
@@ -45,11 +53,18 @@ const Navbar = () => {
   const handleNavClick = () => {
     setIsOpen(false);
     setServicesOpen(false);
+    setUserMenuOpen(false);
   };
 
   const handleBookConsultation = () => {
-    // Add consultation booking logic here
     console.log('Book consultation clicked');
+  };
+
+  const handleLogout = () => {
+    logout();
+    toast.success('Logged out successfully');
+    navigate('/');
+    handleNavClick();
   };
 
   return (
@@ -108,7 +123,7 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
               </button>
               
-              {/* Dropdown Menu */}
+              {/* Services Dropdown Menu */}
               <div
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
@@ -144,14 +159,14 @@ const Navbar = () => {
               Careers
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link
-  to="/blog"
-  className="font-orbitron text-sm font-medium text-gray-300 hover:text-primary transition-all duration-300 relative group"
->
-  Blogs
-  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
-</Link>
 
+            <Link
+              to="/blog"
+              className="font-orbitron text-sm font-medium text-gray-300 hover:text-primary transition-all duration-300 relative group"
+            >
+              Blogs
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+            </Link>
             
             <Link
               to="/contact"
@@ -167,6 +182,50 @@ const Navbar = () => {
             >
               Book Consultation
             </button>
+
+            {/* Admin User Menu - Desktop */}
+            {user && isAdmin && (
+              <div className="relative group">
+                <button
+                  onMouseEnter={() => setUserMenuOpen(true)}
+                  onMouseLeave={() => setUserMenuOpen(false)}
+                  className="flex items-center space-x-2 bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/50 px-4 py-2 rounded-full hover:from-primary/30 hover:to-secondary/30 transition-all duration-300 transform hover:scale-105"
+                >
+                  <User className="w-4 h-4 text-primary" />
+                  <span className="font-orbitron text-sm text-gray-300">{user.name}</span>
+                  <ChevronDown className={`w-4 h-4 text-primary transition-all duration-300 ${userMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {/* User Dropdown Menu */}
+                <div
+                  onMouseEnter={() => setUserMenuOpen(true)}
+                  onMouseLeave={() => setUserMenuOpen(false)}
+                  className={`absolute top-full right-0 mt-2 w-48 bg-dark border border-primary/30 rounded-xl shadow-2xl shadow-primary/20 backdrop-blur-sm transition-all duration-300 transform ${
+                    userMenuOpen 
+                      ? 'opacity-100 translate-y-0 visible' 
+                      : 'opacity-0 -translate-y-2 invisible'
+                  }`}
+                >
+                  <div className="p-2">
+                    <Link
+                      to="/admin/dashboard"
+                      onClick={handleNavClick}
+                      className="flex items-center space-x-3 w-full p-3 text-left text-gray-300 hover:text-primary hover:bg-dark-light/50 rounded-lg transition-all duration-300 transform hover:translate-x-1"
+                    >
+                      <Shield className="w-4 h-4 text-primary" />
+                      <span className="font-orbitron text-sm">Dashboard</span>
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center space-x-3 w-full p-3 text-left text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-all duration-300 transform hover:translate-x-1"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      <span className="font-orbitron text-sm">Logout</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -185,7 +244,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
         }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 bg-dark-light/90 rounded-xl mt-2 border border-primary/30 backdrop-blur-sm">
             <Link
@@ -214,7 +273,7 @@ const Navbar = () => {
               </button>
               
               <div className={`ml-4 mt-1 space-y-1 transition-all duration-300 overflow-hidden ${
-                servicesOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+                servicesOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 {services.map((service, index) => (
                   <Link
@@ -238,14 +297,14 @@ const Navbar = () => {
             >
               Careers
             </Link>
-            <Link
-  to="/blog"
-  onClick={handleNavClick}
-  className="block w-full text-left px-3 py-2 font-orbitron text-gray-300 hover:text-primary hover:bg-dark/50 rounded-lg transition-all duration-300 transform hover:translate-x-1"
->
-  Blogs
-</Link>
 
+            <Link
+              to="/blog"
+              onClick={handleNavClick}
+              className="block w-full text-left px-3 py-2 font-orbitron text-gray-300 hover:text-primary hover:bg-dark/50 rounded-lg transition-all duration-300 transform hover:translate-x-1"
+            >
+              Blogs
+            </Link>
             
             <Link
               to="/contact"
@@ -261,6 +320,30 @@ const Navbar = () => {
             >
               Book Consultation
             </button>
+
+            {/* Admin User Menu - Mobile */}
+            {user && isAdmin && (
+              <div className="mt-4 pt-4 border-t border-primary/30 space-y-2">
+                <div className="px-3 py-2 text-sm font-orbitron text-primary">
+                  Logged in as: {user.name}
+                </div>
+                <Link
+                  to="/admin/dashboard"
+                  onClick={handleNavClick}
+                  className="flex items-center space-x-3 w-full px-3 py-2 text-gray-300 hover:text-primary hover:bg-dark/50 rounded-lg transition-all duration-300 transform hover:translate-x-1"
+                >
+                  <Shield className="w-4 h-4 text-primary" />
+                  <span className="font-orbitron">Dashboard</span>
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center space-x-3 w-full px-3 py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-all duration-300 transform hover:translate-x-1"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span className="font-orbitron">Logout</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
