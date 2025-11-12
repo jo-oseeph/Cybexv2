@@ -176,12 +176,12 @@ const Navbar = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
             
-            <button 
+            {/* <button 
               onClick={handleBookConsultation}
               className="font-orbitron bg-gradient-to-r from-primary to-secondary text-dark px-6 py-2 rounded-full hover:from-primary-light hover:to-secondary-light transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-primary/30 font-medium"
             >
               Book Consultation
-            </button>
+            </button> */}
 
             {/* Admin User Menu - Desktop */}
             {user && isAdmin && (
@@ -314,12 +314,12 @@ const Navbar = () => {
               Contact Us
             </Link>
             
-            <button 
+            {/* <button 
               onClick={handleBookConsultation}
               className="w-full mt-4 font-orbitron bg-gradient-to-r from-primary to-secondary text-dark px-6 py-2 rounded-full hover:from-primary-light hover:to-secondary-light transition-all duration-300 transform hover:scale-105 font-medium"
             >
               Book Consultation
-            </button>
+            </button> */}
 
             {/* Admin User Menu - Mobile */}
             {user && isAdmin && (
