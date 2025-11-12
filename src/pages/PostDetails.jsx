@@ -53,7 +53,7 @@ const PostDetails = () => {
     <section className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero Section */}
       <div
-        className="relative w-full h-[70vh] bg-black flex items-end"
+        className="relative w-full min-h-screen sm:min-h-[85vh] md:min-h-screen bg-black flex items-end"
         style={{
           backgroundImage: `url(${post.featuredImage})`,
           backgroundSize: "cover",
@@ -149,7 +149,7 @@ const PostDetails = () => {
               {relatedPosts.map((relPost) => (
                 <Link
                   key={relPost._id}
-                  to={`/blog/${relPost.slug}`} // Ensure route matches App.js
+                  to={`/blog/${relPost.slug}`}
                   className="bg-gray-50 rounded-lg shadow hover:shadow-lg transition overflow-hidden"
                 >
                   <img
