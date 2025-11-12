@@ -53,7 +53,7 @@ const PostDetails = () => {
     <section className=" bg-gray-100 text-gray-900">
       {/* Hero Section */}
       <div
-className="relative w-full h-[70vh] md:min-h-screen bg-black flex items-end overflow-hidden"
+className="relative w-full bg-black flex items-end overflow-hidden"
         style={{
           backgroundImage: `url(${post.featuredImage})`,
           backgroundSize: "cover",
