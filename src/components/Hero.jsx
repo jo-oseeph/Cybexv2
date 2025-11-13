@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import './HHero.css';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,26 +12,23 @@ const Hero = () => {
       subtitle: "SOLUTIONS",
       description: "Protect your business from cyber attacks, secure customer data, and respond fast with affordable AI-powered tools built for small teams.",
       cta: "Book A Free Consultation",
-      bgImage: "/images/slide4.webp",
-      bgClass: "bg-gradient-to-br from-dark/90 via-secondary-dark/90 to-dark/90"
+      bgImage: "/images/slide4.webp"
     },
     {
       title: "ADVANCED THREAT",
       highlight: "DETECTION",
       subtitle: "& RESPONSE",
-      description: "Stay ahead of cyber threats with our cutting-edge AI monitoring systems that detect and neutralize attacks before they impact your business.",
+      // description: "Stay ahead of cyber threats with our cutting-edge AI monitoring systems that detect and neutralize attacks before they impact your business.",
       cta: "Learn More",
-      bgImage: "/images/slide4.webp",
-      bgClass: "bg-gradient-to-br from-dark/90 via-accent-dark/90 to-dark/90"
+      bgImage: "/images/slide4.webp"
     },
     {
       title: "SECURE YOUR",
       highlight: "DIGITAL",
       subtitle: "FUTURE",
-      description: "Comprehensive security audits and consulting services to ensure your business stays protected in an ever-evolving threat landscape.",
+      // description: "Comprehensive security audits and consulting services to ensure your business stays protected in an ever-evolving threat landscape.",
       cta: "Get Started",
-      bgImage: "/images/slide4.webp", 
-      bgClass: "bg-gradient-to-br from-dark/90 via-primary-dark/90 to-dark/90"
+      bgImage: "/images/slide4.webp"
     }
   ];
 
@@ -42,84 +40,75 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
+  const getSlideClass = (index) => {
+    if (index === currentSlide) return 'hero-slide active';
+    if (index === (currentSlide - 1 + slides.length) % slides.length) return 'hero-slide prev';
+    return 'hero-slide next';
+  };
+
   return (
-    <div className="relative h-screen sm:h-[80vh] md:h-screen overflow-hidden bg-dark">
-      {/* Strong Background Overlay for Better Text Visibility */}
-      <div className="absolute inset-0 bg-black/75 z-10" />
+    <div className="hero-container">
+      {/* Dark Overlay for Better Text Visibility */}
+      <div className="hero-overlay" />
       
       {/* Slides Container */}
-      <div className="relative h-full w-full">
+      <div className="slides-wrapper">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out transform ${
-              index === currentSlide 
-                ? 'translate-x-0 opacity-100 z-20' 
-                : index < currentSlide 
-                  ? '-translate-x-full opacity-0 z-10' 
-                  : 'translate-x-full opacity-0 z-10'
-            }`}
+            className={getSlideClass(index)}
             style={{
-              backgroundImage: `url(${slide.bgImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              filter: 'brightness(0.5)' // Dimming for the background image
+              backgroundImage: `url(${slide.bgImage})`
             }}
-          >  
-            {/* Content */}
-            <div className="relative z-30 flex items-center justify-center h-full px-4">
-              <div className="max-w-7xl mx-auto text-center">
-                <div className="max-w-4xl mx-auto">
-                  {/* Responsive Heading */}
-                  <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight drop-shadow-2xl font-orbitron">
-                    {slide.title}{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-none font-orbitron">
-                      {slide.highlight}
-                    </span>{' '}
-                    {slide.subtitle}
-                  </h1>
-                  
-                  {/* Responsive Description */}
-                  <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-6 sm:mb-8 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed drop-shadow-lg px-2">
-                    {slide.description}
-                  </p>
-                  
-                  {/* Responsive CTA Button */}
-                  <button className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 xs:px-6 xs:py-3 sm:px-8 sm:py-4 rounded-full text-sm xs:text-base sm:text-lg font-semibold hover:from-primary/80 hover:to-secondary/80 transition-all transform hover:scale-105 inline-flex items-center space-x-2 shadow-2xl backdrop-blur-sm">
-                    <span>{slide.cta}</span>
-                    <ArrowRight className="w-4 h-4 xs:w-5 xs:h-5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          />
         ))}
       </div>
       
+      {/* Content */}
+      <div className="hero-content">
+        <div className="hero-content-inner">
+          <div className="hero-text-wrapper">
+            {/* Title with key for re-animation on slide change */}
+            <h1 key={`title-${currentSlide}`} className="hero-title hero-content-fade">
+              {slides[currentSlide].title}{' '}
+              <span className="hero-highlight">
+                {slides[currentSlide].highlight}
+              </span>{' '}
+              {slides[currentSlide].subtitle}
+            </h1>
+            
+            {/* Description */}
+            <p key={`desc-${currentSlide}`} className="hero-description hero-content-fade">
+              {slides[currentSlide].description}
+            </p>
+            
+            {/* CTA Button */}
+            <button key={`cta-${currentSlide}`} className="hero-cta hero-content-fade">
+              <span>{slides[currentSlide].cta}</span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+      
       {/* Navigation Dots */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-40 flex space-x-2 sm:space-x-3">
+      <div className="hero-dots">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide 
-                ? 'bg-primary scale-125 shadow-md' 
-                : 'bg-white/50 hover:bg-white/75'
-            }`}
+            className={`hero-dot ${index === currentSlide ? 'active' : ''}`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
       
       {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 z-40">
+      <div className="hero-progress-bar">
         <div 
-          className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-5000 ease-linear"
-          style={{ 
-            width: `${((currentSlide + 1) / slides.length) * 100}%`,
-            transition: currentSlide === 0 ? 'width 5000ms ease-linear' : 'width 5000ms ease-linear'
-          }}
+          key={`progress-${currentSlide}`}
+          className="hero-progress-fill"
+          style={{ width: '100%' }}
         />
       </div>
     </div>
