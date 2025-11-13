@@ -71,95 +71,57 @@ const CyberHero = () => {
 
       {/* Main content */}
       <div className="relative z-10 flex min-h-screen items-center justify-center px-6 py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-            {/* Left content */}
-            <div className="space-y-8">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 backdrop-blur-sm border border-primary/30 animate-fade-in">
-                <Zap className="h-4 w-4 text-primary-light" />
-                <span className="text-sm font-medium text-primary-light">Enterprise Security Solutions</span>
-              </div>
-
-              {/* Main heading */}
-              <h1 className="text-5xl font-bold leading-tight text-white lg:text-7xl animate-slide-up font-orbitron">
-                Secure Your
-                <span className="block bg-gradient-to-r from-primary-light via-secondary to-accent bg-clip-text text-transparent">
-                  Digital Future
-                </span>
-              </h1>
-
-              {/* Description */}
-              <p className="text-lg text-gray-300 lg:text-xl animate-slide-up-delay leading-relaxed">
-                Advanced threat detection and real-time protection for your organization. 
-                Stay ahead of cyber threats with AI-powered security solutions that adapt 
-                to evolving risks.
-              </p>
-
-              {/* CTA buttons */}
-              <div className="flex flex-col gap-4 sm:flex-row sm:gap-6 animate-slide-up-delay-2">
-                <button className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-primary to-secondary px-8 py-4 font-semibold text-white shadow-lg shadow-primary/50 transition-all hover:shadow-xl hover:shadow-primary/60 hover:scale-105">
-                  <span>Get Started</span>
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-dark to-secondary-dark opacity-0 transition-opacity group-hover:opacity-100" />
-                </button>
-                
-                <button className="group inline-flex items-center justify-center gap-2 rounded-lg border border-primary/40 bg-dark-light/50 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:border-primary/60 hover:bg-dark-light/80">
-                  <Shield className="h-5 w-5 text-primary-light" />
-                  <span>View Demo</span>
-                </button>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8 animate-fade-in-delay">
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-white font-orbitron">99.9%</div>
-                  <div className="text-sm text-gray-400">Uptime</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-white font-orbitron">24/7</div>
-                  <div className="text-sm text-gray-400">Monitoring</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-white font-orbitron">500K+</div>
-                  <div className="text-sm text-gray-400">Protected</div>
-                </div>
-              </div>
+        <div className="mx-auto max-w-4xl w-full">
+          {/* Centered content */}
+          <div className="space-y-8 text-left lg:text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 backdrop-blur-sm border border-primary/30 animate-fade-in">
+              <Zap className="h-4 w-4 text-primary-light" />
+              <span className="text-sm font-medium text-primary-light">Enterprise Security Solutions</span>
             </div>
 
-            {/* Right content - Animated shield */}
-            <div className="relative hidden lg:block">
-              <div className="relative mx-auto h-[600px] w-[600px]">
-                {/* Rotating rings */}
-                <div className="absolute inset-0 animate-spin-slow">
-                  <div className="absolute inset-[50px] rounded-full border border-primary/30" />
-                </div>
-                <div className="absolute inset-0 animate-spin-reverse">
-                  <div className="absolute inset-[100px] rounded-full border border-secondary/30" />
-                </div>
-                <div className="absolute inset-0 animate-spin-slow">
-                  <div className="absolute inset-[150px] rounded-full border border-accent/30" />
-                </div>
+            {/* Main heading */}
+            <h1 className="text-5xl font-bold leading-tight text-white lg:text-7xl animate-slide-up font-orbitron">
+              Secure Your
+              <span className="block bg-gradient-to-r from-primary-light via-secondary to-accent bg-clip-text text-transparent">
+                Digital Future
+              </span>
+            </h1>
 
-                {/* Central shield */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative animate-float">
-                    <div className="absolute inset-0 animate-pulse rounded-full bg-primary/20 blur-3xl" />
-                    <Shield className="relative h-48 w-48 text-primary" strokeWidth={1.5} />
-                    <Lock className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 text-white" />
-                  </div>
-                </div>
+            {/* Description */}
+            <p className="text-lg text-gray-300 lg:text-xl animate-slide-up-delay leading-relaxed max-w-3xl lg:mx-auto">
+              Advanced threat detection and real-time protection for your organization. 
+              Stay ahead of cyber threats with AI-powered security solutions that adapt 
+              to evolving risks.
+            </p>
 
-                {/* Orbiting dots */}
-                <div className="absolute inset-0 animate-spin-slow">
-                  <div className="absolute left-1/2 top-[50px] h-3 w-3 -translate-x-1/2 rounded-full bg-primary" />
-                </div>
-                <div className="absolute inset-0 animate-spin-reverse" style={{ animationDelay: '1s' }}>
-                  <div className="absolute left-1/2 top-[100px] h-3 w-3 -translate-x-1/2 rounded-full bg-secondary" />
-                </div>
-                <div className="absolute inset-0 animate-spin-slow" style={{ animationDelay: '2s' }}>
-                  <div className="absolute left-1/2 top-[150px] h-3 w-3 -translate-x-1/2 rounded-full bg-accent" />
-                </div>
+            {/* CTA buttons */}
+            <div className="flex flex-col gap-4 sm:flex-row sm:gap-6 animate-slide-up-delay-2 lg:justify-center">
+              <button className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-primary to-secondary px-8 py-4 font-semibold text-white shadow-lg shadow-primary/50 transition-all hover:shadow-xl hover:shadow-primary/60 hover:scale-105">
+                <span>Get Started</span>
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-dark to-secondary-dark opacity-0 transition-opacity group-hover:opacity-100" />
+              </button>
+              
+              <button className="group inline-flex items-center justify-center gap-2 rounded-lg border border-primary/40 bg-dark-light/50 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:border-primary/60 hover:bg-dark-light/80 hover:scale-105">
+                <Shield className="h-5 w-5 text-primary-light" />
+                <span>View Demo</span>
+              </button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 pt-8 animate-fade-in-delay max-w-2xl lg:mx-auto">
+              <div className="space-y-1 transform transition-all duration-500 hover:scale-110">
+                <div className="text-3xl font-bold text-white font-orbitron">99.9%</div>
+                <div className="text-sm text-gray-400">Uptime</div>
+              </div>
+              <div className="space-y-1 transform transition-all duration-500 hover:scale-110" style={{ animationDelay: '0.1s' }}>
+                <div className="text-3xl font-bold text-white font-orbitron">24/7</div>
+                <div className="text-sm text-gray-400">Monitoring</div>
+              </div>
+              <div className="space-y-1 transform transition-all duration-500 hover:scale-110" style={{ animationDelay: '0.2s' }}>
+                <div className="text-3xl font-bold text-white font-orbitron">500K+</div>
+                <div className="text-sm text-gray-400">Protected</div>
               </div>
             </div>
           </div>
