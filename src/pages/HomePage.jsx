@@ -1,4 +1,4 @@
-import Hero from '../components/Hero';
+import CyberHero from '../components/Hero';
 import ServicesSection from '../components/ServicesSection';
 import AboutSection from '../components/AboutSection';
 import CTASection from '../components/CTASection';
@@ -6,7 +6,7 @@ import CTASection from '../components/CTASection';
 const HomePage = () => {
   return (
     <div>
-      <Hero />
+      <CyberHero />
       <AboutSection />
       <ServicesSection />
       <CTASection />
