@@ -15,23 +15,16 @@ const ServiceCard = ({ icon: Icon, title, description, gradient, onClick, delay 
       { threshold: 0.1 }
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
+    if (cardRef.current) observer.observe(cardRef.current);
+    return () => { if (cardRef.current) observer.unobserve(cardRef.current); };
   }, []);
 
   return (
     <div
       ref={cardRef}
-      className={`group relative bg-dark-light/40 backdrop-blur-sm rounded-xl overflow-hidden transition-all duration-700 hover:transform hover:scale-105 hover:-translate-y-2 cursor-pointer ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      className={`group relative bg-dark-light/40 backdrop-blur-sm rounded-xl overflow-hidden transition-transform duration-500 ease-in-out transform ${
+        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
+      } hover:scale-105 hover:-translate-y-2 cursor-pointer`}
       style={{
         transitionDelay: `${delay}ms`,
         borderTop: '2px solid rgba(6, 182, 212, 0.5)',
@@ -45,43 +38,42 @@ const ServiceCard = ({ icon: Icon, title, description, gradient, onClick, delay 
       <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-secondary/0 to-accent/0 group-hover:from-primary/10 group-hover:via-secondary/10 group-hover:to-accent/5 transition-all duration-500" />
       
       {/* Shine effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1200 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
       </div>
 
       {/* Top border glow on hover */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shimmer" />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer" />
 
       <div className="relative p-6 sm:p-8 space-y-4">
-        {/* Icon container with animation */}
+        {/* Icon container */}
         <div className="relative inline-block">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-slow" />
-          <div className={`relative p-4 rounded-xl bg-gradient-to-br ${gradient} bg-opacity-10 group-hover:scale-110 transition-transform duration-500`}>
-            <Icon className="w-8 h-8 text-primary-light group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse-slow" />
+          <div className={`relative p-4 rounded-xl bg-gradient-to-br ${gradient} bg-opacity-10 group-hover:scale-110 transition-transform duration-700`}>
+            <Icon className="w-8 h-8 text-primary-light group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />
           </div>
-          {/* Sparkle effect */}
-          <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping" />
+          <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping" />
         </div>
 
         {/* Title */}
-        <h3 className="font-orbitron text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-light group-hover:to-secondary-light transition-all duration-300">
+        <h3 className="font-orbitron text-2xl font-bold text-white group-hover:text-accent transition-colors duration-500">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-gray-400 text-sm sm:text-base leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+        <p className="text-gray-400 text-base sm:text-lg leading-relaxed group-hover:text-gray-300 transition-colors duration-500">
           {description}
         </p>
 
         {/* Learn more link */}
-        <div className="flex items-center gap-2 text-primary font-semibold text-sm opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+        <div className="flex items-center gap-2 font-semibold text-sm border border-accent bg-transparent text-accent px-3 py-2 rounded-md opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-500 ease-in-out hover:bg-accent hover:text-white">
           <span>Learn more</span>
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
         </div>
       </div>
 
       {/* Corner decoration */}
-      <div className="absolute bottom-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+      <div className="absolute bottom-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-20 transition-opacity duration-700">
         <div className="absolute bottom-0 right-0 w-full h-full border-r-2 border-b-2 border-primary rounded-tl-full" />
       </div>
     </div>
@@ -95,22 +87,13 @@ const ServicesSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => { if (sectionRef.current) observer.unobserve(sectionRef.current); };
   }, []);
 
   const firstSectionServices = [
@@ -166,7 +149,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <div className="relative bg-dark py-16 sm:py-20 lg:py-24 overflow-hidden" ref={sectionRef}>
+    <div id="services" className="relative bg-dark py-16 sm:py-20 lg:py-24 overflow-hidden" ref={sectionRef}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
@@ -174,42 +157,23 @@ const ServicesSection = () => {
         <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
       </div>
 
-      {/* Grid pattern overlay */}
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          {/* Badge */}
-          <div 
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6 transition-all duration-700 ${
-              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-          >
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <Shield className="w-4 h-4 text-primary-light" />
             <span className="text-sm font-medium text-primary-light">What We Offer</span>
           </div>
 
-          <h2 
-            className={`font-orbitron text-4xl sm:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6 tracking-wider transition-all duration-700 delay-100 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
+          <h2 className={`font-orbitron text-4xl sm:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6 tracking-wider transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             OUR SOLUTIONS
           </h2>
-          
-          <div 
-            className={`relative w-32 h-1 mx-auto mb-8 rounded-full overflow-hidden transition-all duration-700 delay-200 ${
-              isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-            }`}
-          >
+
+          <div className={`relative w-32 h-1 mx-auto mb-8 rounded-full overflow-hidden transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}>
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer" />
           </div>
 
-          <p 
-            className={`text-gray-300 text-lg sm:text-xl max-w-4xl mx-auto leading-relaxed transition-all duration-700 delay-300 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
+          <p className={`text-gray-300 text-lg sm:text-xl max-w-4xl mx-auto leading-relaxed transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             We offer comprehensive cybersecurity solutions powered by advanced AI and delivered by industry experts.
           </p>
         </div>
@@ -256,34 +220,16 @@ const ServicesSection = () => {
             transform: scale(1.1);
           }
         }
-
         @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
         }
-
-        .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
-        }
-
-        .animate-shimmer {
-          animation: shimmer 3s infinite;
-        }
-
         @keyframes ping {
-          75%, 100% {
-            transform: scale(1.5);
-            opacity: 0;
-          }
+          75%, 100% { transform: scale(1.5); opacity: 0; }
         }
-
-        .animate-ping {
-          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
+        .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+        .animate-shimmer { animation: shimmer 3s ease-in-out infinite; }
+        .animate-ping { animation: ping 1s cubic-bezier(0,0,0.2,1) infinite; }
       `}</style>
     </div>
   );

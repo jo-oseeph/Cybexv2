@@ -97,16 +97,15 @@ const CyberHero = () => {
 
             {/* CTA buttons */}
             <div className="flex flex-col gap-4 sm:flex-row sm:gap-6 animate-slide-up-delay-2 lg:justify-center">
-              <button className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-primary to-secondary px-8 py-4 font-semibold text-white shadow-lg shadow-primary/50 transition-all hover:shadow-xl hover:shadow-primary/60 hover:scale-105">
-                <span>Get Started</span>
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-dark to-secondary-dark opacity-0 transition-opacity group-hover:opacity-100" />
-              </button>
-              
-              <button className="group inline-flex items-center justify-center gap-2 rounded-lg border border-primary/40 bg-dark-light/50 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:border-primary/60 hover:bg-dark-light/80 hover:scale-105">
-                <Shield className="h-5 w-5 text-primary-light" />
-                <span>View Demo</span>
-              </button>
+           <a
+  href="#services"
+  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-primary to-secondary px-8 py-4 font-semibold text-white shadow-lg shadow-primary/50 transition-all hover:shadow-xl hover:shadow-primary/60 hover:scale-105 hover:bg-transparent hover:border hover:border-white"
+>
+  <span className="text-white">Get Started</span>
+  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 text-white" />
+</a>
+
+
             </div>
 
             {/* Stats */}
