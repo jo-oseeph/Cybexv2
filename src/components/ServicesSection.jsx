@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Scale, Settings, Shield, Search, Monitor, GraduationCap, ArrowRight, Sparkles } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const ServiceCard = ({ icon: Icon, title, description, gradient, onClick, delay }) => {
+const ServiceCard = ({ icon: Icon, title, description, gradient, route, delay }) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,6 +21,12 @@ const ServiceCard = ({ icon: Icon, title, description, gradient, onClick, delay 
     return () => { if (cardRef.current) observer.unobserve(cardRef.current); };
   }, []);
 
+  const handleCardClick = (e) => {
+    // Don't navigate if clicking the "Learn more" button
+    if (e.target.closest('a')) return;
+    navigate(route);
+  };
+
   return (
     <div
       ref={cardRef}
@@ -32,7 +40,7 @@ const ServiceCard = ({ icon: Icon, title, description, gradient, onClick, delay 
         borderRight: '1px solid rgba(6, 182, 212, 0.2)',
         borderBottom: '1px solid rgba(6, 182, 212, 0.2)',
       }}
-      onClick={onClick}
+      onClick={handleCardClick}
     >
       {/* Animated gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-secondary/0 to-accent/0 group-hover:from-primary/10 group-hover:via-secondary/10 group-hover:to-accent/5 transition-all duration-500" />
@@ -52,7 +60,6 @@ const ServiceCard = ({ icon: Icon, title, description, gradient, onClick, delay 
           <div className={`relative p-4 rounded-xl bg-gradient-to-br ${gradient} bg-opacity-10 group-hover:scale-110 transition-transform duration-700`}>
             <Icon className="w-8 h-8 text-primary-light group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />
           </div>
-        
         </div>
 
         {/* Title */}
@@ -66,10 +73,13 @@ const ServiceCard = ({ icon: Icon, title, description, gradient, onClick, delay 
         </p>
 
         {/* Learn more link */}
-        <div className="flex items-center gap-2 font-semibold text-sm border border-accent bg-transparent text-white px-3 py-2 rounded-md  group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-500 ease-in-out hover:bg-accent hover:text-white">
+        <Link
+          to={route}
+          className="inline-flex items-center gap-2 font-semibold text-sm border border-accent bg-transparent text-white px-3 py-2 rounded-md transition-all duration-500 ease-in-out hover:bg-accent hover:text-white"
+        >
           <span>Learn more</span>
           <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
-        </div>
+        </Link>
       </div>
 
       {/* Corner decoration */}
@@ -102,21 +112,21 @@ const ServicesSection = () => {
       title: "Real-Time Threat Monitoring (Basic Tier)",
       description: "We implement basic monitoring tools that alert you to suspicious activity on your website or systems in real time. Know when something goes wrong — before it becomes a disaster.",
       gradient: "from-primary to-secondary",
-      route: "/threat-monitoring"
+      route: "/services/real-time-threat-monitoring"
     },
     {
       icon: Settings,
       title: "Email Security Setup",
       description: "We configure essential email protections like SPF, DKIM, and DMARC to prevent spoofing, phishing, and impersonation attacks. Prevent scammers from using your brand to attack others.",
       gradient: "from-primary to-secondary",
-      route: "/email-security"
+      route: "/services/email-security-setup"
     },
     {
       icon: Shield,
       title: "Secure Cloud Setup",
       description: "We help you set up secure access to Google Workspace, Microsoft 365, or other cloud tools — with two-factor authentication, user access controls, and automated backups. Work safely from anywhere — with your data protected.",
       gradient: "from-primary to-secondary",
-      route: "/cloud-setup"
+      route: "/services/security-audit-assessment"
     }
   ];
 
@@ -126,27 +136,23 @@ const ServicesSection = () => {
       title: "Website Security Audit",
       description: "We scan your website for vulnerabilities like weak SSL certificates, outdated plugins, exposed admin panels, and insecure configurations, then fix them fast. Keep your site secure and trustworthy for your customers.",
       gradient: "from-primary to-secondary",
-      route: "/security-audit"
+      route: "/services/website-security-audit"
     },
     {
       icon: Monitor,
       title: "Device & Endpoint Protection",
       description: "We help you secure laptops, desktops, and mobile devices with strong encryption, antivirus tools, secure backups, and regular patching. Protect your business from ransomware, theft, and data loss.",
       gradient: "from-primary to-secondary",
-      route: "/endpoint-protection"
+      route: "/services/device-endpoint-protection"
     },
     {
       icon: GraduationCap,
       title: "Cyber Awareness Training",
       description: "We offer simple training sessions for your staff to recognize phishing emails, use strong passwords, and avoid costly security mistakes. Because even smart people click the wrong link sometimes.",
       gradient: "from-primary to-secondary",
-      route: "/awareness-training"
+      route: "/services/cyber-awareness-training"
     }
   ];
-
-  const handleServiceClick = (route) => {
-    console.log(`Navigate to: ${route}`);
-  };
 
   return (
     <div id="services" className="relative bg-dark py-16 sm:py-20 lg:py-24 overflow-hidden" ref={sectionRef}>
@@ -166,12 +172,12 @@ const ServicesSection = () => {
           </div>
 
           <h2 
-              className={`font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-700 delay-100 ${
-                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-              }`}
-            >
-              OUR SOLUTIONS
-            </h2>
+            className={`font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-700 delay-100 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            }`}
+          >
+            OUR SOLUTIONS
+          </h2>
           <div className={`relative w-32 h-1 mx-auto mb-8 rounded-full overflow-hidden transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}>
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer" />
           </div>
@@ -190,7 +196,7 @@ const ServicesSection = () => {
               title={service.title}
               description={service.description}
               gradient={service.gradient}
-              onClick={() => handleServiceClick(service.route)}
+              route={service.route}
               delay={index * 100}
             />
           ))}
@@ -205,7 +211,7 @@ const ServicesSection = () => {
               title={service.title}
               description={service.description}
               gradient={service.gradient}
-              onClick={() => handleServiceClick(service.route)}
+              route={service.route}
               delay={300 + index * 100}
             />
           ))}
