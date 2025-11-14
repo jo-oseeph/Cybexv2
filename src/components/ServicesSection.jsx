@@ -43,7 +43,7 @@ const ServiceCard = ({ icon: Icon, title, description, gradient, onClick, delay 
       </div>
 
       {/* Top border glow on hover */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer" />
+      <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-primary via-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer" />
 
       <div className="relative p-6 sm:p-8 space-y-4">
         {/* Icon container */}
@@ -52,21 +52,21 @@ const ServiceCard = ({ icon: Icon, title, description, gradient, onClick, delay 
           <div className={`relative p-4 rounded-xl bg-gradient-to-br ${gradient} bg-opacity-10 group-hover:scale-110 transition-transform duration-700`}>
             <Icon className="w-8 h-8 text-primary-light group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />
           </div>
-          <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping" />
+        
         </div>
 
         {/* Title */}
-        <h3 className="font-orbitron text-2xl font-bold text-white group-hover:text-accent transition-colors duration-500">
+        <h3 className="font-orbitron text-2xl font-bold text-primary group-hover:text-accent transition-colors duration-500">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-gray-400 text-base sm:text-lg leading-relaxed group-hover:text-gray-300 transition-colors duration-500">
+        <p className="text-gray-300 text-base sm:text-lg leading-relaxed group-hover:text-gray-300 transition-colors duration-500">
           {description}
         </p>
 
         {/* Learn more link */}
-        <div className="flex items-center gap-2 font-semibold text-sm border border-accent bg-transparent text-accent px-3 py-2 rounded-md opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-500 ease-in-out hover:bg-accent hover:text-white">
+        <div className="flex items-center gap-2 font-semibold text-sm border border-accent bg-transparent text-white px-3 py-2 rounded-md  group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-500 ease-in-out hover:bg-accent hover:text-white">
           <span>Learn more</span>
           <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
         </div>
@@ -165,10 +165,13 @@ const ServicesSection = () => {
             <span className="text-sm font-medium text-primary-light">What We Offer</span>
           </div>
 
-          <h2 className={`font-orbitron text-4xl sm:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6 tracking-wider transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            OUR SOLUTIONS
-          </h2>
-
+          <h2 
+              className={`font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-700 delay-100 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+            >
+              OUR SOLUTIONS
+            </h2>
           <div className={`relative w-32 h-1 mx-auto mb-8 rounded-full overflow-hidden transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}>
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer" />
           </div>

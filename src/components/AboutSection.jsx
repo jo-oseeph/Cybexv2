@@ -114,7 +114,7 @@ const AboutSection = () => {
                   isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
                 }`}
               >
-                <span className="text-primary-light font-semibold">Cybex</span> was founded in 2020 by a team of passionate students and professionals who recognized a growing gap—small businesses were being overlooked in the fight against cyber threats.
+                <span className="text-primary-light font-semibold">Cybex</span> was founded in 2020 by a team of passionate students and professionals who recognized a growing gap, small businesses were being overlooked in the fight against cyber threats.
               </p>
               
               <p 
@@ -130,7 +130,7 @@ const AboutSection = () => {
                   isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
                 }`}
               >
-                As we grow, our commitment remains clear: to give you <span className="text-accent-light font-semibold">confidence and peace of mind</span> by making cybersecurity simple, accessible, and reliable.
+                As we grow, our commitment remains clear: to give you confidence and peace of mind by making cybersecurity simple, accessible, and reliable.
               </p>
             </div>
 
@@ -140,14 +140,15 @@ const AboutSection = () => {
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
               }`}
             >
-              <button 
-                onClick={handleLearnMore}
-                className="group relative bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-semibold overflow-hidden transition-all duration-300 inline-flex items-center gap-3 font-orbitron shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50"
-              >
-                <span className="relative z-10">Learn More</span>
-                <ArrowRight className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-secondary-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </button>
+             <a
+  href="/about"
+  className="group relative bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-semibold overflow-hidden transition-all duration-300 inline-flex items-center gap-3 font-orbitron shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50"
+>
+  <span className="relative z-10">Learn More</span>
+  <ArrowRight className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
+  <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-secondary-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+</a>
+
             </div>
           </div>
 

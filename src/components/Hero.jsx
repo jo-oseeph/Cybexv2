@@ -28,7 +28,7 @@ const CyberHero = () => {
 
   return (
     <div 
-      className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-dark via-dark-light to-dark-lighter"
+      className="relative bg-dark-light/40 min-h-screen w-full overflow-hidden"
       onMouseMove={handleMouseMove}
     >
       {/* Animated background particles */}
@@ -50,7 +50,7 @@ const CyberHero = () => {
       </div>
 
       {/* Grid overlay */}
-      <div 
+      {/* <div 
         className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: `
@@ -59,7 +59,7 @@ const CyberHero = () => {
           `,
           backgroundSize: '50px 50px'
         }}
-      />
+      /> */}
 
       {/* Gradient spotlight following mouse */}
       <div
