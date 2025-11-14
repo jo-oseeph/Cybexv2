@@ -70,7 +70,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       scrolled ? 'bg-dark shadow-2xl shadow-primary/10' : 'bg-dark'
-    } border-b-2 border-primary/50 shadow-[0_2px_20px_rgba(6,182,212,0.3)]`}>
+    }  border-primary/50 `}>
       
       {/* Animated glow effect */}
       <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
@@ -85,7 +85,7 @@ const Navbar = () => {
             onClick={handleNavClick}
           >
             <div className="relative">
-              <Shield className="w-8 h-8 text-primary group-hover:text-primary-light transition-colors duration-300 drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
+             
               <div className="absolute inset-0 w-8 h-8 text-primary opacity-50 animate-ping"></div>
             </div>
             <span className="font-orbitron text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary hover:from-primary-light hover:to-primary transition-all duration-300">
@@ -176,12 +176,12 @@ const Navbar = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
             
-            <button 
+            {/* <button 
               onClick={handleBookConsultation}
               className="font-orbitron bg-gradient-to-r from-primary to-secondary text-dark px-6 py-2 rounded-full hover:from-primary-light hover:to-secondary-light transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-primary/30 font-medium"
             >
               Book Consultation
-            </button>
+            </button> */}
 
             {/* Admin User Menu - Desktop */}
             {user && isAdmin && (
@@ -314,12 +314,12 @@ const Navbar = () => {
               Contact Us
             </Link>
             
-            <button 
+            {/* <button 
               onClick={handleBookConsultation}
               className="w-full mt-4 font-orbitron bg-gradient-to-r from-primary to-secondary text-dark px-6 py-2 rounded-full hover:from-primary-light hover:to-secondary-light transition-all duration-300 transform hover:scale-105 font-medium"
             >
               Book Consultation
-            </button>
+            </button> */}
 
             {/* Admin User Menu - Mobile */}
             {user && isAdmin && (

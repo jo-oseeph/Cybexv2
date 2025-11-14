@@ -49,17 +49,6 @@ const CyberHero = () => {
         ))}
       </div>
 
-      {/* Grid overlay */}
-      {/* <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }}
-      /> */}
 
       {/* Gradient spotlight following mouse */}
       <div
@@ -81,10 +70,10 @@ const CyberHero = () => {
             </div>
 
             {/* Main heading */}
-            <h1 className="text-5xl font-bold leading-tight text-white lg:text-7xl animate-slide-up font-orbitron">
+            <h1 className="text-4xl font-bold leading-tight text-white lg:text-5xl animate-slide-up font-orbitron">
               Secure Your
-              <span className="block bg-gradient-to-r from-primary-light via-secondary to-accent bg-clip-text text-transparent">
-                Digital Future
+              <span className="block bg-gradient-to-r from-primary-light via-secondary to-accent bg-clip-text text-transparent lg:text-5xl">
+                DIGITAL FUTURE
               </span>
             </h1>
 
