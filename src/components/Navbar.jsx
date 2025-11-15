@@ -6,10 +6,7 @@ import {
   X, 
   ChevronDown, 
   Eye,  
-  Server, 
   Users, 
-  AlertTriangle, 
-  Lock, 
   Phone,
   Mail,
   ShieldCheck,
@@ -34,11 +31,8 @@ const Navbar = () => {
     { name: 'Device & Endpoint Protection', icon: <Phone className="w-4 h-4" />, path: '/services/device-endpoint-protection' },
     { name: 'Cyber Awareness Training', icon: <Users className="w-4 h-4" />, path: '/services/cyber-awareness-training' },
     { name: 'Email Security Setup', icon: <Mail className="w-4 h-4" />, path: '/services/email-security-setup' },
-    { name: 'Security Audit & Assessment', icon: <ShieldCheck className="w-4 h-4" />, path: '/services/security-audit-assessment' },
-    { name: 'Network Security', icon: <Server className="w-4 h-4" />, path: '/network-security' },
-    { name: 'Identity Management', icon: <Users className="w-4 h-4" />, path: '/identity-management' },
-    { name: 'Risk Assessment', icon: <AlertTriangle className="w-4 h-4" />, path: '/risk-assessment' },
-    { name: 'Security Consulting', icon: <Lock className="w-4 h-4" />, path: '/security-consulting' }
+    { name: 'Security Audit & Assessment', icon: <ShieldCheck className="w-4 h-4" />, path: '/services/security-audit-assessment' }
+   
   ];
 
   // Handle scroll effect

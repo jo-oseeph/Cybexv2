@@ -1,100 +1,488 @@
-import React from 'react';
-import { FaPhone } from 'react-icons/fa';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Shield, Sparkles, Smartphone, Lock, RefreshCw, CheckCircle, Server, Zap, HardDrive, Phone } from 'lucide-react';
 
-const DeviceEndpointProtectionPage = () => (
-  <div className="min-h-screen bg-gradient-to-br from-dark via-primary/30 to-dark flex flex-col justify-center items-center px-4 py-20">
-    <section className="w-full max-w-4xl mx-auto text-center">
-      <h1 className="font-orbitron text-4xl sm:text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-8 animate-fade-in">
-        DEVICE & ENDPOINT<br />PROTECTION
-      </h1>
-      <p className="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 animate-fade-in" style={{animationDelay: '100ms'}}>
-        Your frontline devices are your biggest risk surface. We secure every laptop, desktop, and mobile device with robust endpoint protection, encryption, patching, and backup systems so your business stays protected, productive, and resilient.
-      </p>
-      <a
-        href="tel:+254717378158"
-        className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-orbitron font-bold text-lg bg-gradient-to-r from-primary to-secondary text-dark shadow-lg hover:from-primary-light hover:to-secondary-light transition-all duration-300 transform hover:scale-105 animate-fade-in"
-        style={{animationDelay: '200ms'}}
-      >
-        <FaPhone className="w-6 h-6" /> Emergency Call
-      </a>
-    </section>
+const DeviceEndpointProtectionPage = () => {
+  const navigate = useNavigate();
+  const [heroVisible, setHeroVisible] = useState(false);
+  const [overviewVisible, setOverviewVisible] = useState(false);
+  const [featuresVisible, setFeaturesVisible] = useState(false);
+  const [benefitsVisible, setBenefitsVisible] = useState(false);
+  const [ctaVisible, setCtaVisible] = useState(false);
+  
+  const heroRef = useRef(null);
+  const overviewRef = useRef(null);
+  const featuresRef = useRef(null);
+  const benefitsRef = useRef(null);
+  const ctaRef = useRef(null);
 
-    {/* Comprehensive Endpoint Defence Section */}
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-16 flex flex-col lg:flex-row items-center gap-12 animate-fade-in">
-      {/* Left: Text */}
-      <div className="flex-1">
-        <h2 className="font-orbitron text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary mb-8 text-left">
-          Comprehensive Endpoint<br />Defence
-        </h2>
-        <p className="text-gray-300 text-base sm:text-lg mb-6 max-w-2xl">
-          Endpoints are the entry point for most modern attacks. From ransomware to phishing payloads, attackers exploit poorly secured user devices to get into your network.
-        </p>
-        <p className="text-gray-300 text-base sm:text-lg max-w-2xl">
-          Our Device & Endpoint Protection service locks down every device — ensuring your employees can work securely, even in remote or hybrid environments.
-        </p>
-      </div>
-      {/* Right: Image */}
-      <div className="flex-1 flex justify-center items-center">
-        <div className="rounded-2xl border-2 border-primary/40 shadow-lg overflow-hidden w-full max-w-md bg-dark/40 flex justify-center">
-          <img src="/images/website-security-audit.jpg" alt="Endpoint Defence" className="object-cover object-center w-4/5 sm:w-full h-72 mx-auto" />
-        </div>
-      </div>
-    </section>
+  useEffect(() => {
+    const observerOptions = { threshold: 0.1 };
 
-    {/* Service Features Section */}
-    <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 py-16">
-      <h2 className="font-orbitron text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary mb-12 text-center animate-fade-in">
-        Service Features
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Next-Gen Antivirus & Malware Protection */}
-        <div className="bg-dark-light/60 border-2 border-primary/30 rounded-3xl p-8 shadow-lg animate-fade-in">
-          <div className="flex items-center justify-center mb-6">
-            <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary text-3xl animate-bounce-slow">
-              <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' className='w-8 h-8'><circle cx='12' cy='12' r='8' stroke='currentColor' strokeWidth='2' fill='none'/><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3'/></svg>
-            </span>
-          </div>
-          <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-white mb-4 text-center">Next-Gen Antivirus & Malware Protection</h3>
-          <p className="text-gray-300 mb-6 text-center">We deploy lightweight, AI-powered antivirus tools that detect known and emerging threats in real-time.</p>
-          <ul className="space-y-2">
-            <li className="flex items-center text-primary"><span className="mr-2">✓</span>Signature-based and behavioral detection</li>
-            <li className="flex items-center text-primary"><span className="mr-2">✓</span>File reputation analysis</li>
-            <li className="flex items-center text-primary"><span className="mr-2">✓</span>Behavioral anomaly detection</li>
-          </ul>
+    const observers = [
+      { ref: heroRef, setter: setHeroVisible },
+      { ref: overviewRef, setter: setOverviewVisible },
+      { ref: featuresRef, setter: setFeaturesVisible },
+      { ref: benefitsRef, setter: setBenefitsVisible },
+      { ref: ctaRef, setter: setCtaVisible }
+    ];
+
+    const observerInstances = observers.map(({ ref, setter }) => {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) setter(true);
+      }, observerOptions);
+      if (ref.current) observer.observe(ref.current);
+      return { observer, ref };
+    });
+
+    return () => {
+      observerInstances.forEach(({ observer, ref }) => {
+        if (ref.current) observer.unobserve(ref.current);
+      });
+    };
+  }, []);
+
+  const features = [
+    {
+      icon: <Shield className="w-8 h-8" />,
+      title: "Next-Gen Antivirus & Malware Protection",
+      description: "We deploy lightweight, AI-powered antivirus tools that detect known and emerging threats in real-time.",
+      items: [
+        "Signature-based and behavioral detection",
+        "File reputation analysis",
+        "Behavioral anomaly detection",
+        "Real-time threat intelligence"
+      ],
+      delay: 0
+    },
+    {
+      icon: <Lock className="w-8 h-8" />,
+      title: "Full Disk Encryption & Access Control",
+      description: "Keep sensitive data secure, even if a device is stolen or lost.",
+      items: [
+        "Secure login and multi-factor authentication",
+        "BIOS/UEFI security hardening",
+        "AES 256-bit full disk encryption",
+        "Remote device wipe capabilities"
+      ],
+      delay: 150
+    },
+    {
+      icon: <RefreshCw className="w-8 h-8" />,
+      title: "Automated Patching & Backup",
+      description: "Ensure every device stays updated — and never lose important files to human error or attack.",
+      items: [
+        "OS and app patch automation",
+        "Vulnerability remediation tracking",
+        "Encrypted cloud and local backup",
+        "Automated recovery solutions"
+      ],
+      delay: 300
+    }
+  ];
+
+  const benefits = [
+    {
+      icon: <Smartphone className="w-6 h-6" />,
+      title: "Multi-Device Support",
+      description: "Protect laptops, desktops, and mobile devices"
+    },
+    {
+      icon: <Server className="w-6 h-6" />,
+      title: "Centralized Management",
+      description: "Monitor all endpoints from one dashboard"
+    },
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: "Zero-Day Protection",
+      description: "AI-powered defense against unknown threats"
+    },
+    {
+      icon: <HardDrive className="w-6 h-6" />,
+      title: "Data Recovery",
+      description: "Quick restoration from secure backups"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-dark via-dark-light to-dark">
+      {/* Hero Section */}
+      <section ref={heroRef} className="relative py-20 sm:py-28 lg:py-32 overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-dark">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float-delayed"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </div>
-        {/* Full Disk Encryption & Access Control */}
-        <div className="bg-dark-light/60 border-2 border-primary/30 rounded-3xl p-8 shadow-lg animate-fade-in">
-          <div className="flex items-center justify-center mb-6">
-            <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary text-3xl animate-bounce-slow">
-              <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' className='w-8 h-8'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2'/><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 11V7a4 4 0 118 0v4'/></svg>
-            </span>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-8">
+            <div 
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm transition-all duration-700 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+              }`}
+            >
+              <Shield className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary-light font-orbitron uppercase tracking-wider">Enterprise Security</span>
+              <Sparkles className="w-4 h-4 text-secondary" />
+            </div>
+
+            <h1 
+              className={`font-orbitron text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary transition-all duration-700 delay-100 ${
+                heroVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+            >
+              Device & Endpoint Protection
+            </h1>
+
+            <div 
+              className={`relative w-32 h-1 mx-auto rounded-full overflow-hidden transition-all duration-700 delay-200 ${
+                heroVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+              }`}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer"></div>
+            </div>
+            
+            <p 
+              className={`text-gray-300 text-base sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed px-4 transition-all duration-700 delay-300 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            >
+              Your frontline devices are your biggest risk surface. We secure every laptop, desktop, and mobile device with robust endpoint protection, encryption, patching, and backup systems so your business stays protected, productive, and resilient.
+            </p>
+
+            <div 
+              className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 delay-500 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            >
+              <button 
+                onClick={() => navigate('/contact')}
+                className="group relative px-8 py-4 rounded-full font-orbitron font-bold text-lg bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105 overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  Get Protected Now
+                  <Shield className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-secondary-light opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+
+              <a
+                href="tel:+254717378158"
+                className="group relative px-8 py-4 rounded-full font-orbitron font-bold text-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105"
+              >
+                <span className="flex items-center gap-2">
+                  <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                  Emergency Call
+                </span>
+              </a>
+            </div>
           </div>
-          <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-white mb-4 text-center">Full Disk Encryption & Access Control</h3>
-          <p className="text-gray-300 mb-6 text-center">Keep sensitive data secure, even if a device is stolen or lost.</p>
-          <ul className="space-y-2">
-            <li className="flex items-center text-primary"><span className="mr-2">✓</span>Secure login and multi-factor authentication</li>
-            <li className="flex items-center text-primary"><span className="mr-2">✓</span>BIOS/UEFI security hardening</li>
-            <li className="flex items-center text-primary"><span className="mr-2">✓</span>AES 256-bit full disk encryption</li>
-          </ul>
         </div>
-        {/* Automated Patching & Backup */}
-        <div className="bg-dark-light/60 border-2 border-primary/30 rounded-3xl p-8 shadow-lg animate-fade-in">
-          <div className="flex items-center justify-center mb-6">
-            <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary text-3xl animate-bounce-slow">
-              <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' className='w-8 h-8'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3'/><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M16 12l4 4m0 0l-4 4m4-4H8'/></svg>
-            </span>
+      </section>
+
+      {/* Overview Section */}
+      <section ref={overviewRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div 
+            className={`text-center mb-12 transition-all duration-700 ${
+              overviewVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6">
+              <Smartphone className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary-light font-orbitron">Service Overview</span>
+            </div>
+            <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary mb-6">
+              Comprehensive Endpoint Defence
+            </h2>
+            <div className="relative w-32 h-1 mx-auto rounded-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer"></div>
+            </div>
           </div>
-          <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-white mb-4 text-center">Automated Patching & Backup</h3>
-          <p className="text-gray-300 mb-6 text-center">Ensure every device stays updated — and never lose important files to human error or attack.</p>
-          <ul className="space-y-2">
-            <li className="flex items-center text-primary"><span className="mr-2">✓</span>OS and app patch automation</li>
-            <li className="flex items-center text-primary"><span className="mr-2">✓</span>Vulnerability remediation tracking</li>
-            <li className="flex items-center text-primary"><span className="mr-2">✓</span>Encrypted cloud and local backup</li>
-          </ul>
+
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div 
+              className={`flex-1 space-y-6 transition-all duration-700 ${
+                overviewVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+            >
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+                Endpoints are the entry point for most modern attacks. From ransomware to phishing payloads, attackers exploit poorly secured user devices to get into your network.
+              </p>
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+                Our Device & Endpoint Protection service locks down every device — ensuring your employees can work securely, even in remote or hybrid environments.
+              </p>
+
+              <div className="space-y-4 pt-6">
+                {[
+                  "Protection against ransomware and malware",
+                  "Secure remote work capabilities",
+                  "Automatic security updates",
+                  "Data loss prevention",
+                  "24/7 threat monitoring"
+                ].map((item, index) => (
+                  <div 
+                    key={index}
+                    className="flex items-start gap-4 group p-4 rounded-xl bg-dark/30 hover:bg-dark/50 border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:translate-x-2"
+                  >
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                      <CheckCircle className="w-5 h-5" />
+                    </div>
+                    <span className="text-gray-300 text-base leading-relaxed pt-2 group-hover:text-white transition-colors duration-300">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div 
+              className={`flex-1 flex justify-center items-center transition-all duration-700 delay-200 ${
+                overviewVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+              }`}
+            >
+              <div className="relative rounded-2xl overflow-hidden w-full max-w-md group">
+                <div 
+                  className="absolute inset-0 rounded-2xl"
+                  style={{
+                    border: '2px solid transparent',
+                    backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), linear-gradient(135deg, #06b6d4, #2563eb, #7c3aed)',
+                    backgroundOrigin: 'border-box',
+                    backgroundClip: 'padding-box, border-box'
+                  }}
+                ></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                <img 
+                  src="/images/slide2.jpg" 
+                  alt="Endpoint Protection" 
+                  className="relative object-cover w-full h-80 rounded-2xl group-hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-);
+
+        <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-secondary/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      </section>
+
+      {/* Service Features Section */}
+      <section ref={featuresRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-dark-light/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div 
+            className={`text-center mb-12 transition-all duration-700 ${
+              featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary-light font-orbitron">Service Features</span>
+            </div>
+            <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary mb-6">
+              What We Protect
+            </h2>
+            <div className="relative w-32 h-1 mx-auto rounded-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer"></div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className={`group relative bg-dark-light/50 backdrop-blur-sm rounded-3xl p-8 transition-all duration-700 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 ${
+                  featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{
+                  transitionDelay: `${feature.delay}ms`,
+                  border: '2px solid transparent',
+                  backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), linear-gradient(135deg, #06b6d4, #2563eb, #7c3aed)',
+                  backgroundOrigin: 'border-box',
+                  backgroundClip: 'padding-box, border-box'
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl -z-10"></div>
+                
+                <div className="flex justify-center mb-6">
+                  <div className="relative p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                    <div className="text-primary">{feature.icon}</div>
+                  </div>
+                </div>
+
+                <h3 className="font-orbitron text-xl font-bold text-white mb-4 text-center group-hover:text-primary transition-colors duration-300">
+                  {feature.title}
+                </h3>
+
+                <p className="text-gray-300 text-sm leading-relaxed mb-6 text-center group-hover:text-gray-200 transition-colors duration-300">
+                  {feature.description}
+                </p>
+
+                <ul className="space-y-3">
+                  {feature.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-gray-400 group-hover:text-gray-200 transition-colors duration-300">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent group-hover:w-4/5 transition-all duration-500 rounded-full"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section ref={benefitsRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div 
+            className={`text-center mb-12 transition-all duration-700 ${
+              benefitsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6">
+              <Zap className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary-light font-orbitron">Key Benefits</span>
+            </div>
+            <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary mb-6">
+              Why Choose Our Protection?
+            </h2>
+            <div className="relative w-32 h-1 mx-auto rounded-full overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer"></div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className={`group bg-dark/50 backdrop-blur-sm border border-primary/20 rounded-xl p-6 hover:border-primary/50 transition-all duration-700 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20 ${
+                  benefitsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300 group-hover:scale-110 transform">
+                  <div className="text-primary">{benefit.icon}</div>
+                </div>
+                <h3 className="font-orbitron text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-400 text-sm group-hover:text-gray-200 transition-colors duration-300">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="absolute top-20 right-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
+      </section>
+
+      {/* CTA Section */}
+      <section ref={ctaRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div 
+            className={`transition-all duration-700 ${
+              ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6">
+              <Shield className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary-light font-orbitron">Secure Your Endpoints</span>
+            </div>
+            <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              Protect Every Device Today
+            </h2>
+            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+              Don't leave your devices vulnerable to attacks. Get comprehensive endpoint protection and secure your entire digital workforce.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => navigate('/contact')}
+                className="group relative px-10 py-5 rounded-full font-orbitron font-bold text-xl bg-gradient-to-r from-primary to-secondary text-white shadow-2xl hover:shadow-primary/50 transition-all duration-300 transform hover:scale-110 overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  Start Protection Now
+                  <Shield className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-secondary-light opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+
+              <a
+                href="tel:+254717378158"
+                className="group relative px-10 py-5 rounded-full font-orbitron font-bold text-xl border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-110"
+              >
+                <span className="flex items-center gap-3">
+                  <Phone className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+                  Call Now
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+          }
+          50% {
+            transform: translateY(-20px) translateX(10px);
+          }
+        }
+        
+        @keyframes float-delayed {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+          }
+          50% {
+            transform: translateY(20px) translateX(-10px);
+          }
+        }
+        
+        @keyframes pulse-slow {
+          0%, 100% {
+            opacity: 0.3;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.5;
+            transform: scale(1.05);
+          }
+        }
+        
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+        
+        .animate-float {
+          animation: float 8s ease-in-out infinite;
+        }
+        
+        .animate-float-delayed {
+          animation: float-delayed 10s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slow {
+          animation: pulse-slow 6s ease-in-out infinite;
+        }
+        
+        .animate-shimmer {
+          animation: shimmer 3s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
 
 export default DeviceEndpointProtectionPage;
