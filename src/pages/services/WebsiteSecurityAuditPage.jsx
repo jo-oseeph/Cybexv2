@@ -170,7 +170,7 @@ const WebsiteSecurityAuditPage = () => {
                   backgroundClip: 'padding-box, border-box'
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl -z-10"></div>
+
                 <div className="font-orbitron text-3xl sm:text-4xl font-bold text-primary mb-2 group-hover:text-primary-light transition-colors duration-300">
                   {stat.number}
                 </div>
@@ -295,7 +295,7 @@ const WebsiteSecurityAuditPage = () => {
                   backgroundClip: 'padding-box, border-box'
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl -z-10"></div>
+    
                 
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
