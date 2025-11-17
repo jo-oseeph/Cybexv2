@@ -198,7 +198,6 @@ const SecurityAuditAssessmentPage = () => {
                   backgroundClip: 'padding-box, border-box'
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl -z-10"></div>
                 <div className="font-orbitron text-4xl sm:text-5xl font-bold text-primary mb-2 group-hover:text-primary-light transition-colors duration-300">
                   {stat.number}
                 </div>
@@ -254,7 +253,7 @@ const SecurityAuditAssessmentPage = () => {
                 ].map((item, index) => (
                   <div 
                     key={index}
-                    className="flex items-start gap-4 group p-4 rounded-xl bg-dark/30 hover:bg-dark/50 border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:translate-x-2"
+                    className="flex items-start gap-4 group p-4 rounded-xl bg-dark-light/40 hover:bg-dark-light/60 border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:translate-x-2 hover:scale-105 hover:shadow-lg hover:shadow-primary/20"
                   >
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
                       <CheckCircle className="w-5 h-5" />
@@ -325,7 +324,7 @@ const SecurityAuditAssessmentPage = () => {
               <div
                 key={index}
                 className={`group relative bg-dark-light/50 backdrop-blur-sm rounded-3xl p-8 transition-all duration-700 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 ${
-                  servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-50 translate-y-0'
                 }`}
                 style={{
                   transitionDelay: `${service.delay}ms`,
@@ -335,8 +334,6 @@ const SecurityAuditAssessmentPage = () => {
                   backgroundClip: 'padding-box, border-box'
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl -z-10"></div>
-                
                 <div className="flex justify-center mb-6">
                   <div className="relative p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
                     <div className="text-primary">{service.icon}</div>

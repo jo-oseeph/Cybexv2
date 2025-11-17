@@ -299,7 +299,6 @@ const RealTimeThreatMonitoringPage = () => {
                   backgroundClip: 'padding-box, border-box'
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl -z-10"></div>
                 
                 <div className="relative p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 inline-block mb-4 group-hover:scale-110 transition-all duration-300">
                   <div className="text-primary">{feature.icon}</div>
