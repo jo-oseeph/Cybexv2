@@ -300,7 +300,7 @@ const EmailSecuritySetupPage = () => {
       <section ref={benefitsRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-dark-light/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
-            className={`text-center mb-12 transition-all duration-700 ${
+            className={`text-center mb-12 transition-all duration-600 ${
               benefitsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -309,7 +309,7 @@ const EmailSecuritySetupPage = () => {
               <span className="text-sm font-medium text-primary-light font-orbitron">Key Benefits</span>
             </div>
             <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary mb-6">
-              Why Choose Our Service
+              Why Choose Our Services
             </h2>
             <div className="relative w-32 h-1 mx-auto rounded-full overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer"></div>
@@ -357,7 +357,7 @@ const EmailSecuritySetupPage = () => {
       <section ref={setupRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
-            className={`text-center mb-12 transition-all duration-700 ${
+            className={`text-center mb-12 transition-all duration-600 ${
               setupVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
