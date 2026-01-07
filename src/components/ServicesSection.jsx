@@ -179,7 +179,7 @@ const ServicesSection = () => {
             OUR SOLUTIONS
           </h2>
           <div className={`relative w-32 h-1 mx-auto mb-8 rounded-full overflow-hidden transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer" />
+           
           </div>
 
           <p className={`text-gray-300 text-lg sm:text-xl max-w-4xl mx-auto leading-relaxed transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

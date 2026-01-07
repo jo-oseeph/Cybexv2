@@ -138,7 +138,6 @@ const AboutPage = () => {
                 heroVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
               }`}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer"></div>
             </div>
             
             {/* Subtitle with fade-in animation */}
@@ -265,7 +264,7 @@ const AboutPage = () => {
               Our Expert Team
             </h2>
             <div className="relative w-32 h-1 mx-auto rounded-full overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer"></div>
+              {/* <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer"></div> */}
             </div>
           </div>
 
