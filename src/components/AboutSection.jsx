@@ -32,28 +32,28 @@ const AboutSection = () => {
       label: "Protected Organizations",
       icon: Shield,
       delay: 0,
-      color: "from-primary to-primary-light"
+      color: "from-blue-400 to-blue-600"
     },
     {
       number: "20+",
       label: "Countries Served",
       icon: Globe,
       delay: 100,
-      color: "from-secondary to-secondary-light"
+     color: "from-blue-400 to-blue-600"
     },
     {
       number: "99.9%",
       label: "Threat Detection Rate",
       icon: Shield,
       delay: 200,
-      color: "from-accent to-accent-light"
+      color: "from-blue-400 to-blue-600"
     },
     {
       number: "24/7",
       label: "Security Monitoring",
       icon: Clock,
       delay: 300,
-      color: "from-primary-light to-secondary"
+       color: "from-blue-400 to-blue-600"
     }
   ];
 
@@ -159,7 +159,7 @@ const AboutSection = () => {
               return (
                 <div 
                   key={index}
-                  className={`group relative bg-dark-light/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 text-center hover:border-primary/60 transition-all duration-500 hover:transform hover:scale-105 hover:-translate-y-2 ${
+                  className={`group relative bg-dark-light/50 backdrop-blur-sm border border-blue-600 rounded-2xl p-6 text-center hover:border-primary/60 transition-all duration-500 hover:transform hover:scale-105 hover:-translate-y-2 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{
@@ -187,17 +187,6 @@ const AboutSection = () => {
                   <p className="relative text-gray-400 text-sm sm:text-base font-medium group-hover:text-gray-200 transition-colors duration-300">
                     {stat.label}
                   </p>
-
-                  {/* Animated border on hover */}
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute inset-0 rounded-2xl animate-spin-slow-border" style={{
-                      background: `conic-gradient(from 0deg, transparent 0%, ${stat.color === 'from-primary to-primary-light' ? '#06b6d4' : stat.color === 'from-secondary to-secondary-light' ? '#2563eb' : '#7c3aed'} 50%, transparent 100%)`,
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      maskComposite: 'exclude',
-                      padding: '1px'
-                    }} />
-                  </div>
                 </div>
               );
             })}

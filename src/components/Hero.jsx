@@ -92,9 +92,9 @@ const HeroSlider = () => {
                 </p>
 
                 {/* CTA Button */}
-                <Link to="/contact" className="group relative inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold px-8 sm:px-10 py-4 sm:py-5 rounded-[30px] transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-blue-500/60 overflow-hidden">
+                <Link to="/contact" className="group relative inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white px-8 sm:px-10 py-4 sm:py-5  rounded-lg font-semibold transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-blue-500/60 overflow-hidden">
                   {/* Animated background overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[30]"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
                   
                   {/* Glow effect on hover */}
                   <div className="absolute inset-0 rounded-[30px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-blue-400/20 blur-lg"></div>
