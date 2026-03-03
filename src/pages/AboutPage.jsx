@@ -99,95 +99,42 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-dark via-dark-light to-dark">
-      {/* Hero Section */}
-      <section ref={heroRef} className="relative py-20 sm:py-28 lg:py-32 overflow-hidden">
-        {/* Animated background with geometric patterns */}
-        <div className="absolute inset-0 bg-dark">
-          {/* Gradient orbs */}
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float-delayed"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl animate-pulse-slow"></div>
-          
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-        </div>
+ <div className="min-h-screen bg-gradient-to-b from-dark via-dark-light to-dark">
+ {/* Hero Section */}
+<section
+  ref={heroRef}
+  className="relative overflow-hidden"
+  style={{ height: 'calc(100vh - 64px)', maxHeight: '420px' }}
+>
+  {/* Background Image — desk setup */}
+  <div
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style={{
+      backgroundImage: `url('https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1600&q=80')`,
+      filter: 'brightness(0.4) contrast(1.1)',
+    }}
+  />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-8">
-            {/* Badge with slide-in animation */}
-            <div 
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm transition-all duration-700 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
-              }`}
-            >
-              <Shield className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary-light font-orbitron">Who We Are</span>
-              <Sparkles className="w-4 h-4 text-secondary" />
-            </div>
+  {/* Dark overlay */}
+  <div
+    className="absolute inset-0"
+    style={{
+      background: 'linear-gradient(135deg, rgba(5, 15, 35, 0.80) 0%, rgba(10, 25, 55, 0.65) 50%, rgba(0, 0, 0, 0.50) 100%)',
+    }}
+  />
 
-            {/* Main Heading with staggered animation */}
-            <h1 
-              className={`font-orbitron text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary transition-all duration-700 delay-100 ${
-                heroVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-              }`}
-            >
-              ABOUT CYBEX
-            </h1>
-
-            {/* Decorative line */}
-            <div 
-              className={`relative w-32 h-1 mx-auto rounded-full overflow-hidden transition-all duration-700 delay-200 ${
-                heroVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-              }`}
-            >
-            </div>
-            
-            {/* Subtitle with fade-in animation */}
-            <p 
-              className={`text-gray-300 text-base sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed px-4 transition-all duration-700 delay-300 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-            >
-              Leading the future of cybersecurity with innovative AI-powered solutions and unparalleled expertise in protecting digital infrastructures worldwide.
-            </p>
-
-            {/* Stats or features with staggered slide-in */}
-            <div 
-              className={`grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto pt-8 transition-all duration-700 delay-500 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-            >
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-dark-light/40 backdrop-blur-sm border border-primary/30 rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <div className="text-3xl font-bold text-primary font-orbitron">10+</div>
-                  <div className="text-gray-400 text-sm mt-1">Years Experience</div>
-                </div>
-              </div>
-              
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-dark-light/40 backdrop-blur-sm border border-primary/30 rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <div className="text-3xl font-bold text-primary font-orbitron">500+</div>
-                  <div className="text-gray-400 text-sm mt-1">Clients Protected</div>
-                </div>
-              </div>
-              
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-dark-light/40 backdrop-blur-sm border border-primary/30 rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <div className="text-3xl font-bold text-primary font-orbitron">24/7</div>
-                  <div className="text-gray-400 text-sm mt-1">Security Monitoring</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Decorative gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"></div>
-      </section>
+  {/* Centered Title */}
+  <div className="relative z-10 h-full flex items-center justify-center px-4 text-center">
+    <h1
+      className={`font-orbitron text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight transition-all duration-700 delay-100 ${
+        heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      }`}
+      style={{ textShadow: '0 2px 24px rgba(0,0,0,0.4)', letterSpacing: '-0.01em' }}
+    >
+      About CYBEX
+    </h1>
+  </div>
+</section>
 
       <AboutSection />  
 

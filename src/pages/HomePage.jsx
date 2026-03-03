@@ -1,13 +1,13 @@
 import CyberHero from '../components/Hero';
 import ServicesSection from '../components/ServicesSection';
-import AboutSection from '../components/AboutSection';
+// import AboutSection from '../components/AboutSection';
 import CTASection from '../components/CTASection';
 
 const HomePage = () => {
   return (
      <div className="pt-16">   {/* ← add this */}
       <CyberHero />
-      <AboutSection />
+      {/* <AboutSection /> */} 
       <ServicesSection />
       <CTASection />
     </div>
