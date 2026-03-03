@@ -10,8 +10,8 @@ const HeroSlider = () => {
     {
       id: 1,
       image: '/images/slide1.jpeg',
-      tagline: 'Secure Your Digital Future',
-      description: 'Advanced threat detection and real-time protection for your organization with AI-powered security solutions.',
+      tagline: 'Reliable Websites. Managed for You',
+      description: 'We design, build, and fully manage professional websites so you can focus on growing your business.',
       cta: 'Get Started'
     },
     {
