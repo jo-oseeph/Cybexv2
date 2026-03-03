@@ -87,7 +87,7 @@ const HeroSlider = () => {
                   </h1>
                   <div className="mx-auto mb-4 sm:mb-6 w-16 h-px bg-cyan-400 opacity-70" />
                   <p
-                    className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-7 sm:mb-9 leading-relaxed max-w-2xl mx-auto font-medium"
+                    className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-7 sm:mb-9 leading-relaxed max-w-2xl mx-auto font-medium-300"
                     style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}
                   >
                     {slide.description}
