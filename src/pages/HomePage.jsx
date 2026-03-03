@@ -5,7 +5,7 @@ import CTASection from '../components/CTASection';
 
 const HomePage = () => {
   return (
-    <div>
+     <div className="pt-16">   {/* ← add this */}
       <CyberHero />
       <AboutSection />
       <ServicesSection />

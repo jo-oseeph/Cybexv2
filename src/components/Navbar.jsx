@@ -228,10 +228,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-primary hover:text-primary-light transition-all duration-300 transform hover:scale-110"
             >
-              {isOpen ? 
-                <X className="w-6 h-6 animate-spin" /> : 
-                <Menu className="w-6 h-6 hover:animate-pulse" />
-              }
+             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 hover:animate-pulse" />}
             </button>
           </div>
         </div>
