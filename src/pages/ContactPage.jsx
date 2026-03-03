@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaPhone, FaEnvelope, FaComments, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaComments, FaPaperPlane } from 'react-icons/fa';
 import { Shield, Sparkles, MapPin } from 'lucide-react';
 
 const ContactPage = () => {
@@ -41,8 +41,11 @@ const ContactPage = () => {
     if (formRef.current) formObserver.observe(formRef.current);
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (heroRef.current) heroObserver.unobserve(heroRef.current);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (methodsRef.current) methodsObserver.unobserve(methodsRef.current);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (formRef.current) formObserver.unobserve(formRef.current);
     };
   }, []);

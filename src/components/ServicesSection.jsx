@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Scale, Settings, Shield, Search, Monitor, GraduationCap, ArrowRight, Sparkles } from 'lucide-react';
+import { Scale, Settings, Shield, Search, Monitor, GraduationCap, ArrowRight, } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const ServiceCard = ({ icon: Icon, title, description, gradient, route, delay }) => {
@@ -18,6 +18,7 @@ const ServiceCard = ({ icon: Icon, title, description, gradient, route, delay })
     );
 
     if (cardRef.current) observer.observe(cardRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => { if (cardRef.current) observer.unobserve(cardRef.current); };
   }, []);
 
@@ -103,6 +104,7 @@ const ServicesSection = () => {
     );
  
     if (sectionRef.current) observer.observe(sectionRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => { if (sectionRef.current) observer.unobserve(sectionRef.current); };
   }, []);
 

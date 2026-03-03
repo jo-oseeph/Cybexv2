@@ -32,8 +32,11 @@ const AboutPage = () => {
     if (teamRef.current) teamObserver.observe(teamRef.current);
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (heroRef.current) heroObserver.unobserve(heroRef.current);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (missionRef.current) missionObserver.unobserve(missionRef.current);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (teamRef.current) teamObserver.unobserve(teamRef.current);
     };
   }, []);

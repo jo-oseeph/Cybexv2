@@ -21,6 +21,7 @@ const AboutSection = () => {
 
     return () => {
       if (sectionRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(sectionRef.current);
       }
     };
@@ -57,9 +58,6 @@ const AboutSection = () => {
     }
   ];
 
-  const handleLearnMore = () => {
-    console.log('Navigate to about page');
-  };
 
   return (
     <div className="relative bg-dark py-16 sm:py-20 lg:py-24 overflow-hidden" ref={sectionRef}>

@@ -50,9 +50,9 @@ const Navbar = () => {
     setUserMenuOpen(false);
   };
 
-  const handleBookConsultation = () => {
-    console.log('Book consultation clicked');
-  };
+  // const handleBookConsultation = () => {
+  //   console.log('Book consultation clicked');
+  // };
 
   const handleLogout = () => {
     logout();

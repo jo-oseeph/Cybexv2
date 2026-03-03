@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Shield, Sparkles, Search, CheckCircle, Lock, Eye, AlertTriangle, Zap, FileSearch, ShieldCheck } from 'lucide-react';
+import { Shield, Sparkles, Search, CheckCircle, Eye, AlertTriangle, Zap, FileSearch, ShieldCheck } from 'lucide-react';
 
 const WebsiteSecurityAuditPage = () => {
   const navigate = useNavigate();
