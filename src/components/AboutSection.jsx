@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Users, Wrench } from 'lucide-react';
+import { ArrowRight, } from 'lucide-react';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -55,45 +55,22 @@ const AboutSection = () => {
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 mb-4">
-                <Users className="w-3.5 h-3.5 text-cyan-400" />
-                <span className="text-xs font-semibold text-cyan-400 font-orbitron tracking-widest uppercase">Who We Are</span>
-              </div>
 
               <h2 className="font-orbitron text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-snug">
-                About <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Cybex</span>
+                About Cybex
               </h2>
 
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                Cybex is a <span className="text-white font-medium">Kenya-based digital solutions business</span> focused on building and managing reliable websites for small and medium-sized enterprises.
+                Cybex is a Kenya-based digital solutions business focused on building and managing reliable websites for small and medium-sized enterprises.
               </p>
-              <p className="text-gray-400 text-base sm:text-lg leading-relaxed mt-3">
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mt-3">
                 We help businesses establish a strong online presence and keep it running smoothly through structured, ongoing website management services.
               </p>
             </div>
-
-            {/* Divider */}
-            <div
-              className={`w-full h-px bg-gradient-to-r from-primary/40 via-primary/10 to-transparent transition-all duration-700 delay-200 ${
-                isVisible ? 'opacity-100' : 'opacity-0'
-              }`}
-            />
-
-            {/* What We Do */}
-            <div
-              className={`transition-all duration-700 delay-300 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 mb-4">
-                <Wrench className="w-3.5 h-3.5 text-cyan-400" />
-                <span className="text-xs font-semibold text-cyan-400 font-orbitron tracking-widest uppercase">What We Do</span>
-              </div>
-
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                We design professional, responsive websites and provide <span className="text-white font-medium">fully managed website services</span> — including hosting management, domain renewals, updates, performance optimization, and ongoing technical support.
+                We design professional, responsive websites and provide fully managed website services including hosting management, domain renewals, updates, performance optimization, and ongoing technical support.
               </p>
-            </div>
+            
 
             {/* CTA */}
             <div
