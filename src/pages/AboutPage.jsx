@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaCrosshairs, FaEye, FaGem, FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 import { Shield, Sparkles } from 'lucide-react';
 import AboutSection from '../components/AboutSection';
+import ApproachSection from '../components/ApproachSection';
 
 const AboutPage = () => {
   const [heroVisible, setHeroVisible] = useState(false);
@@ -137,6 +138,7 @@ const AboutPage = () => {
 </section>
 
       <AboutSection />  
+      <ApproachSection />
 
       {/* Mission, Vision, Values Section */}
       <section ref={missionRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">

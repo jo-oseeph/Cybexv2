@@ -49,7 +49,7 @@ const AboutSection = () => {
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h2 className="font-orbitron text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-snug">
+              <h2 className="font-orbitron text-2xl sm:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary mb-4 leading-snug">
                 About Cybex
               </h2>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
