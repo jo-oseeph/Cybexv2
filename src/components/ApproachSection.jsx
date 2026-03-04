@@ -23,7 +23,7 @@ const ApproachSection = () => {
     {
       number: '02',
       title: 'Always Functional',
-      body: 'Regular updates, performance checks, and proactive maintenance keep your site running smoothly — every single day.',
+      body: 'Regular updates, performance checks, and proactive maintenance keep your site running smoothly every single day.',
     },
     {
       number: '03',
@@ -63,12 +63,12 @@ const ApproachSection = () => {
           {pillars.map((pillar, i) => (
             <div
               key={i}
-              className={`bg-dark-light/40 border border-primary/20 rounded-2xl p-8 transition-all duration-700 ${
+              className={`bg-dark-light/40 border border-primary  rounded-2xl p-8 transition-all duration-700 ${
                 i === 0 ? 'delay-100' : i === 1 ? 'delay-200' : 'delay-300'
               } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
               {/* Number */}
-              <span className="font-orbitron text-4xl font-bold text-cyan-400/30 block mb-5 leading-none">
+              <span className="font-orbitron text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary block mb-5 leading-none">
                 {pillar.number}
               </span>
 
