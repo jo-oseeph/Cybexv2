@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight, } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,7 +18,6 @@ const AboutSection = () => {
   return (
     <div className="relative bg-dark py-16 sm:py-20 lg:py-28 overflow-hidden" ref={sectionRef}>
 
-      {/* Subtle background glow */}
       <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
@@ -27,39 +26,32 @@ const AboutSection = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          {/* Image */}
+          {/* Image — below text on mobile (order-last), left on desktop (lg:order-first) */}
           <div
-            className={`relative transition-all duration-700 ${
+            className={`relative order-last lg:order-first transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}
           >
-
-            {/* Image */}
             <div className="relative rounded-xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80"
                 alt="Web development workspace"
                 className="w-full h-72 sm:h-80 lg:h-96 object-cover"
               />
-              {/* Image overlay tint */}
               <div className="absolute inset-0 bg-gradient-to-tr from-dark/60 via-transparent to-primary/10" />
             </div>
           </div>
 
-          {/* Content */}
+          {/* Content — always first on mobile, right on desktop */}
           <div className="space-y-8 pt-6 lg:pt-0">
-
-            {/* Who We Are */}
             <div
               className={`transition-all duration-700 delay-100 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-
               <h2 className="font-orbitron text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-snug">
                 About Cybex
               </h2>
-
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
                 Cybex is a Kenya-based digital solutions business focused on building and managing reliable websites for small and medium-sized enterprises.
               </p>
@@ -67,12 +59,11 @@ const AboutSection = () => {
                 We help businesses establish a strong online presence and keep it running smoothly through structured, ongoing website management services.
               </p>
             </div>
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                We design professional, responsive websites and provide fully managed website services including hosting management, domain renewals, updates, performance optimization, and ongoing technical support.
-              </p>
-            
 
-            {/* CTA */}
+            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+              We design professional, responsive websites and provide fully managed website services including hosting management, domain renewals, updates, performance optimization, and ongoing technical support.
+            </p>
+
             <div
               className={`pt-2 transition-all duration-700 delay-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -88,6 +79,7 @@ const AboutSection = () => {
               </a>
             </div>
           </div>
+
         </div>
       </div>
     </div>
