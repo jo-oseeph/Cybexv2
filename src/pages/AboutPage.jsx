@@ -11,7 +11,6 @@ const AboutPage = () => {
         className="relative overflow-hidden"
         style={{ height: "calc(100vh - 64px)", maxHeight: "420px" }}
       >
-        {/* Background Image — desk setup */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
