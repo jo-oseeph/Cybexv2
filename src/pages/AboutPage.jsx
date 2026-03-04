@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaCrosshairs, FaEye, FaGem, FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
-import { Shield, Sparkles } from 'lucide-react';
+import {  FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
+import { Shield,  } from 'lucide-react';
 import AboutSection from '../components/AboutSection';
 import ApproachSection from '../components/ApproachSection';
+import MissionVision from '../components/MissionVision'
 
 const AboutPage = () => {
   const [heroVisible, setHeroVisible] = useState(false);
-  const [missionVisible, setMissionVisible] = useState(false);
   const [teamVisible, setTeamVisible] = useState(false);
   
   const heroRef = useRef(null);
-  const missionRef = useRef(null);
+  
   const teamRef = useRef(null);
 
   useEffect(() => {
@@ -20,48 +20,27 @@ const AboutPage = () => {
       if (entry.isIntersecting) setHeroVisible(true);
     }, observerOptions);
 
-    const missionObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setMissionVisible(true);
-    }, observerOptions);
+  
 
     const teamObserver = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) setTeamVisible(true);
     }, observerOptions);
 
     if (heroRef.current) heroObserver.observe(heroRef.current);
-    if (missionRef.current) missionObserver.observe(missionRef.current);
+   
     if (teamRef.current) teamObserver.observe(teamRef.current);
 
     return () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       if (heroRef.current) heroObserver.unobserve(heroRef.current);
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      if (missionRef.current) missionObserver.unobserve(missionRef.current);
+      
       // eslint-disable-next-line react-hooks/exhaustive-deps
       if (teamRef.current) teamObserver.unobserve(teamRef.current);
     };
   }, []);
 
-  const cards = [
-    {
-      icon: <FaCrosshairs className="w-16 h-16 text-primary" />,
-      title: "Mission",
-      description: "To provide advanced cybersecurity solutions that empower organizations to operate securely in the digital landscape, protecting their most valuable assets through innovative AI-driven technologies and expert guidance.",
-      delay: 0
-    },
-    {
-      icon: <FaEye className="w-16 h-16 text-primary" />,
-      title: "Vision",
-      description: "To be the global leader in cybersecurity innovation, creating a world where organizations can embrace digital transformation with complete confidence in their security posture.",
-      delay: 150
-    },
-    {
-      icon: <FaGem className="w-16 h-16 text-primary" />,
-      title: "Values",
-      description: "Excellence, Innovation, Integrity, and Trust. We believe in delivering superior solutions while maintaining the highest ethical standards and building lasting partnerships with our clients.",
-      delay: 300
-    }
-  ];
+ 
 
   const teamMembers = [
     {
@@ -139,65 +118,9 @@ const AboutPage = () => {
 
       <AboutSection />  
       <ApproachSection />
+      <MissionVision />
 
-      {/* Mission, Vision, Values Section */}
-      <section ref={missionRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Title */}
-          <div 
-            className={`text-center mb-12 transition-all duration-700 ${
-              missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary-light font-orbitron">Our Foundation</span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {cards.map((card, index) => (
-              <div
-                key={index}
-                className={`group relative bg-dark-light/50 backdrop-blur-sm border border-primary/20 hover:border-primary/50 rounded-2xl p-8 text-center transition-all duration-700 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 ${
-                  missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{
-                  transitionDelay: `${card.delay}ms`
-                }}
-              >
-                {/* Animated border gradient glow */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary via-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
-                
-                {/* Icon with bounce animation on hover */}
-                <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500">
-                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 relative">
-                    <div className="absolute inset-0 rounded-full bg-primary/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative">{card.icon}</div>
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-orbitron text-2xl sm:text-3xl font-bold text-white mb-6 group-hover:text-primary transition-colors duration-300">
-                  {card.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm sm:text-base leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                  {card.description}
-                </p>
-
-                {/* Bottom accent line with expansion animation */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent group-hover:w-3/4 transition-all duration-500 rounded-full"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Background decorative elements */}
-        <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-secondary/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-      </section>
+     
 
       {/* Our Expert Team Section */}
       <section ref={teamRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
