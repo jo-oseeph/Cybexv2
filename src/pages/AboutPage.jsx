@@ -131,7 +131,7 @@ const AboutPage = () => {
       }`}
       style={{ textShadow: '0 2px 24px rgba(0,0,0,0.4)', letterSpacing: '-0.01em' }}
     >
-      About CYBEX
+      ABOUT CYBEX
     </h1>
   </div>
 </section>
