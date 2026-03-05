@@ -1,249 +1,140 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Scale, Settings, Shield, Search, Monitor, GraduationCap, ArrowRight, } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
 
-const ServiceCard = ({ icon: Icon, title, description, gradient, route, delay }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef(null);
-  const navigate = useNavigate();
+import { Globe, Wrench, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+const services = [
+  {
+    icon: Globe,
+    title: "Website Design & Development",
+    description:
+      "Professional, responsive websites tailored for your business or organization. We craft clean, fast, and conversion-focused designs that make a lasting impression and grow with your brand.",
+    route: "/services/website-design-development",
+  },
+  {
+    icon: Wrench,
+    title: "Fully Managed Website Services",
+    description:
+      "We handle hosting, renewals, updates, and ongoing support — so you never have to worry about technical issues. Focus on running your business while we keep your website running smoothly.",
+    route: "/services/managed-website-services",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Website Security & Optimization",
+    description:
+      "Basic security hardening, real-time monitoring, and performance optimization to keep your site safe, fast, and always available. We protect your online presence so your customers always trust you.",
+    route: "/services/website-security-optimization",
+  },
+];
 
-    if (cardRef.current) observer.observe(cardRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    return () => { if (cardRef.current) observer.unobserve(cardRef.current); };
-  }, []);
+const ServiceCard = ({ icon: Icon, title, description, route, index }) => (
+  <div
+    className="group relative bg-dark-light/40 backdrop-blur-sm rounded-xl overflow-hidden cursor-pointer"
+    style={{
+      borderTop: '2px solid rgba(6, 182, 212, 0.5)',
+      borderLeft: '1px solid rgba(6, 182, 212, 0.2)',
+      borderRight: '1px solid rgba(6, 182, 212, 0.2)',
+      borderBottom: '1px solid rgba(6, 182, 212, 0.2)',
+      animation: `fadeInUp 0.6s ease forwards`,
+      animationDelay: `${index * 0.15}s`,
+      opacity: 0,
+    }}
+  >
+    {/* Hover gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/10 group-hover:to-secondary/10 transition-all duration-500" />
 
-  const handleCardClick = (e) => {
-    // Don't navigate if clicking the "Learn more" button
-    if (e.target.closest('a')) return;
-    navigate(route);
-  };
+    {/* Top glow on hover */}
+    <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-  return (
-    <div
-      ref={cardRef}
-      className={`group relative bg-dark-light/40 backdrop-blur-sm rounded-xl overflow-hidden transition-transform duration-500 ease-in-out transform ${
-        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
-      } hover:scale-105 hover:-translate-y-2 cursor-pointer`}
-      style={{
-        transitionDelay: `${delay}ms`,
-        borderTop: '2px solid rgba(6, 182, 212, 0.5)',
-        borderLeft: '1px solid rgba(6, 182, 212, 0.2)',
-        borderRight: '1px solid rgba(6, 182, 212, 0.2)',
-        borderBottom: '1px solid rgba(6, 182, 212, 0.2)',
-      }}
-      onClick={handleCardClick}
-    >
-      {/* Animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-secondary/0 to-accent/0 group-hover:from-primary/10 group-hover:via-secondary/10 group-hover:to-accent/5 transition-all duration-500" />
-      
-      {/* Shine effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1200 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
+    <div className="relative p-6 sm:p-8 space-y-4">
+      {/* Icon */}
+      <div className="inline-flex p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+        <Icon className="w-7 h-7 text-primary-light" strokeWidth={1.5} />
       </div>
 
-      {/* Top border glow on hover */}
-      <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-primary via-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer" />
+      {/* Title */}
+      <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-primary group-hover:text-accent transition-colors duration-300">
+        {title}
+      </h3>
 
-      <div className="relative p-6 sm:p-8 space-y-4">
-        {/* Icon container */}
-        <div className="relative inline-block">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse-slow" />
-          <div className={`relative p-4 rounded-xl bg-gradient-to-br ${gradient} bg-opacity-10 group-hover:scale-110 transition-transform duration-700`}>
-            <Icon className="w-8 h-8 text-primary-light group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />
-          </div>
+      {/* Description */}
+      <p className="text-gray-300 text-base leading-relaxed">
+        {description}
+      </p>
+
+      {/* Learn more */}
+      <Link
+        to={route}
+        className="inline-flex items-center gap-2 text-sm font-semibold border border-accent text-white px-3 py-2 rounded-md hover:bg-accent transition-all duration-300"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <span>Learn more</span>
+        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+      </Link>
+    </div>
+
+    {/* Corner decoration */}
+    <div className="absolute bottom-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+      <div className="absolute bottom-0 right-0 w-full h-full border-r-2 border-b-2 border-primary rounded-tl-full" />
+    </div>
+  </div>
+);
+
+const ServicesSection = () => (
+  <div id="services" className="relative bg-dark py-16 sm:py-20 lg:py-24 overflow-hidden">
+    {/* Background blobs */}
+    <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+    </div>
+
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Header */}
+      <div className="text-center mb-12 sm:mb-16" style={{ animation: 'fadeInUp 0.6s ease forwards' }}>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6">
+          <ShieldCheck className="w-4 h-4 text-primary-light" />
+          <span className="text-sm font-medium text-primary-light">What We Offer</span>
         </div>
 
-        {/* Title */}
-        <h3 className="font-orbitron text-2xl font-bold text-primary group-hover:text-accent transition-colors duration-500">
-          {title}
-        </h3>
+        <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6">
+          OUR SERVICES
+        </h2>
 
-        {/* Description */}
-        <p className="text-gray-300 text-base sm:text-lg leading-relaxed group-hover:text-gray-300 transition-colors duration-500">
-          {description}
+        <p className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
+          Simple, reliable digital services built to help your business grow online, without the tech headaches.
         </p>
+      </div>
 
-        {/* Learn more link */}
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+        {services.map((service, index) => (
+          <ServiceCard key={index} {...service} index={index} />
+        ))}
+      </div>
+
+      {/* View More Button */}
+      <div className="flex justify-center" style={{ animation: 'fadeInUp 0.6s ease forwards', animationDelay: '0.5s', opacity: 0 }}>
         <Link
-          to={route}
-          className="inline-flex items-center gap-2 font-semibold text-sm border border-accent bg-transparent text-white px-3 py-2 rounded-md transition-all duration-500 ease-in-out hover:bg-accent hover:text-white"
+          to="/services"
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold text-base border border-primary/40 bg-primary/10 text-primary-light hover:bg-primary/20 hover:border-primary transition-all duration-300 group"
         >
-          <span>Learn more</span>
-          <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
+          <span>View All Services</span>
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
         </Link>
       </div>
-
-      {/* Corner decoration */}
-      <div className="absolute bottom-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-20 transition-opacity duration-700">
-        <div className="absolute bottom-0 right-0 w-full h-full border-r-2 border-b-2 border-primary rounded-tl-full" />
-      </div>
     </div>
-  );
-};
 
-const ServicesSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.1 }
-    );
- 
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    return () => { if (sectionRef.current) observer.unobserve(sectionRef.current); };
-  }, []);
-
-  const firstSectionServices = [
-    {
-      icon: Scale,
-      title: "Real-Time Threat Monitoring (Basic Tier)",
-      description: "We implement basic monitoring tools that alert you to suspicious activity on your website or systems in real time. Know when something goes wrong — before it becomes a disaster.",
-      gradient: "from-primary to-secondary",
-      route: "/services/real-time-threat-monitoring"
-    },
-    {
-      icon: Settings,
-      title: "Email Security Setup",
-      description: "We configure essential email protections like SPF, DKIM, and DMARC to prevent spoofing, phishing, and impersonation attacks. Prevent scammers from using your brand to attack others.",
-      gradient: "from-primary to-secondary",
-      route: "/services/email-security-setup"
-    },
-    {
-      icon: Shield,
-      title: "Secure Cloud Setup",
-      description: "We help you set up secure access to Google Workspace, Microsoft 365, or other cloud tools — with two-factor authentication, user access controls, and automated backups. Work safely from anywhere — with your data protected.",
-      gradient: "from-primary to-secondary",
-      route: "/services/security-audit-assessment"
-    }
-  ];
-
-  const solutionsServices = [
-    {
-      icon: Search,
-      title: "Website Security Audit",
-      description: "We scan your website for vulnerabilities like weak SSL certificates, outdated plugins, exposed admin panels, and insecure configurations, then fix them fast. Keep your site secure and trustworthy for your customers.",
-      gradient: "from-primary to-secondary",
-      route: "/services/website-security-audit"
-    },
-    {
-      icon: Monitor,
-      title: "Device & Endpoint Protection",
-      description: "We help you secure laptops, desktops, and mobile devices with strong encryption, antivirus tools, secure backups, and regular patching. Protect your business from ransomware, theft, and data loss.",
-      gradient: "from-primary to-secondary",
-      route: "/services/device-endpoint-protection"
-    },
-    {
-      icon: GraduationCap,
-      title: "Cyber Awareness Training",
-      description: "We offer simple training sessions for your staff to recognize phishing emails, use strong passwords, and avoid costly security mistakes. Because even smart people click the wrong link sometimes.",
-      gradient: "from-primary to-secondary",
-      route: "/services/cyber-awareness-training"
-    }
-  ];
-
-  return (
-    <div id="services" className="relative bg-dark py-16 sm:py-20 lg:py-24 overflow-hidden" ref={sectionRef}>
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            <Shield className="w-4 h-4 text-primary-light" />
-            <span className="text-sm font-medium text-primary-light">What We Offer</span>
-          </div>
-
-          <h2 
-            className={`font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-700 delay-100 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-            }`}
-          >
-            OUR SOLUTIONS
-          </h2>
-          <div className={`relative w-32 h-1 mx-auto mb-8 rounded-full overflow-hidden transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}>
-           
-          </div>
-
-          <p className={`text-gray-300 text-lg sm:text-xl max-w-4xl mx-auto leading-relaxed transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            We offer comprehensive cybersecurity solutions powered by advanced AI and delivered by industry experts.
-          </p>
-        </div>
-
-        {/* First Section Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
-          {firstSectionServices.map((service, index) => (
-            <ServiceCard
-              key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              gradient={service.gradient}
-              route={service.route}
-              delay={index * 100}
-            />
-          ))}
-        </div>
-
-        {/* Solutions Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {solutionsServices.map((service, index) => (
-            <ServiceCard
-              key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              gradient={service.gradient}
-              route={service.route}
-              delay={300 + index * 100}
-            />
-          ))}
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes pulse-slow {
-          0%, 100% {
-            opacity: 0.3;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.5;
-            transform: scale(1.1);
-          }
-        }
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        @keyframes ping {
-          75%, 100% { transform: scale(1.5); opacity: 0; }
-        }
-        .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
-        .animate-shimmer { animation: shimmer 3s ease-in-out infinite; }
-        .animate-ping { animation: ping 1s cubic-bezier(0,0,0.2,1) infinite; }
-      `}</style>
-    </div>
-  );
-};
+    <style>{`
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(24px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes pulse-slow {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50%       { opacity: 0.5; transform: scale(1.1); }
+      }
+      .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+    `}</style>
+  </div>
+);
 
 export default ServicesSection;
