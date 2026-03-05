@@ -52,7 +52,7 @@ const ServiceCard = ({ icon: Icon, title, description, route, index }) => (
       </div>
 
       {/* Title */}
-      <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-primary group-hover:text-accent transition-colors duration-300">
+      <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-primary ">
         {title}
       </h3>
 
@@ -90,17 +90,11 @@ const ServicesSection = () => (
     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center mb-12 sm:mb-16" style={{ animation: 'fadeInUp 0.6s ease forwards' }}>
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm mb-6">
-          <ShieldCheck className="w-4 h-4 text-primary-light" />
-          <span className="text-sm font-medium text-primary-light">What We Offer</span>
-        </div>
-
-        <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6">
-          OUR SOLUTIONS
+        <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary mb-6">
+          OUR SERVICES
         </h2>
-
         <p className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-          Simple, reliable digital services built to help your business grow online — without the tech headaches.
+          Simple, reliable digital services built to help your business grow online, without the tech headaches.
         </p>
       </div>
 
