@@ -64,7 +64,7 @@ const ServiceCard = ({ icon: Icon, title, description, route, index }) => (
       {/* Learn more */}
       <Link
         to={route}
-        className="inline-flex items-center gap-2 text-sm font-semibold border border-accent text-white px-3 py-2 rounded-md hover:bg-accent transition-all duration-300"
+        className="inline-flex items-center gap-2 text-sm font-semibold border border-primary text-primary-light px-3 py-2 rounded-md hover:bg-primary/20 transition-all duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         <span>Learn more</span>
@@ -96,11 +96,11 @@ const ServicesSection = () => (
         </div>
 
         <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6">
-          OUR SERVICES
+          OUR SOLUTIONS
         </h2>
 
         <p className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-          Simple, reliable digital services built to help your business grow online, without the tech headaches.
+          Simple, reliable digital services built to help your business grow online — without the tech headaches.
         </p>
       </div>
 
@@ -115,7 +115,7 @@ const ServicesSection = () => (
       <div className="flex justify-center" style={{ animation: 'fadeInUp 0.6s ease forwards', animationDelay: '0.5s', opacity: 0 }}>
         <Link
           to="/services"
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold text-base border border-primary/40 bg-primary/10 text-primary-light hover:bg-primary/20 hover:border-primary transition-all duration-300 group"
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold text-base border border-primary bg-primary/10 text-primary-light hover:bg-primary/20 transition-all duration-300 group"
         >
           <span>View All Services</span>
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
