@@ -3,7 +3,7 @@ import ServicesSection from '../components/ServicesSection';
 import WhyChooseUs from '../components/WhyChooseUs';
 import AboutSection from '../components/AboutSection';
 import MissionVision from '../components/MissionVision';  
-// import CTA from '../components/CTASection';
+import CTA from '../components/CTASection';
 
 const HomePage = () => {
   return (
@@ -13,7 +13,7 @@ const HomePage = () => {
       <AboutSection /> 
       <MissionVision/>  
       <WhyChooseUs /> 
-      {/* <CTA /> */}
+      <CTA /> 
     </div>
   );
 };
