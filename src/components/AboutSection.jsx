@@ -52,7 +52,7 @@ const AboutSection = () => {
             <div className="pt-2">
               <a
                 href="/about"
-                className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white px-8 py-4 rounded-lg font-semibold font-orbitron text-sm transition-all duration-500 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:shadow-xl overflow-hidden"
+                className="group relative inline-flex items-center gap-3 bg-transparent border border-primary text-white px-8 py-4 rounded-lg font-semibold font-orbitron text-sm transition-all duration-500 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:shadow-xl overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative z-10">Learn More</span>

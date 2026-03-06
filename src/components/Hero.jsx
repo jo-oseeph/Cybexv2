@@ -102,7 +102,7 @@ const HeroSlider = () => {
                     <ArrowRight className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 transition-all duration-500 group-hover:translate-x-1" />
                   </Link>
                 </div>
-              </div>
+              </div> 
             </div>
           </div>
         ))}
