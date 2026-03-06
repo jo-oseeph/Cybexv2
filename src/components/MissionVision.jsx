@@ -1,80 +1,80 @@
+import { Target, Eye } from 'lucide-react';
 
+const MissionVision = () => (
+  <section className="relative bg-dark overflow-hidden">
+    <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
 
-const MissionVision = () => {
-  const cards = [
-    {
-      label: 'Our Vision',
-      body: (
-        <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-          To grow into a trusted digital infrastructure and security partner for businesses across Kenya.
-        </p>
-      ),
-    },
-    {
-      label: 'Our Mission',
-      body: (
-        <ul className="space-y-3 text-left">
-          {[
-            'To help businesses build a strong and professional online presence.',
-            'To provide reliable website development and management services.',
-            'To deliver practical and affordable digital solutions that support business growth.',
-          ].map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-gray-400 text-sm sm:text-base leading-relaxed">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
-              {item}
-            </li>
-          ))}
-        </ul>
-      ),
-    },
-  ];
+      {/* ── Left: Content ── */}
+      <div className="relative flex flex-col justify-center px-8 sm:px-12 lg:px-16 py-16 lg:py-20 bg-dark z-10">
 
-  return (
-    <section className="relative bg-dark py-8 sm:py-12 lg:py-16 overflow-hidden">
-
-      {/* Background glow */}
-      <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
-        <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
-      </div>
-
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Header */}
-        <div className="text-center mb-12 sm:mb-14">
-          <h2 className="font-orbitron text-2xl sm:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary mb-4 leading-snug">
-            Our Foundation
-          </h2>
-          <div className="w-16 h-px bg-cyan-400 opacity-60 mx-auto" />
-        </div>
-
-        {/* Two Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {cards.map((card, i) => (
-            <div
+        {/* Subtle background dots */}
+        <div className="absolute inset-0 pointer-events-none opacity-30">
+          {[...Array(6)].map((_, i) => (
+            <span
               key={i}
-              className="bg-dark-light/40 border border-primary/20 rounded-2xl p-8 hover:scale-[1.02]"
-            >
-              {/* Label */}
-              <div className="mb-5">
-                <h3 className="font-orbitron text-lg sm:text-xl font-bold text-white mb-3">
-                  {card.label}
-                </h3>
-                <div className="w-8 h-px bg-cyan-400 opacity-50" />
-              </div>
-
-              {/* Content */}
-              {card.body}
-            </div>
+              className="absolute w-1 h-1 rounded-full bg-primary/60"
+              style={{
+                top: `${15 + i * 14}%`,
+                left: `${8 + (i % 3) * 30}%`,
+              }}
+            />
           ))}
         </div>
 
+        <div className="relative space-y-10 max-w-lg">
+
+          {/* Our Mission */}
+          <div className="flex items-start gap-5">
+            {/* Icon box */}
+            <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
+              <Target className="w-7 h-7 text-primary-light" strokeWidth={1.5} />
+            </div>
+            <div>
+              <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-white mb-3">
+                Our Mission
+              </h3>
+              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                To help businesses build a strong, professional online presence through reliable
+                website development, management services, and practical digital solutions that
+                support real business growth.
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-primary/15 w-full" />
+
+          {/* Our Vision */}
+          <div className="flex items-start gap-5">
+            {/* Icon box */}
+            <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
+              <Eye className="w-7 h-7 text-primary-light" strokeWidth={1.5} />
+            </div>
+            <div>
+              <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-white mb-3">
+                Our Vision
+              </h3>
+              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                To grow into a trusted digital infrastructure partner for businesses across Kenya,
+                crafting online experiences that resonate, inspire, and leave a lasting impact.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </section>
-  );
-};
+
+      {/* ── Right: Image ── */}
+      <div className="relative min-h-[320px] lg:min-h-0">
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
+          alt="Team collaborating"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+      </div>
+
+    </div>
+  </section>
+);
 
 export default MissionVision;
