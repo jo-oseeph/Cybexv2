@@ -2,13 +2,11 @@ import React from 'react';
 import { Globe, Wrench, ShieldCheck, ArrowRight, } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// ─── Data ────────────────────────────────────────────────────────────────────
 
 const services = [
   {
     icon: Globe,
     title: "Website Design & Development",
-    tagline: "Built to Impress. Built to Convert.",
     description:
       "Professional, responsive websites tailored for your business or organization. We craft clean, fast, and conversion-focused designs that make a lasting impression and grow with your brand.",
     features: ["Custom responsive design", "SEO-ready structure", "Mobile-first approach"],
@@ -17,16 +15,14 @@ const services = [
   {
     icon: Wrench,
     title: "Fully Managed Website Services",
-    tagline: "We Handle It. You Focus on Growth.",
     description:
-      "We take care of hosting, renewals, updates, and ongoing support — so you never worry about technical issues. Focus on running your business while we keep everything running smoothly.",
+      "We take care of hosting, renewals, updates, and ongoing support, so you never worry about technical issues. Focus on running your business while we keep everything running smoothly.",
     features: ["Hosting & domain management", "Regular updates & patches", "24/7 technical support"],
     route: "/services/managed-website-services",
   },
   {
     icon: ShieldCheck,
     title: "Website Security & Optimization",
-    tagline: "Fast. Secure. Always Online.",
     description:
       "Security hardening, real-time monitoring, and performance optimization to keep your site safe, fast, and always available. We protect your online presence so your customers always trust you.",
     features: ["Security audits & hardening", "Performance optimization", "Uptime monitoring"],
@@ -36,7 +32,7 @@ const services = [
 
 // ─── Service Card ─────────────────────────────────────────────────────────────
 
-const ServiceCard = ({ icon: Icon, title, tagline, description, features, route, index }) => (
+const ServiceCard = ({ icon: Icon, title, description, features, route, index }) => (
   <div
     className="group relative bg-dark-light/40 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col"
     style={{
@@ -62,13 +58,8 @@ const ServiceCard = ({ icon: Icon, title, tagline, description, features, route,
         <Icon className="w-7 h-7 text-primary-light" strokeWidth={1.5} />
       </div>
 
-      {/* Tagline */}
-      <p className="text-xs font-semibold uppercase tracking-widest text-secondary/80">
-        {tagline}
-      </p>
-
       {/* Title */}
-      <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-primary group-hover:text-accent transition-colors duration-300">
+      <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-primary transition-colors duration-300">
         {title}
       </h3>
 
@@ -194,10 +185,10 @@ const ServicesPage = () => (
           >
             <div className="text-center sm:text-left">
               <h3 className="font-orbitron text-xl font-bold text-white mb-1">
-                Not sure which service you need?
+                Got a project in mind?
               </h3>
               <p className="text-gray-300 text-sm">
-                Let's talk — we'll help you figure out the best solution for your business.
+                Let's talk, we'll help you figure out the best solution for your business.
               </p>
             </div>
             <Link
