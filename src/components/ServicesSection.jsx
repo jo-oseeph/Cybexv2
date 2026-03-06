@@ -14,7 +14,7 @@ const services = [
     icon: Wrench,
     title: "Fully Managed Website Services",
     description:
-      "We handle hosting, renewals, updates, and ongoing support — so you never have to worry about technical issues. Focus on running your business while we keep your website running smoothly.",
+      "We handle hosting, renewals, updates, and ongoing support, so you never have to worry about technical issues. Focus on running your business while we keep your website running smoothly.",
     route: "/services/managed-website-services",
   },
   {

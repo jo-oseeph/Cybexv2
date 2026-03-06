@@ -15,6 +15,7 @@ import Register from "./pages/auth/Register";
 import LoginPage from "./pages/auth/Login";
 import CreatePost from "./pages/admin/CreatePost";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import ServicesPage from "./pages/ServicesPage";
 
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -35,6 +36,7 @@ const App = () => {
             {/* Public routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
