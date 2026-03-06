@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Wrench, ShieldCheck, ArrowRight, Layers } from 'lucide-react';
+import { Globe, Wrench, ShieldCheck, ArrowRight, } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -112,53 +112,41 @@ const ServicesPage = () => (
   <div className="min-h-screen bg-dark text-white">
 
     {/* ── Hero ── */}
-    <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+       <section
+        className="relative overflow-hidden"
+        style={{ height: "calc(100vh - 64px)", maxHeight: "420px" }}
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1600&q=80')`,
+            filter: "brightness(0.5) contrast(1.1)",
+          }}
+        />
 
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80')" }}
-      />
+        {/* Dark overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(5, 15, 35, 0.80) 0%, rgba(10, 25, 55, 0.65) 50%, rgba(0, 0, 0, 0.50) 100%)",
+          }}
+        />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-dark/75" />
-
-      {/* Cyan tint layer */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-dark" />
-
-      {/* Floating blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
-      </div>
-
-      {/* Hero content */}
-      <div className="relative text-center px-4 space-y-5" style={{ animation: 'fadeInUp 0.7s ease forwards' }}>
-
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm">
-          <Layers className="w-4 h-4 text-primary-light" />
-          <span className="text-sm font-medium text-primary-light">What We Offer</span>
+        {/* Centered Title */}
+        <div className="relative z-10 h-full flex items-center justify-center px-4 text-center">
+          <h1
+            className="font-orbitron text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight transition-all duration-700 delay-100"
+            style={{
+              textShadow: "0 2px 24px rgba(0,0,0,0.4)",
+              letterSpacing: "-0.01em",
+            }}
+          >
+        OUR SERVICES
+          </h1>
         </div>
+      </section>
 
-        {/* Title */}
-        <h1 className="font-orbitron text-4xl sm:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">
-          Our Services
-        </h1>
-
-        {/* Divider */}
-        <div className="flex items-center justify-center gap-3">
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary" />
-          <div className="w-2 h-2 rounded-full bg-primary-light animate-pulse" />
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary" />
-        </div>
-
-        {/* Subtitle */}
-        <p className="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-          Simple, reliable digital services built to help your business grow online — without the tech headaches.
-        </p>
-      </div>
-    </section>
 
     {/* ── Services Cards ── */}
     <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
@@ -180,7 +168,7 @@ const ServicesPage = () => (
             Everything You Need Online
           </h2>
           <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-            From building your site to keeping it secure — we've got you covered end to end.
+            From building your site to keeping it secure, we've got you covered end to end.
           </p>
         </div>
 
