@@ -27,7 +27,7 @@ const AboutSection = () => {
           <div className="space-y-8 pt-6 lg:pt-0">
             <div>
               <h2 className="font-orbitron text-2xl sm:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary mb-4 leading-snug">
-                About Cybex
+                About Us
               </h2>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
                 Cybex is a Kenya-based digital solutions business focused on

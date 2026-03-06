@@ -1,7 +1,7 @@
 import { Target, Eye } from 'lucide-react';
 
 const MissionVision = () => (
-  <section className="relative bg-dark overflow-hidden">
+  <section className="relative bg-dark overflow-hidden mt-16">
     <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
 
       {/* ── Left: Content ── */}

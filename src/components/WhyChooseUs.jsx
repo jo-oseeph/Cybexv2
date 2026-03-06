@@ -12,7 +12,7 @@ const reasons = [
     icon: HeartHandshake,
     title: "Client-First Approach",
     description:
-      "We listen before we build. Every decision is guided by your goals, your audience, and your brand, not a one-size-fits-all template.",
+      "We listen before we build. Every decision is guided by your goals, your audience, and your brand — not a one-size-fits-all template.",
   },
   {
     icon: ShieldCheck,
@@ -35,90 +35,70 @@ const WhyChooseUs = () => (
     </div>
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        {/* ── Left: Image ── */}
-        <div
-          className="relative rounded-2xl overflow-hidden"
-          style={{ animation: 'fadeInLeft 0.65s ease forwards', opacity: 0 }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80"
-            alt="Why choose us"
-            className="w-full h-[420px] sm:h-[480px] lg:h-[520px] object-cover object-center"
-          />
+      {/* Header — left on mobile, centered on lg+ */}
+      <div
+        className="text-left lg:text-center mb-12 lg:mb-16"
+        style={{ animation: 'fadeInUp 0.5s ease forwards', opacity: 0 }}
+      >
+        <div className="inline-flex items-center gap-2 mb-4">
+          <div className="h-px w-6 bg-primary" />
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary-light">
+            Why Choose Us
+          </span>
         </div>
-
-        {/* ── Right: Content ── */}
-        <div
-          className="space-y-8"
-          style={{ animation: 'fadeInRight 0.65s ease forwards', animationDelay: '0.15s', opacity: 0 }}
-        >
-          {/* Section label */}
-          <div>
-            <div className="inline-flex items-center gap-2 mb-4">
-              <div className="h-px w-6 bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary-light">
-                Why Choose Us
-              </span>
-            </div>
-            <h2 className="font-orbitron text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-snug">
-              The Partner Your{' '}
-              <span
-                style={{
-                  backgroundImage: 'linear-gradient(90deg, #06b6d4, #67e8f9)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                Business Deserves.
-              </span>
-            </h2>
-          </div>
-
-          {/* Reasons list */}
-          <ul className="space-y-6">
-            {reasons.map(({ icon: Icon, title, description }, i) => (
-              <li
-                key={i}
-                className="group flex items-start gap-3 p-3 rounded-xl border border-primary bg-dark-light/30 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
-                style={{
-                  animation: 'fadeInRight 0.5s ease forwards',
-                  animationDelay: `${0.25 + i * 0.12}s`,
-                  opacity: 0,
-                }}
-              >
-                {/* Icon */}
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40 flex items-center justify-center transition-all duration-300">
-                  <Icon className="w-6 h-6 text-primary-light" strokeWidth={1.5} />
-                </div>
-
-                {/* Text */}
-                <div className="space-y-1">
-                  <h3 className="font-orbitron text-base sm:text-lg font-bold text-primary-light transition-colors duration-300">
-                    {title}
-                  </h3>
-                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                    {description}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-
+        <h2 className="font-orbitron text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-snug">
+          The Partner Your{' '}
+          <span
+            style={{
+              backgroundImage: 'linear-gradient(90deg, #06b6d4, #67e8f9)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            Business Deserves.
+          </span>
+        </h2>
       </div>
+
+      {/* Cards — horizontal row on md+, stacked on mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {reasons.map(({ icon: Icon, title, description }, i) => (
+          <div
+            key={i}
+            className="group flex flex-col gap-4 p-6 sm:p-7 rounded-xl border border-primary/20 bg-dark-light/30 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+            style={{
+              borderTop: '2px solid rgba(6, 182, 212, 0.5)',
+              animation: 'fadeInUp 0.5s ease forwards',
+              animationDelay: `${0.15 + i * 0.12}s`,
+              opacity: 0,
+            }}
+          >
+            {/* Icon */}
+            <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+              <Icon className="w-6 h-6 text-primary-light" strokeWidth={1.5} />
+            </div>
+
+            {/* Text — always left aligned */}
+            <div className="space-y-2 text-left">
+              <h3 className="font-orbitron text-base sm:text-lg font-bold text-primary-light">
+                {title}
+              </h3>
+              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                {description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
     </div>
 
     <style>{`
-      @keyframes fadeInLeft {
-        from { opacity: 0; transform: translateX(-28px); }
-        to   { opacity: 1; transform: translateX(0); }
-      }
-      @keyframes fadeInRight {
-        from { opacity: 0; transform: translateX(28px); }
-        to   { opacity: 1; transform: translateX(0); }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
     `}</style>
   </section>
