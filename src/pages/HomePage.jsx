@@ -1,7 +1,8 @@
 import CyberHero from '../components/Hero';
 import ServicesSection from '../components/ServicesSection';
+import WhyChooseUs from '../components/WhyChooseUs';
 // import AboutSection from '../components/AboutSection';
-import CTASection from '../components/CTASection';
+// import CTA from '../components/CTASection';
 
 const HomePage = () => {
   return (
@@ -9,7 +10,8 @@ const HomePage = () => {
       <CyberHero />
       {/* <AboutSection /> */} 
       <ServicesSection />
-      <CTASection />
+      <WhyChooseUs /> 
+      {/* <CTA /> */}
     </div>
   );
 };
