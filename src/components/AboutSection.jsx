@@ -39,22 +39,23 @@ const AboutSection = () => {
                 it running smoothly through structured, ongoing website
                 management services.
               </p>
-            </div>
-
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mt-1">
               We design professional, responsive websites and provide fully
               managed website services including hosting management, domain
               renewals, updates, performance optimization, and ongoing technical
               support.
             </p>
+            </div>
+
+            
 
             <div className="pt-2">
               <a
-                href="/contact"
+                href="/about"
                 className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white px-8 py-4 rounded-lg font-semibold font-orbitron text-sm transition-all duration-500 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:shadow-xl overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10">Get In Touch</span>
+                <span className="relative z-10">Learn More</span>
                 <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </div>
