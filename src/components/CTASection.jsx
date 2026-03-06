@@ -57,7 +57,7 @@ const CTA = () => (
             to="/contact"
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest border border-primary text-primary-light bg-primary/10 hover:bg-primary/25 hover:shadow-[0_0_24px_rgba(6,182,212,0.3)] transition-all duration-300"
           >
-            <span>Consult Us Now</span>
+            <span> Talk To Us Now</span> 
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>
