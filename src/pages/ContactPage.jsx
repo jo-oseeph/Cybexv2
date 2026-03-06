@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaPhone, FaEnvelope, FaComments, FaPaperPlane } from 'react-icons/fa';
-import { Shield, Sparkles, MapPin } from 'lucide-react';
+import {  Sparkles, MapPin } from 'lucide-react';
 
 const ContactPage = () => {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const [ setHeroVisible] = useState(false);
   const [methodsVisible, setMethodsVisible] = useState(false);
   const [formVisible, setFormVisible] = useState(false);
   
@@ -121,59 +121,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-dark via-dark-light to-dark">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative py-20 sm:py-28 lg:py-32 overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-dark">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float-delayed"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl animate-pulse-slow"></div>
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary to-transparent"></div>
-            <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-secondary to-transparent"></div>
-          </div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-8">
-            <div 
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm transition-all duration-700 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
-              }`}
-            >
-              <Shield className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary-light font-orbitron">Get In Touch</span>
-              <Sparkles className="w-4 h-4 text-secondary" />
-            </div>
-
-            <h1 
-              className={`font-orbitron text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary transition-all duration-700 delay-100 ${
-                heroVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-              }`}
-            >
-              CONTACT CYBEX
-            </h1>
-
-            <div 
-              className={`relative w-32 h-1 mx-auto rounded-full overflow-hidden transition-all duration-700 delay-200 ${
-                heroVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-              }`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent animate-shimmer"></div>
-            </div>
-            
-            <p 
-              className={`text-gray-300 text-base sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed px-4 transition-all duration-700 delay-300 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-            >
-              Get in touch with our cybersecurity experts. We're here to help protect your digital infrastructure 24/7 with rapid response times and personalized solutions.
-            </p>
-          </div>
-        </div>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"></div>
-      </section>
+     
 
       {/* Contact Methods Section */}
       <section ref={methodsRef} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
