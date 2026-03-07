@@ -11,8 +11,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'realsejjo2001@gmail.com',
-    href: 'mailto:realsejjo2001@gmail.com',
+    value: 'info@cybextech.co.ke',
+    href: 'mailto:info@cybextech.co.ke',
   },
   {
     icon: MapPin,
@@ -57,13 +57,6 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-dark text-white">
       <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
-
-        {/* Background blobs */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
-          <div className="absolute top-1/4 left-0 w-80 h-80 bg-primary/15 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" />
-        </div>
-
         {/* Grid texture */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(rgba(6,182,212,1)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,1)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
@@ -110,7 +103,7 @@ const Contact = () => {
                 {contactInfo.map(({ icon: Icon, label, value, href }, i) => (
                   <div
                     key={i}
-                    className="group flex items-start gap-4 p-4 rounded-xl border border-primary/10 bg-dark-light/30 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+                    className="group flex items-start gap-4 p-4 rounded-xl border border-primary bg-dark-light/30 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
                     style={{
                       animation: 'fadeInLeft 0.5s ease forwards',
                       animationDelay: `${0.2 + i * 0.1}s`,
