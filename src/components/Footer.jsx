@@ -6,54 +6,57 @@ const Footer = () => {
   const navigate = useNavigate();
 
   const solutionsLinks = [
-    { name: "Threat Detection", path: "/threat-monitoring" },
-    { name: "Incident Response", path: "/incident-response" },
-    { name: "Security Consulting", path: "/security-consulting" },
-    { name: "Security Audit", path: "/security-audit" }
+    { name: "Website Design & Development", path: "/services/website-design-development" },
+    { name: "Fully Managed Website Services", path: "/services/managed-website-services" },
+    { name: "Website Security & Optimization", path: "/services/website-security-optimization" },
   ];
 
   const companyLinks = [
     { name: "About Us", path: "/about" },
-    { name: "Careers", path: "/careers" }
+    { name: "Services", path: "/services" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const socialLinks = [
     { icon: Twitter, href: "https://twitter.com/cybex", label: "Twitter" },
     { icon: Linkedin, href: "https://linkedin.com/company/cybex", label: "LinkedIn" },
     { icon: Facebook, href: "https://facebook.com/cybex", label: "Facebook" },
-    { icon: Instagram, href: "https://instagram.com/cybex", label: "Instagram" }
+    { icon: Instagram, href: "https://instagram.com/cybex", label: "Instagram" },
   ];
 
-  const handleLinkClick = (path) => {
-    navigate(path);
-  };
-
   return (
-    <footer className="bg-dark border-t border-primary">
+    <footer className="bg-dark border-t border-primary/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
-          
-          {/* Company Info */}
+
+          {/* ── Company Info ── */}
           <div className="lg:col-span-2">
-            <h3 className="font-orbitron text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4">
-              CYBEX
-            </h3>
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 max-w-md">
-              Advanced cybersecurity solutions powered by AI, protecting organizations worldwide with cutting-edge threat detection and response capabilities.
+            <div className="flex items-center gap-3 mb-5">
+              <img
+                src="/cybex.png"
+                alt="Cybex"
+                className="h-10 w-auto object-contain"
+              />
+              <span className="font-orbitron text-xl font-bold text-primary">
+                CYBEX
+              </span>
+            </div>
+            <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6 max-w-sm">
+              We help businesses grow online with professional websites, fully managed services, and reliable security — built to last and designed to impress.
             </p>
           </div>
 
-          {/* Solutions */}
+          {/* ── Services ── */}
           <div>
-            <h4 className="font-orbitron text-lg font-semibold text-primary mb-4">
-              Solutions
+            <h4 className="font-orbitron text-sm font-semibold text-primary uppercase tracking-widest mb-5">
+              Services
             </h4>
             <ul className="space-y-3">
-              {solutionsLinks.map((link, index) => (
-                <li key={index}>
+              {solutionsLinks.map((link, i) => (
+                <li key={i}>
                   <button
-                    onClick={() => handleLinkClick(link.path)}
-                    className="text-gray-300 hover:text-primary transition-colors duration-300 text-sm sm:text-base"
+                    onClick={() => navigate(link.path)}
+                    className="text-gray-400 hover:text-primary-light text-sm transition-colors duration-300 text-left"
                   >
                     {link.name}
                   </button>
@@ -62,17 +65,17 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* ── Company ── */}
           <div>
-            <h4 className="font-orbitron text-lg font-semibold text-primary mb-4">
+            <h4 className="font-orbitron text-sm font-semibold text-primary uppercase tracking-widest mb-5">
               Company
             </h4>
             <ul className="space-y-3">
-              {companyLinks.map((link, index) => (
-                <li key={index}>
+              {companyLinks.map((link, i) => (
+                <li key={i}>
                   <button
-                    onClick={() => handleLinkClick(link.path)}
-                    className="text-gray-300 hover:text-primary transition-colors duration-300 text-sm sm:text-base"
+                    onClick={() => navigate(link.path)}
+                    className="text-gray-400 hover:text-primary-light text-sm transition-colors duration-300 text-left"
                   >
                     {link.name}
                   </button>
@@ -81,70 +84,63 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact & Social */}
+          {/* ── Contact & Social ── */}
           <div>
-            <h4 className="font-orbitron text-lg font-semibold text-primary mb-4">
+            <h4 className="font-orbitron text-sm font-semibold text-primary uppercase tracking-widest mb-5">
               Contact
             </h4>
             <div className="space-y-3 mb-6">
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                <a 
-                  href="mailto:info@cybex.com"
-                  className="text-gray-300 hover:text-primary transition-colors duration-300 text-sm sm:text-base"
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-primary-light flex-shrink-0" />
+                <a
+                  href="mailto:info@cybextech.co.ke"
+                  className="text-gray-400 hover:text-primary-light text-sm transition-colors duration-300"
                 >
-                  info@cybex.com
+                  info@cybextech.co.ke
                 </a>
               </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                <a 
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-primary-light flex-shrink-0" />
+                <a
                   href="tel:+254717378758"
-                  className="text-gray-300 hover:text-primary transition-colors duration-300 text-sm sm:text-base"
+                  className="text-gray-400 hover:text-primary-light text-sm transition-colors duration-300"
                 >
                   +254 (717) 378-758
                 </a>
               </div>
-              <div className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                <div className="text-gray-300 text-sm sm:text-base">
-                  <p>123 Tech Solutions</p>
-                  <p>Woodvale Grove, Westlands</p>
-                  <p>Nairobi, Kenya</p>
-                </div>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-primary-light flex-shrink-0 mt-0.5" />
+                <span className="text-gray-400 text-sm">Nairobi, Kenya</span>
               </div>
             </div>
 
-            {/* Follow Us */}
-            <div>
-              <h5 className="font-orbitron text-base font-semibold text-primary mb-3">
-                Follow Us
-              </h5>
-              <div className="flex space-x-3">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-dark border border-primary rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-dark hover:border-primary transition-all duration-300 hover:scale-110"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-4 h-4" />
-                  </a>
-                ))}
-              </div>
+            {/* Social icons */}
+            <h5 className="font-orbitron text-xs font-semibold text-primary uppercase tracking-widest mb-3">
+              Follow Us
+            </h5>
+            <div className="flex gap-3">
+              {socialLinks.map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-9 h-9 bg-dark border border-primary/30 rounded-full flex items-center justify-center text-primary-light hover:bg-primary/20 hover:border-primary transition-all duration-300 hover:scale-110"
+                >
+                  <social.icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
+
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-primary mt-12 pt-8">
-          <div className="text-center">
-            <p className="text-gray-400 text-sm">
-              © 2025 Cybex. All rights reserved.
-            </p>
-          </div>
+        {/* ── Copyright ── */}
+        <div className="border-t border-primary/15 mt-12 pt-8 text-center">
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} Cybex. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
