@@ -103,7 +103,7 @@ const Contact = () => {
               style={{ animation: 'fadeInLeft 0.6s ease forwards', animationDelay: '0.1s', opacity: 0 }}
             >
               <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-                Have a project in mind or just want to say hello? Reach out — we'd love to hear from you and help your business grow online.
+                Have a project in mind? Reach out, we'd love to hear from you and help your business grow online.
               </p>
 
               <div className="space-y-4 pt-2">
@@ -175,7 +175,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="Full Name"
                       required
-                      className="w-full bg-dark/60 border border-primary/15 focus:border-primary/60 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-gray-500 text-sm outline-none transition-all duration-300 focus:bg-primary/5"
+                      className="w-full bg-dark/60 border border-primary/15 focus:border-primary/60 rounded-xl pl-11 pr-4 py-3.5 text-black placeholder-gray-500 text-sm outline-none transition-all duration-300 focus:bg-primary/5"
                     />
                   </div>
 
@@ -189,7 +189,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="Email Address"
                       required
-                      className="w-full bg-dark/60 border border-primary/15 focus:border-primary/60 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-gray-500 text-sm outline-none transition-all duration-300 focus:bg-primary/5"
+                      className="w-full bg-dark/60 border border-primary/15 focus:border-primary/60 rounded-xl pl-11 pr-4 py-3.5 text-black placeholder-gray-500 text-sm outline-none transition-all duration-300 focus:bg-primary/5"
                     />
                   </div>
 
@@ -202,7 +202,7 @@ const Contact = () => {
                       value={form.phone}
                       onChange={handleChange}
                       placeholder="Phone Number"
-                      className="w-full bg-dark/60 border border-primary/15 focus:border-primary/60 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-gray-500 text-sm outline-none transition-all duration-300 focus:bg-primary/5"
+                      className="w-full bg-dark/60 border border-primary/15 focus:border-primary/60 rounded-xl pl-11 pr-4 py-3.5 text-black placeholder-gray-500 text-sm outline-none transition-all duration-300 focus:bg-primary/5"
                     />
                   </div>
 
@@ -216,7 +216,7 @@ const Contact = () => {
                       placeholder="Tell us about your project..."
                       required
                       rows={5}
-                      className="w-full bg-dark/60 border border-primary/15 focus:border-primary/60 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-gray-500 text-sm outline-none transition-all duration-300 focus:bg-primary/5 resize-none"
+                      className="w-full bg-dark/60 border border-primary/15 focus:border-primary/60 rounded-xl pl-11 pr-4 py-3.5 text-black placeholder-gray-500 text-sm outline-none transition-all duration-300 focus:bg-primary/5 resize-none"
                     />
                   </div>
 
