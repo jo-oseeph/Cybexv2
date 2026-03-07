@@ -6,7 +6,7 @@ const contactInfo = [
     icon: Phone,
     label: 'Phone',
     value: '+254 700 000 000',
-    href: 'tel:+254700000000',
+    href: 'tel:+254717378758',
   },
   {
     icon: Mail,
