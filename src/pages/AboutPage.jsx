@@ -2,7 +2,7 @@ import React from "react";
 import AboutSection from "../components/AboutSection";
 import ApproachSection from "../components/ApproachSection";
 import MissionVision from "../components/MissionVision";
-
+import CTA from "../components/CTASection";
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-dark via-dark-light to-dark">
@@ -45,6 +45,7 @@ const AboutPage = () => {
       <AboutSection />
       <ApproachSection />
       <MissionVision />
+      <CTA/>
     </div>
   );
 };
