@@ -25,12 +25,14 @@ import BlogPage from "./pages/BlogPage";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <AuthProvider>
       <Router>
         <div className="min-h-screen bg-dark">
+           <ScrollToTop />
           <Navbar />
           <Routes>
             {/* Public routes */}

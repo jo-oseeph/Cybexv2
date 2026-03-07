@@ -42,7 +42,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6 max-w-sm">
-              We help businesses grow online with professional websites, fully managed services, and reliable security — built to last and designed to impress.
+              We help businesses grow online with professional websites, fully managed services, and reliable security, built to last and designed to impress.
             </p>
           </div>
 
