@@ -226,7 +226,7 @@ const Contact = () => {
                   {/* Feedback */}
                   {status === 'success' && (
                     <p className="text-center text-sm text-primary-light font-medium pt-1">
-                      ✓ Message sent! We'll get back to you shortly.
+                       Message sent Successfully! 
                     </p>
                   )}
                   {status === 'error' && (
