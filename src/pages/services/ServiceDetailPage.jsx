@@ -72,7 +72,7 @@ const ServiceDetailPage = ({ hero, overview, included, why }) => {
             {included.items.map((item, index) => (
               <div
                 key={index}
-                className="relative bg-dark-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-primary transition-all duration-300"
+                className="relative bg-dark-light/40 backdrop-blur-sm rounded-xl p-6 border border-primary hover:border-primary transition-all duration-300"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-4">
                   <item.icon className="w-6 h-6" />
