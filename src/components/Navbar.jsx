@@ -5,11 +5,7 @@ import {
   Menu, 
   X, 
   ChevronDown, 
-  Eye,  
-  Users, 
-  Phone,
-  Mail,
-  ShieldCheck,
+
   LogOut,
   User
 } from 'lucide-react';
@@ -18,22 +14,12 @@ import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   
   const { user, logout, isAdmin } = useAuth();
   const navigate = useNavigate();
 
-  const services = [
-    { name: 'Real-Time Threat Monitoring', icon: <Eye className="w-4 h-4" />, path: '/services/real-time-threat-monitoring' },
-    { name: 'Website Security Audit', icon: <Shield className="w-4 h-4" />, path: '/services/website-security-audit' },
-    { name: 'Device & Endpoint Protection', icon: <Phone className="w-4 h-4" />, path: '/services/device-endpoint-protection' },
-    { name: 'Cyber Awareness Training', icon: <Users className="w-4 h-4" />, path: '/services/cyber-awareness-training' },
-    { name: 'Email Security Setup', icon: <Mail className="w-4 h-4" />, path: '/services/email-security-setup' },
-    { name: 'Security Audit & Assessment', icon: <ShieldCheck className="w-4 h-4" />, path: '/services/security-audit-assessment' }
-   
-  ];
 
   // Handle scroll effect
   useEffect(() => {
@@ -46,13 +32,9 @@ const Navbar = () => {
 
   const handleNavClick = () => {
     setIsOpen(false);
-    setServicesOpen(false);
     setUserMenuOpen(false);
   };
 
-  // const handleBookConsultation = () => {
-  //   console.log('Book consultation clicked');
-  // };
 
   const handleLogout = () => {
     logout();
@@ -112,47 +94,6 @@ const Navbar = () => {
               Services
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            
-            {/* Services Dropdown */}
-            <div className="relative group">
-              <button
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
-                className="flex items-center space-x-1 font-orbitron text-sm font-medium text-gray-300 hover:text-primary transition-all duration-300 relative"
-              >
-                <span>Services</span>
-                <ChevronDown className={`w-4 h-4 transition-all duration-300 ${servicesOpen ? 'rotate-180 text-primary' : ''}`} />
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
-              </button>
-              
-              {/* Services Dropdown Menu */}
-              <div
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
-                className={`absolute top-full left-0 mt-2 w-72 bg-dark border border-primary/30 rounded-xl shadow-2xl shadow-primary/20 backdrop-blur-sm transition-all duration-300 transform ${
-                  servicesOpen 
-                    ? 'opacity-100 translate-y-0 visible' 
-                    : 'opacity-0 -translate-y-2 invisible'
-                }`}
-              >
-                <div className="p-3">
-                  {services.map((service, index) => (
-                    <Link
-                      key={index}
-                      to={service.path}
-                      onClick={handleNavClick}
-                      className="flex items-center space-x-3 w-full p-3 text-left text-gray-300 hover:text-primary hover:bg-dark-light/50 rounded-lg transition-all duration-300 group/item transform hover:translate-x-1"
-                      style={{ animationDelay: `${index * 50}ms` }}
-                    >
-                      <span className="text-primary group-hover/item:text-primary-light transition-colors duration-300">
-                        {service.icon}
-                      </span>
-                      <span className="font-orbitron text-sm">{service.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
 
             <Link
               to="/careers"
@@ -261,33 +202,15 @@ const Navbar = () => {
             >
               About Us
             </Link>
-            
-            <div>
-              <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                className="flex items-center justify-between w-full px-3 py-2 font-orbitron text-gray-300 hover:text-primary hover:bg-dark/50 rounded-lg transition-all duration-300"
-              >
-                <span>Services</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
-              </button>
-              
-              <div className={`ml-4 mt-1 space-y-1 transition-all duration-300 overflow-hidden ${
-                servicesOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
-              }`}>
-                {services.map((service, index) => (
-                  <Link
-                    key={index}
-                    to={service.path}
-                    onClick={handleNavClick}
-                    className="flex items-center space-x-3 w-full px-3 py-2 text-gray-400 hover:text-primary hover:bg-dark/50 rounded-lg transition-all duration-300 text-sm transform hover:translate-x-1"
-                    style={{ animationDelay: `${index * 50}ms` }}
-                  >
-                    <span className="text-primary">{service.icon}</span>
-                    <span className="font-orbitron">{service.name}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
+
+             <Link
+              to="/services"
+              onClick={handleNavClick}
+              className="block w-full text-left px-3 py-2 font-orbitron text-gray-300 hover:text-primary hover:bg-dark/50 rounded-lg transition-all duration-300 transform hover:translate-x-1"
+            >
+              Services
+            </Link>
+
             
             <Link
               to="/careers"
