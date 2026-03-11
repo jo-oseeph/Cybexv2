@@ -1,5 +1,10 @@
 import React from 'react';
-import { Globe, Wrench, ShieldCheck, ArrowRight, } from 'lucide-react';
+import {   Globe,
+  Wrench,
+  LifeBuoy,
+  Server,
+  ShieldCheck,
+  Zap, ArrowRight, } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 
@@ -8,25 +13,49 @@ const services = [
     icon: Globe,
     title: "Website Design & Development",
     description:
-      "Professional, responsive websites tailored for your business or organization. We craft clean, fast, and conversion-focused designs that make a lasting impression and grow with your brand.",
-    features: ["Custom responsive design", "SEO-ready structure", "Mobile-first approach"],
+      "Your website is your first impression — make it count. We build custom, responsive, and conversion-focused websites that look great, load fast, and grow with your business.",
+    features: ["Custom business & corporate sites", "E-commerce & landing pages", "SEO-ready & mobile-first"],
     route: "/services/website-design-development",
   },
   {
     icon: Wrench,
-    title: "Fully Managed Website Services",
+    title: "Website Management Services",
     description:
-      "We take care of hosting, renewals, updates, and ongoing support, so you never worry about technical issues. Focus on running your business while we keep everything running smoothly.",
-    features: ["Hosting & domain management", "Regular updates & patches", "24/7 technical support"],
-    route: "/services/managed-website-services",
+      "Stop worrying about updates, backups, and technical issues. We manage your website end-to-end so you stay focused on your business while we keep everything running smoothly.",
+    features: ["Ongoing maintenance & updates", "Regular backups & monitoring", "Content updates & support"],
+    route: "/services/website-management",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Website Takeover & Recovery",
+    description:
+      "Developer went quiet? Site broken or outdated? We step in, take full control, and restore your website to a professional, secure, and fully functional state — fast.",
+    features: ["Fixing broken & outdated sites", "Speed & security recovery", "Hosting migration & cleanup"],
+    route: "/services/website-takeover-recovery",
+  },
+  {
+    icon: Server,
+    title: "Hosting & Domain Management",
+    description:
+      "From domain registration to DNS configuration and hosting setup, we handle the infrastructure behind your online presence so it stays reliable, secure, and always online.",
+    features: ["Domain registration & renewals", "Hosting setup & migration", "DNS & email configuration"],
+    route: "/services/hosting-domain-management",
   },
   {
     icon: ShieldCheck,
-    title: "Website Security & Optimization",
+    title: "Website Security & Protection",
     description:
-      "Security hardening, real-time monitoring, and performance optimization to keep your site safe, fast, and always available. We protect your online presence so your customers always trust you.",
-    features: ["Security audits & hardening", "Performance optimization", "Uptime monitoring"],
-    route: "/services/website-security-optimization",
+      "A single breach can cost you everything. We harden your website against threats, install SSL, scan for malware, and put the right protections in place before problems arise.",
+    features: ["WordPress security hardening", "SSL, malware & login protection", "Vulnerability checks & backups"],
+    route: "/services/website-security-protection",
+  },
+  {
+    icon: Zap,
+    title: "Performance Optimization",
+    description:
+      "Slow websites lose customers. We tune your site for speed, optimize images and databases, configure caching, and improve Core Web Vitals so every visitor gets a fast experience.",
+    features: ["Speed & image optimization", "Database & caching setup", "Core Web Vitals improvement"],
+    route: "/services/performance-optimization",
   },
 ];
 
