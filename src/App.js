@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import WebsiteDesignPage from './pages/services/WebsiteDesignPage';
 // import WebsiteSecurityAuditPage from "./pages/services/WebsiteSecurityAuditPage";
 // import DeviceEndpointProtectionPage from "./pages/services/DeviceEndpointProtectionPage";
 // import CyberAwarenessTrainingPage from "./pages/services/CyberAwarenessTrainingPage";
@@ -43,8 +44,10 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/admin/create-post" element={<CreatePost />} />
+
           <Route path="/blog/:slugOrId" element={<PostDetails />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/services/website-design-development" element={<WebsiteDesignPage />} />
 
              
 
