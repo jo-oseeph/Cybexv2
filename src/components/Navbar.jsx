@@ -104,6 +104,14 @@ const Navbar = () => {
               About Us
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
+
+             <Link
+              to="/services"
+              className="font-orbitron text-sm font-medium text-gray-300 hover:text-primary transition-all duration-300 relative group"
+            >
+              Services
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+            </Link>
             
             {/* Services Dropdown */}
             <div className="relative group">
