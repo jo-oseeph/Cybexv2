@@ -24,7 +24,7 @@ const data = {
       { icon: Lock, title: 'SSL Installation', description: 'SSL certificates installed and configured to encrypt data and build customer trust instantly.' },
       { icon: Search, title: 'Malware Scanning', description: 'Regular automated scans to detect and remove malicious code before it causes damage.' },
       { icon: KeyRound, title: 'Login Protection', description: 'Two-factor authentication, login attempt limits, and brute-force blocking to keep accounts secure.' },
-      { icon: HardDrive, title: 'Backup Security', description: 'Encrypted, offsite backups so your data is always recoverable — no matter what happens.' },
+      { icon: HardDrive, title: 'Backup Security', description: 'Encrypted, offsite backups so your data is always recoverable, no matter what happens.' },
       { icon: AlertTriangle, title: 'Vulnerability Checks', description: 'Routine audits to identify outdated software, weak configurations, and exploitable entry points.' },
     ],
   },
