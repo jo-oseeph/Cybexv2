@@ -13,7 +13,7 @@ const data = {
       'In today\'s digital world, your website is often the first, and sometimes the only, impression a potential customer gets of your business. We build websites that are not just visually compelling, but strategically designed to turn visitors into customers.',
       'Whether you\'re starting from scratch or need a full redesign, we craft every detail to reflect your brand, communicate your value, and perform flawlessly across every device.',
     ],
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=900&q=80',
+    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1600&q=80',
   },
   included: {
     heading: "What's Included",

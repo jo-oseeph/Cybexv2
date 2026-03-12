@@ -24,9 +24,6 @@ const ServiceDetailPage = ({ hero, overview, included, why }) => {
         />
 
         <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 text-center">
-          <p className="text-sm tracking-widest text-primary-light mb-2 uppercase">
-            {hero.breadcrumb}
-          </p>
           <h1
             className="font-orbitron text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight transition-all duration-700 delay-100"
             style={{
@@ -36,16 +33,13 @@ const ServiceDetailPage = ({ hero, overview, included, why }) => {
           >
             {hero.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-gray-200 text-base sm:text-lg leading-relaxed">
-            {hero.tagline}
-          </p>
         </div>
       </section>
 
       <main className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <section className="grid gap-10 lg:grid-cols-2 items-center">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">
               {overview.heading}
             </h2>
             <div className="space-y-4 text-gray-300">

@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import WebsiteDesignPage from './pages/services/WebsiteDesignPage';
+import WebsiteManagementPage from './pages/services/WebsiteManagementPage';
 // import WebsiteSecurityAuditPage from "./pages/services/WebsiteSecurityAuditPage";
 // import DeviceEndpointProtectionPage from "./pages/services/DeviceEndpointProtectionPage";
 // import CyberAwarenessTrainingPage from "./pages/services/CyberAwarenessTrainingPage";
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/blog/:slugOrId" element={<PostDetails />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/services/website-design-development" element={<WebsiteDesignPage />} />
+            <Route path="/services/website-management" element={<WebsiteManagementPage />} />
 
              
 
