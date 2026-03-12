@@ -10,6 +10,7 @@ import WebsiteManagementPage from './pages/services/WebsiteManagementPage';
 import WebsiteTakeoverPage from './pages/services/WebsiteTakeoverPage';
 import HostingDomainPage from './pages/services/HostingDomainPage';
 import WebsiteSecurityPage from './pages/services/WebsiteSecurityPage';
+import PerformanceOptimizationPage from './pages/services/PerformanceOptimizationPage';
 // import WebsiteSecurityAuditPage from "./pages/services/WebsiteSecurityAuditPage";
 // import DeviceEndpointProtectionPage from "./pages/services/DeviceEndpointProtectionPage";
 // import CyberAwarenessTrainingPage from "./pages/services/CyberAwarenessTrainingPage";
@@ -56,6 +57,7 @@ const App = () => {
             <Route path="/services/website-takeover-recovery" element={<WebsiteTakeoverPage />} />
             <Route path="/services/hosting-domain-management" element={<HostingDomainPage />} />
             <Route path="/services/website-security-protection" element={<WebsiteSecurityPage />} />
+            <Route path="/services/performance-optimization" element={<PerformanceOptimizationPage />} />
 
              
 
