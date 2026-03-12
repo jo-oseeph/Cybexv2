@@ -10,9 +10,9 @@ const data = {
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&q=80',
   },
   overview: {
-    heading: 'Security Is Not Optional — It\'s Essential',
+    heading: 'Security Is Not Optional, It\'s Essential',
     paragraphs: [
-      'Every website, regardless of size, is a potential target. Hackers don\'t just go after big companies — small business websites are frequently exploited precisely because they tend to be under-protected and overlooked.',
+      'Every website, regardless of size, is a potential target. Hackers don\'t just go after big companies, small business websites are frequently exploited precisely because they tend to be under-protected and overlooked.',
       'We implement the right security measures to harden your website, detect threats early, and ensure that if something does go wrong, your data is safe and recovery is fast.',
     ],
     image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=900&q=80',
@@ -32,9 +32,9 @@ const data = {
     heading: 'Why It Matters',
     statement: 'A single security breach can destroy years of brand trust in a matter of hours.',
     points: [
-      '43% of cyberattacks target small businesses — yet most have little to no security in place.',
+      '43% of cyberattacks target small businesses, yet most have little to no security in place.',
       'A hacked website can be blacklisted by Google, wiping out your search visibility overnight.',
-      'Proactive security is always cheaper — and less damaging — than recovering from an attack.',
+      'Proactive security is always cheaper, and less damaging,  than recovering from an attack.',
     ],
   },
 };
