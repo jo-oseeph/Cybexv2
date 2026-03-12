@@ -8,6 +8,7 @@ import ContactPage from "./pages/ContactPage";
 import WebsiteDesignPage from './pages/services/WebsiteDesignPage';
 import WebsiteManagementPage from './pages/services/WebsiteManagementPage';
 import WebsiteTakeoverPage from './pages/services/WebsiteTakeoverPage';
+import HostingDomainPage from './pages/services/HostingDomainPage';
 // import WebsiteSecurityAuditPage from "./pages/services/WebsiteSecurityAuditPage";
 // import DeviceEndpointProtectionPage from "./pages/services/DeviceEndpointProtectionPage";
 // import CyberAwarenessTrainingPage from "./pages/services/CyberAwarenessTrainingPage";
@@ -52,6 +53,7 @@ const App = () => {
             <Route path="/services/website-design-development" element={<WebsiteDesignPage />} />
             <Route path="/services/website-management" element={<WebsiteManagementPage />} />
             <Route path="/services/website-takeover-recovery" element={<WebsiteTakeoverPage />} />
+            <Route path="/services/hosting-domain-management" element={<HostingDomainPage />} />
 
              
 
