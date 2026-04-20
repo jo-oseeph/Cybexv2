@@ -4,25 +4,23 @@ const projects = [
   {
     title: "My Nyumba",
     description:
-      "A real estate platform where agents can list their houses and clients or tenants can view listings and contact the person in charge. It reduces the heavy burden of searching for houses.",
+      "A modern real estate platform that enables agents to list properties and allows clients or tenants to browse listings and connect directly with the responsible agent, simplifying and speeding up the house search process.",
     image: "/images/project1.png",
-    link: "#",
+    link: "https://mynyumba-kenya-finder.lovable.app/",
   },
   {
-    title: "Quantum Storefront",
+    title: "MoiLearn",
     description:
-      "A responsive e-commerce experience with immersive product storytelling, animated CTA blocks, and crisp mobile-first interactions.",
-    image:
-      "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Quantum+Storefront",
-    link: "#",
+      "A student platform for sharing learning materials and past papers for Moi University, helping learners access resources quickly and collaborate efficiently.",
+    image: "/images/moilearn.png",
+    link: "https://moilearn.vercel.app/",
   },
   {
-    title: "Pulse Portfolio",
+    title: "EcoCircuit",
     description:
-      "A bold personal portfolio concept with gradient highlights, dynamic content cards, and a smooth scrolling showcase for creative brands.",
-    image:
-      "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Pulse+Portfolio",
-    link: "#",
+      "An e-waste management platform that connects e-waste producers with recyclers, making recycling easier and more transparent for everyone.",
+    image: "/images/ecocircuit.png",
+    link: "https://waste-frontend-two.vercel.app/",
   },
   {
     title: "Nebula CRM",

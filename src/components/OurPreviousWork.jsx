@@ -20,8 +20,7 @@ const OurPreviousWork = () => (
           Our Previous Work
         </h2>
         <p className="mt-4 max-w-2xl mx-auto text-gray-300 text-base sm:text-lg leading-relaxed">
-          Three standout projects designed to feel vibrant, polished, and built
-          for growth. Replace these examples with your own work anytime.
+         Here are some of our recent projects that showcase our expertise in delivering high-quality web solutions. 
         </p>
       </div>
 
@@ -32,7 +31,7 @@ const OurPreviousWork = () => (
           to="/portfolio"
           className="group inline-flex items-center gap-2 rounded-full border border-cyan-400/50 bg-cyan-500/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary transition duration-300 hover:bg-cyan-500/20 hover:text-primary-light"
         >
-          Learn more
+          View more
           <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
