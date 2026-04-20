@@ -11,7 +11,7 @@ const projects = [
   {
     title: "MoiLearn",
     description:
-      "A student platform for sharing learning materials and past papers for Moi University, helping learners access resources quickly and collaborate efficiently.",
+      "A student platform for sharing learning materials and past papers for Moi University, helping learners access academic resources quickly and collaborate efficiently.",
     image: "/images/moilearn.png",
     link: "https://moilearn.vercel.app/",
   },
