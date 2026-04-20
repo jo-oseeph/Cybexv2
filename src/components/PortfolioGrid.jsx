@@ -1,0 +1,108 @@
+import { ArrowRight } from "lucide-react";
+
+const projects = [
+  {
+    title: "My Nyumba",
+    description:
+      "A real estate platform where agents can list their houses and clients or tenants can view listings and contact the person in charge. It reduces the heavy burden of searching for houses.",
+    image: "/images/project1.png",
+    link: "#",
+  },
+  {
+    title: "Quantum Storefront",
+    description:
+      "A responsive e-commerce experience with immersive product storytelling, animated CTA blocks, and crisp mobile-first interactions.",
+    image:
+      "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Quantum+Storefront",
+    link: "#",
+  },
+  {
+    title: "Pulse Portfolio",
+    description:
+      "A bold personal portfolio concept with gradient highlights, dynamic content cards, and a smooth scrolling showcase for creative brands.",
+    image:
+      "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Pulse+Portfolio",
+    link: "#",
+  },
+  {
+    title: "Nebula CRM",
+    description:
+      "A modern client portal design featuring voice-inspired analytics, frictionless collaboration tools, and a polished dark/blue UI.",
+    image: "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Nebula+CRM",
+    link: "#",
+  },
+  {
+    title: "Velocity Landing",
+    description:
+      "A high-impact landing page system designed for conversion, fast loading, and messaging that makes every product launch feel premium.",
+    image:
+      "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Velocity+Landing",
+    link: "#",
+  },
+  {
+    title: "Helix App Suite",
+    description:
+      "A clean multi-app dashboard layout built to showcase enterprise features with striking visual hierarchy and quick access modules.",
+    image:
+      "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Helix+App+Suite",
+    link: "#",
+  },
+];
+
+const PortfolioGrid = ({ featuredOnly = false }) => {
+  const visibleProjects = featuredOnly ? projects.slice(0, 3) : projects;
+
+  return (
+    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {visibleProjects.map((project, index) => (
+        <article
+          key={project.title}
+          className="group overflow-hidden rounded-3xl border border-cyan-400/50 bg-dark-light/40 shadow-[0_24px_80px_rgba(6,182,212,0.16)] transition-transform duration-500 hover:-translate-y-1"
+          style={{
+            animation: "fadeInUp 0.8s ease forwards",
+            animationDelay: `${index * 0.12}s`,
+            opacity: 0,
+          }}
+        >
+          <div className="overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="p-6 sm:p-7 space-y-4">
+            <span className="inline-flex items-center rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">
+              Project
+            </span>
+            <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-white">
+              {project.title}
+            </h3>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              {project.description}
+            </p>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-light"
+            >
+              View project
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
+        </article>
+      ))}
+
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(24px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default PortfolioGrid;

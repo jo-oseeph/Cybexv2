@@ -1,33 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { 
-  Shield, 
-  Menu, 
-  X, 
-  ChevronDown, 
-
-  LogOut,
-  User
-} from 'lucide-react';
-import { useAuth } from '../context/AuthContext'; // Adjust path as needed
-import { toast } from 'react-toastify';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Shield, Menu, X, ChevronDown, LogOut, User } from "lucide-react";
+import { useAuth } from "../context/AuthContext"; // Adjust path as needed
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  
+
   const { user, logout, isAdmin } = useAuth();
   const navigate = useNavigate();
-
 
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = () => {
@@ -35,33 +26,31 @@ const Navbar = () => {
     setUserMenuOpen(false);
   };
 
-
   const handleLogout = () => {
     logout();
-    toast.success('Logged out successfully');
-    navigate('/');
+    toast.success("Logged out successfully");
+    navigate("/");
     handleNavClick();
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-dark shadow-2xl shadow-primary/10' : 'bg-dark'
-    }  border-primary/50 `}>
-      
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-dark shadow-2xl shadow-primary/10" : "bg-dark"
+      }  border-primary/50 `}
+    >
       {/* Animated glow effect */}
       <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          
           {/* Logo with animation */}
-          <Link 
-            to="/" 
-            className="flex items-center space-x-3 group transform transition-transform duration-300 hover:scale-105" 
+          <Link
+            to="/"
+            className="flex items-center space-x-3 group transform transition-transform duration-300 hover:scale-105"
             onClick={handleNavClick}
           >
             <div className="relative">
-             
               <div className="absolute inset-0 w-8 h-8 text-primary opacity-50 animate-ping"></div>
             </div>
             <span className="font-orbitron text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary hover:from-primary-light hover:to-primary transition-all duration-300">
@@ -78,7 +67,7 @@ const Navbar = () => {
               Home
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            
+
             <Link
               to="/about"
               className="font-orbitron text-sm font-medium text-gray-300 hover:text-primary transition-all duration-300 relative group"
@@ -87,11 +76,19 @@ const Navbar = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
-             <Link
+            <Link
               to="/services"
               className="font-orbitron text-sm font-medium text-gray-300 hover:text-primary transition-all duration-300 relative group"
             >
               Services
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+
+            <Link
+              to="/portfolio"
+              className="font-orbitron text-sm font-medium text-gray-300 hover:text-primary transition-all duration-300 relative group"
+            >
+              Portfolio
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
@@ -110,7 +107,7 @@ const Navbar = () => {
               Blogs
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            
+
             <Link
               to="/contact"
               className="font-orbitron text-sm font-medium text-gray-300 hover:text-primary transition-all duration-300 relative group"
@@ -118,7 +115,7 @@ const Navbar = () => {
               Contact Us
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            
+
             {/* <button 
               onClick={handleBookConsultation}
               className="font-orbitron bg-gradient-to-r from-primary to-secondary text-dark px-6 py-2 rounded-full hover:from-primary-light hover:to-secondary-light transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-primary/30 font-medium"
@@ -135,8 +132,12 @@ const Navbar = () => {
                   className="flex items-center space-x-2 bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/50 px-4 py-2 rounded-full hover:from-primary/30 hover:to-secondary/30 transition-all duration-300 transform hover:scale-105"
                 >
                   <User className="w-4 h-4 text-primary" />
-                  <span className="font-orbitron text-sm text-gray-300">{user.name}</span>
-                  <ChevronDown className={`w-4 h-4 text-primary transition-all duration-300 ${userMenuOpen ? 'rotate-180' : ''}`} />
+                  <span className="font-orbitron text-sm text-gray-300">
+                    {user.name}
+                  </span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-primary transition-all duration-300 ${userMenuOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
 
                 {/* User Dropdown Menu */}
@@ -144,9 +145,9 @@ const Navbar = () => {
                   onMouseEnter={() => setUserMenuOpen(true)}
                   onMouseLeave={() => setUserMenuOpen(false)}
                   className={`absolute top-full right-0 mt-2 w-48 bg-dark border border-primary/30 rounded-xl shadow-2xl shadow-primary/20 backdrop-blur-sm transition-all duration-300 transform ${
-                    userMenuOpen 
-                      ? 'opacity-100 translate-y-0 visible' 
-                      : 'opacity-0 -translate-y-2 invisible'
+                    userMenuOpen
+                      ? "opacity-100 translate-y-0 visible"
+                      : "opacity-0 -translate-y-2 invisible"
                   }`}
                 >
                   <div className="p-2">
@@ -177,15 +178,21 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-primary hover:text-primary-light transition-all duration-300 transform hover:scale-110"
             >
-             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 hover:animate-pulse" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6 hover:animate-pulse" />
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
-        }`}>
+        <div
+          className={`md:hidden transition-all duration-300 overflow-hidden ${
+            isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
           <div className="px-2 pt-2 pb-3 space-y-1 bg-dark-light/90 rounded-xl mt-2 border border-primary/30 backdrop-blur-sm">
             <Link
               to="/"
@@ -194,7 +201,7 @@ const Navbar = () => {
             >
               Home
             </Link>
-            
+
             <Link
               to="/about"
               onClick={handleNavClick}
@@ -203,7 +210,7 @@ const Navbar = () => {
               About Us
             </Link>
 
-             <Link
+            <Link
               to="/services"
               onClick={handleNavClick}
               className="block w-full text-left px-3 py-2 font-orbitron text-gray-300 hover:text-primary hover:bg-dark/50 rounded-lg transition-all duration-300 transform hover:translate-x-1"
@@ -211,7 +218,14 @@ const Navbar = () => {
               Services
             </Link>
 
-            
+            <Link
+              to="/portfolio"
+              onClick={handleNavClick}
+              className="block w-full text-left px-3 py-2 font-orbitron text-gray-300 hover:text-primary hover:bg-dark/50 rounded-lg transition-all duration-300 transform hover:translate-x-1"
+            >
+              Portfolio
+            </Link>
+
             <Link
               to="/careers"
               onClick={handleNavClick}
@@ -227,7 +241,7 @@ const Navbar = () => {
             >
               Blogs
             </Link>
-            
+
             <Link
               to="/contact"
               onClick={handleNavClick}
@@ -235,7 +249,7 @@ const Navbar = () => {
             >
               Contact Us
             </Link>
-            
+
             {/* <button 
               onClick={handleBookConsultation}
               className="w-full mt-4 font-orbitron bg-gradient-to-r from-primary to-secondary text-dark px-6 py-2 rounded-full hover:from-primary-light hover:to-secondary-light transition-all duration-300 transform hover:scale-105 font-medium"
