@@ -22,29 +22,7 @@ const projects = [
     image: "/images/ecocircuit.png",
     link: "https://waste-frontend-two.vercel.app/",
   },
-  {
-    title: "Nebula CRM",
-    description:
-      "A modern client portal design featuring voice-inspired analytics, frictionless collaboration tools, and a polished dark/blue UI.",
-    image: "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Nebula+CRM",
-    link: "#",
-  },
-  {
-    title: "Velocity Landing",
-    description:
-      "A high-impact landing page system designed for conversion, fast loading, and messaging that makes every product launch feel premium.",
-    image:
-      "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Velocity+Landing",
-    link: "#",
-  },
-  {
-    title: "Helix App Suite",
-    description:
-      "A clean multi-app dashboard layout built to showcase enterprise features with striking visual hierarchy and quick access modules.",
-    image:
-      "https://via.placeholder.com/800x520/0f172a/06b6d4?text=Helix+App+Suite",
-    link: "#",
-  },
+  
 ];
 
 const PortfolioGrid = ({ featuredOnly = false }) => {
@@ -55,7 +33,7 @@ const PortfolioGrid = ({ featuredOnly = false }) => {
       {visibleProjects.map((project, index) => (
         <article
           key={project.title}
-          className="group overflow-hidden rounded-3xl border border-cyan-400/50 bg-dark-light/40 shadow-[0_24px_80px_rgba(6,182,212,0.16)] transition-transform duration-500 hover:-translate-y-1"
+          className="group overflow-hidden rounded-3xl border border-primary bg-dark-light/40 shadow-[0_24px_80px_rgba(6,182,212,0.16)] transition-transform duration-500 hover:-translate-y-1"
           style={{
             animation: "fadeInUp 0.8s ease forwards",
             animationDelay: `${index * 0.12}s`,
@@ -71,9 +49,6 @@ const PortfolioGrid = ({ featuredOnly = false }) => {
           </div>
 
           <div className="p-6 sm:p-7 space-y-4">
-            <span className="inline-flex items-center rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">
-              Project
-            </span>
             <h3 className="font-orbitron text-xl sm:text-2xl font-bold text-white">
               {project.title}
             </h3>
