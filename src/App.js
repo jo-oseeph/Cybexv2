@@ -83,31 +83,6 @@ const App = () => {
               }
             />
 
-            {/* Services */}
-            {/* <Route
-              path="/services/website-security-audit"
-              element={<WebsiteSecurityAuditPage />}
-            />
-            <Route
-              path="/services/device-endpoint-protection"
-              element={<DeviceEndpointProtectionPage />}
-            />
-            <Route
-              path="/services/cyber-awareness-training"
-              element={<CyberAwarenessTrainingPage />}
-            />
-            <Route
-              path="/services/real-time-threat-monitoring"
-              element={<RealTimeThreatMonitoringPage />}
-            />
-            <Route
-              path="/services/email-security-setup"
-              element={<EmailSecuritySetupPage />}
-            />
-            <Route
-              path="/services/security-audit-assessment"
-              element={<SecurityAuditAssessmentPage />}
-            /> */}
           </Routes>
           <ToastContainer position="top-right" autoClose={3000} />
           <Footer />

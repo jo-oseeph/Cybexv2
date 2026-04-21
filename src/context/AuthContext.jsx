@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
   // Register new user (admin)
   const register = async (formData) => {
     try {
-      const { data } = await axiosInstance.post("/users/register", formData);
+      const { data } = await axiosInstance.post("/auth/register", formData);
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       setUser(data.user);
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
   // Login user
   const login = async (formData) => {
     try {
-      const { data } = await axiosInstance.post("/users/login", formData);
+     const { data } = await axiosInstance.post("/auth/login", formData);
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       setUser(data.user);
