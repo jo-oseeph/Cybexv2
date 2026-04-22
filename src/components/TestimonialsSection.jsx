@@ -8,7 +8,7 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Agosa Harrison",
+      name: "Morris J",
       title: "CEO & Founder of Times 100",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
@@ -17,21 +17,21 @@ const TestimonialsSection = () => {
     },
     {
       id: 2,
-      name: "Tamba Y. K",
+      name: "Carla M",
       title: "Works at Liberia Revenue Authority",
       image:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
       rating: 5,
-      text: "Working with Cybex Tech has been an absolute pleasure from the start. Their solutions are not only cutting-edge but also highly effective, consistently addressing our needs in innovative ways. They've become an essential partner for our digital transformation.",
+      text: "Working with Cybex has been an absolute pleasure from the start. Their solutions are not only cutting-edge but also highly effective, consistently addressing our needs in innovative ways. They've become an essential partner for our digital transformation.",
     },
     {
       id: 3,
-      name: "Pelizah",
-      title: "CEO and Founder at Luxe Picnics and events Planning",
+      name: "Monica Geller",
+      title: "CEO and Founder at Mex events Planning",
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
       rating: 5,
-      text: "I recently had the pleasure of working with Cybex Tech, and I couldn't be happier with the results. They helped me create a fantastic website that perfectly captures our brand. Their attention to detail and customer service is exceptional.",
+      text: "I recently had the pleasure of working with Cybex, and I couldn't be happier with the results. They helped me create a fantastic website that perfectly captures our brand. Their attention to detail and customer service is exceptional.",
     },
   ];
 
