@@ -13,7 +13,7 @@ const TestimonialsSection = () => {
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
       rating: 5,
-      text: "The team at NexusGK Softwares is phenomenal! Their expertise, dedication, and innovative approach have truly been game-changers for us. As the founder of a Times-100 company, I've worked with many agencies, but their commitment to quality is unmatched.",
+      text: "The team at Cybex Tech is phenomenal! Their expertise, dedication, and innovative approach have truly been game-changers for us. As the founder of a Times-100 company, I've worked with many agencies, but their commitment to quality is unmatched.",
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const TestimonialsSection = () => {
       image:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
       rating: 5,
-      text: "Working with NexusGK Softwares has been an absolute pleasure from the start. Their solutions are not only cutting-edge but also highly effective, consistently addressing our needs in innovative ways. They've become an essential partner for our digital transformation.",
+      text: "Working with Cybex Tech has been an absolute pleasure from the start. Their solutions are not only cutting-edge but also highly effective, consistently addressing our needs in innovative ways. They've become an essential partner for our digital transformation.",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const TestimonialsSection = () => {
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
       rating: 5,
-      text: "I recently had the pleasure of working with NexusGK Software, and I couldn't be happier with the results. They helped me create a fantastic website that perfectly captures our brand. Their attention to detail and customer service is exceptional.",
+      text: "I recently had the pleasure of working with Cybex Tech, and I couldn't be happier with the results. They helped me create a fantastic website that perfectly captures our brand. Their attention to detail and customer service is exceptional.",
     },
   ];
 
