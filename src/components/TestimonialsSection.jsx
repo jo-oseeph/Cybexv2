@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
     {
       id: 2,
       name: "Carla M",
-      title: "Works at Liberia Revenue Authority",
+      title: "Works at Revenue Authority",
       image:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
       rating: 5,
@@ -27,7 +27,7 @@ const TestimonialsSection = () => {
     {
       id: 3,
       name: "Monica Geller",
-      title: "CEO and Founder at Mex events Planning",
+      title: " Founder at Mex events Planning",
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
       rating: 5,
