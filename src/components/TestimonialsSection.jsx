@@ -9,7 +9,7 @@ const TestimonialsSection = () => {
     {
       id: 1,
       name: "Morris J",
-      title: "CEO & Founder of Times 100",
+      title: "CEO  of Times-100 Company",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
       rating: 5,
