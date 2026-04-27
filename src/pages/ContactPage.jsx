@@ -1,10 +1,37 @@
-import Contact from '../components/Contact';
+import Contact from "../components/Contact";
+import {
+  useSEO,
+  generateSchemaMarkup,
+  useInsertSchemaMarkup,
+} from "../utils/SEO";
+
 const ContactPage = () => {
+  useSEO({
+    title:
+      "Contact Cybex Tech - Get Professional Web Design & Development Services",
+    description:
+      "Get in touch with Cybex Tech for professional website design, development, and digital solutions. We're ready to help your business grow online in Kenya.",
+    keywords:
+      "contact cybex, web design contact, website development services Kenya, get in touch, cybex tech contact",
+    ogUrl: "https://cybextech.co.ke/contact",
+  });
+
+  const schema = generateSchemaMarkup("LocalBusiness", {
+    name: "Cybex Tech",
+    description:
+      "Professional website design, development, and digital solutions",
+    url: "https://cybextech.co.ke/contact",
+    phone: "+254 XXX XXX XXX",
+    city: "Nairobi",
+    country: "KE",
+  });
+
+  useInsertSchemaMarkup(schema);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-dark via-dark-light to-dark">
       {/* Hero Section */}
-     <section
+      <section
         className="relative overflow-hidden"
         style={{ height: "calc(100vh - 64px)", maxHeight: "420px" }}
       >
@@ -34,12 +61,11 @@ const ContactPage = () => {
               letterSpacing: "-0.01em",
             }}
           >
-        CONTACT US
+            CONTACT US
           </h1>
         </div>
       </section>
       <Contact />
-      
     </div>
   );
 };

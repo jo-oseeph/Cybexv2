@@ -2,10 +2,39 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axiosInstance from "./../api/axiosInstance";
 import HeroSection from "../components/BlogHero";
+import {
+  useSEO,
+  generateSchemaMarkup,
+  useInsertSchemaMarkup,
+} from "../utils/SEO";
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  useSEO({
+    title: "Blog - Web Design, Development & Digital Tips - Cybex Tech",
+    description:
+      "Read our latest blog posts about web design, development, digital marketing, website security, and professional web solutions for businesses in Kenya.",
+    keywords:
+      "web design blog, development tips, digital solutions, website security, web development articles, tech blog Kenya",
+    ogUrl: "https://cybextech.co.ke/blog",
+  });
+
+  const schema = generateSchemaMarkup("FAQPage", {
+    faqs: [
+      {
+        "@type": "Question",
+        name: "What is professional web design?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Professional web design combines aesthetics with functionality to create websites that engage users and drive business growth.",
+        },
+      },
+    ],
+  });
+
+  useInsertSchemaMarkup(schema);
 
   // Fetch posts from backend
   useEffect(() => {
@@ -32,7 +61,9 @@ const BlogPage = () => {
       {/* ===== Blog Posts Grid ===== */}
       <section className="py-16 px-6 md:px-12 lg:px-20 text-white">
         {loading ? (
-          <div className="text-center text-gray-400 text-lg">Loading posts...</div>
+          <div className="text-center text-gray-400 text-lg">
+            Loading posts...
+          </div>
         ) : posts.length === 0 ? (
           <div className="text-center text-gray-400 text-lg">
             No posts available yet.

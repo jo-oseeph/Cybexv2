@@ -1,46 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/cybex.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5"
+    />
+    <meta name="theme-color" content="#06b6d4" />
+
+    <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Cybex Tech - Professional website design, development, management, and security services for businesses in Kenya. Build a strong online presence with our reliable digital solutions."
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta
+      name="keywords"
+      content="web design Kenya, website development, website management, website security, domain hosting, web development Nairobi, digital solutions, website optimization"
+    />
+    <meta name="author" content="Cybex Tech" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>Cybex Tech</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cybextech.co.ke/" />
+    <meta
+      property="og:title"
+      content="Cybex Tech - Website Design & Development Services"
+    />
+    <meta
+      property="og:description"
+      content="Professional web design, development, and management services for businesses. Build your strong online presence with Cybex Tech."
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/cybex.png" />
+    <meta property="og:site_name" content="Cybex Tech" />
+    <meta property="og:locale" content="en_KE" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://cybextech.co.ke/" />
+    <meta
+      property="twitter:title"
+      content="Cybex Tech - Website Design & Development Services"
+    />
+    <meta
+      property="twitter:description"
+      content="Professional web design, development, and management services for businesses. Build your strong online presence with Cybex Tech."
+    />
+    <meta property="twitter:image" content="%PUBLIC_URL%/cybex.png" />
+
+    <!-- LinkedIn -->
+    <meta
+      property="article:publisher"
+      content="https://linkedin.com/company/cybex"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cybextech.co.ke/" />
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/cybex.png" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Cybex Tech",
+        "url": "https://cybextech.co.ke/",
+        "logo": "https://cybextech.co.ke/cybex.png",
+        "description": "Professional website design, development, management, and security services",
+        "sameAs": [
+          "https://twitter.com/cybex",
+          "https://linkedin.com/company/cybex",
+          "https://facebook.com/cybex",
+          "https://instagram.com/cybex"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "availableLanguageId": "en-KE"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "KE"
+        }
+      }
+    </script>
+
+    <title>
+      Cybex Tech - Professional Website Design & Development Services
+    </title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

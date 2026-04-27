@@ -1,3 +1,25 @@
+# Cybex Tech - robots.txt
 # https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /login/
+Disallow: /register/
+
+# Specify sitemap
+Sitemap: https://cybextech.co.ke/sitemap.xml
+
+# Crawl delay for other bots
+Crawl-delay: 1
+
+# Google Bot rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing Bot rules
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

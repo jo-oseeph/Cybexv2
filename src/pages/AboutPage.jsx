@@ -4,7 +4,32 @@ import ApproachSection from "../components/ApproachSection";
 import MissionVision from "../components/MissionVision";
 import TeamSection from "../components/TeamSection";
 import CTA from "../components/CTASection";
+import {
+  useSEO,
+  generateSchemaMarkup,
+  useInsertSchemaMarkup,
+} from "../utils/SEO";
+
 const AboutPage = () => {
+  useSEO({
+    title: "About Cybex Tech - Website Design & Development Experts Kenya",
+    description:
+      "Learn about Cybex Tech's mission, vision, and team. We provide professional website design, development, and digital solutions for businesses in Kenya since 2024.",
+    keywords:
+      "about cybex tech, web design company Kenya, website development services, digital agency Nairobi, web development team",
+    ogUrl: "https://cybextech.co.ke/about",
+  });
+
+  const schema = generateSchemaMarkup("Organization", {
+    name: "Cybex Tech",
+    url: "https://cybextech.co.ke/about",
+    logo: "https://cybextech.co.ke/cybex.png",
+    description:
+      "Professional website design, development, management, and security services for businesses in Kenya",
+  });
+
+  useInsertSchemaMarkup(schema);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-dark via-dark-light to-dark">
       {/* Hero Section */}
