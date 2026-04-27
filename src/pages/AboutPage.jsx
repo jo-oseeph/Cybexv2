@@ -2,6 +2,7 @@ import React from "react";
 import AboutSection from "../components/AboutSection";
 import ApproachSection from "../components/ApproachSection";
 import MissionVision from "../components/MissionVision";
+import TeamSection from "../components/TeamSection";
 import CTA from "../components/CTASection";
 const AboutPage = () => {
   return (
@@ -10,7 +11,7 @@ const AboutPage = () => {
       <section
         className="relative overflow-hidden"
         style={{ height: "calc(100vh - 64px)", maxHeight: "420px" }}
-      > 
+      >
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -45,7 +46,8 @@ const AboutPage = () => {
       <AboutSection />
       <ApproachSection />
       <MissionVision />
-      <CTA/>
+      <TeamSection />
+      <CTA />
     </div>
   );
 };
