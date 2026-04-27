@@ -18,19 +18,19 @@ const TeamSection = () => {
     {
       id: 2,
       name: "John Maina",
-      role: "Lead Designer",
+      role: "Fulstack Dev",
       image: "/images/team2.jpeg",
-      bio: "John crafts intuitive, pixel-perfect user interfaces that balance aesthetics with usability. He bridges the gap between engineering and user experience on every product we ship.",
-      socials: [
+      bio: "John is a fullstack developer who builds scalable web applications, handling both frontend and backend to deliver seamless, high-performance solutions.",
+     socials: [
         { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-        { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+        {  icon: Facebook, href: "https://facebook.com", label: "Facebook" },
         { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
       ],
     },
     {
       id: 3,
       name: "Joseph Situma",
-      role: "Full-Stack Dev",
+      role: "Fullstack Dev",
       image: "/images/team3.png",
       bio: "Joseph architects and builds robust web applications from database to deployment. He specialises in React, Node.js, and cloud infrastructure, turning complex requirements into clean, scalable code.",
       socials: [
@@ -100,7 +100,7 @@ const TeamSection = () => {
 
             {/* subtitle */}
             <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-              The engineers, designers, and leaders building software that moves businesses forward.
+              The engineers, and leaders building software that moves businesses forward.
             </p>
           </div>
 
@@ -110,14 +110,8 @@ const TeamSection = () => {
               <div
                 key={member.id}
                 className={`team-card-${index + 1} group flex flex-col rounded-2xl border border-primary/20 hover:border-primary/50 bg-dark-light transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1`}
-                /* NOTE: NO overflow-hidden on the outer card — this was clipping the image */
               >
-                {/* ── Image wrapper ── */}
-                {/*
-                  Rounded top corners only; overflow-hidden scoped here so the image
-                  clips to the card's rounded top without affecting the entire card.
-                  object-cover + object-top ensures faces aren't cropped.
-                */}
+             
                 <div className="relative rounded-t-2xl overflow-hidden flex-shrink-0">
                   <div className="h-64 sm:h-72 bg-dark-lighter">
                     <img
