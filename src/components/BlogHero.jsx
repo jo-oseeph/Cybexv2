@@ -9,8 +9,7 @@ export default function HeroSection() {
           Insights & Articles
         </h1>
         <p className="hero-description">
-          Stay informed on the latest trends in cybersecurity, threat
-          intelligence, and digital defense.
+          Stay informed on the latest trends in technology and industry insights with ourarticles and resources.  
         </p>
       </div>
     </section>
