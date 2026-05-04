@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import AboutSection from "../components/AboutSection";
 import ApproachSection from "../components/ApproachSection";
 import MissionVision from "../components/MissionVision";
@@ -56,15 +57,18 @@ const AboutPage = () => {
 
         {/* Centered Title */}
         <div className="relative z-10 h-full flex items-center justify-center px-4 text-center">
-          <h1
-            className="font-orbitron text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight transition-all duration-700 delay-100"
+          <motion.h1
+            className="font-orbitron text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
             style={{
               textShadow: "0 2px 24px rgba(0,0,0,0.4)",
               letterSpacing: "-0.01em",
             }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
           >
             ABOUT CYBEX
-          </h1>
+          </motion.h1>
         </div>
       </section>
 
