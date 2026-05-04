@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const ApproachSection = () => {
   const pillars = [
@@ -31,8 +32,15 @@ const ApproachSection = () => {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+        <motion.div
+          className="text-center max-w-3xl mx-auto mb-14 sm:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h2 className="font-orbitron text-2xl sm:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary mb-5 leading-snug">
             Our Approach
           </h2>
@@ -43,33 +51,30 @@ const ApproachSection = () => {
             ensure their websites remain functional, updated, and aligned with
             their business goals.
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
           {pillars.map((pillar, i) => (
-            <div
+            <motion.div
               key={i}
               className="bg-dark-light/40 border border-primary rounded-2xl p-8"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.12 }}
             >
-              {/* Number */}
               <span className="font-orbitron text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary block mb-5 leading-none">
                 {pillar.number}
               </span>
-
-              {/* Short divider */}
               <div className="w-8 h-px bg-cyan-400 opacity-50 mb-5" />
-
-              {/* Title */}
               <h3 className="font-orbitron text-base sm:text-lg font-semibold text-white mb-3">
                 {pillar.title}
               </h3>
-
-              {/* Body */}
               <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
                 {pillar.body}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

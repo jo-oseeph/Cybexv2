@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Target, Eye } from 'lucide-react';
 
 const MissionVision = () => (
@@ -13,10 +14,7 @@ const MissionVision = () => (
             <span
               key={i}
               className="absolute w-1 h-1 rounded-full bg-primary/60"
-              style={{
-                top: `${15 + i * 14}%`,
-                left: `${8 + (i % 3) * 30}%`,
-              }}
+              style={{ top: `${15 + i * 14}%`, left: `${8 + (i % 3) * 30}%` }}
             />
           ))}
         </div>
@@ -24,8 +22,13 @@ const MissionVision = () => (
         <div className="relative space-y-10 max-w-lg">
 
           {/* Our Mission */}
-          <div className="flex items-start gap-5">
-            {/* Icon box */}
+          <motion.div
+            className="flex items-start gap-5"
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
               <Target className="w-7 h-7 text-primary-light" strokeWidth={1.5} />
             </div>
@@ -39,14 +42,19 @@ const MissionVision = () => (
                 support real business growth.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Divider */}
           <div className="h-px bg-primary/15 w-full" />
 
           {/* Our Vision */}
-          <div className="flex items-start gap-5">
-            {/* Icon box */}
+          <motion.div
+            className="flex items-start gap-5"
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+          >
             <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
               <Eye className="w-7 h-7 text-primary-light" strokeWidth={1.5} />
             </div>
@@ -59,19 +67,25 @@ const MissionVision = () => (
                 crafting online experiences that resonate, inspire, and leave a lasting impact.
               </p>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
 
       {/* ── Right: Image ── */}
-      <div className="relative min-h-[320px] lg:min-h-0">
+      <motion.div
+        className="relative min-h-[320px] lg:min-h-0"
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         <img
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
           alt="Team collaborating"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-      </div>
+      </motion.div>
 
     </div>
   </section>
