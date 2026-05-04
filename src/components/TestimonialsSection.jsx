@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const TestimonialsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -62,6 +63,27 @@ const TestimonialsSection = () => {
     setIsAutoPlay(false);
   };
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <section className="relative bg-dark py-16 sm:py-20 lg:py-24 overflow-hidden">
       {/* Background glow orbs */}
@@ -75,9 +97,13 @@ const TestimonialsSection = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div
+        <motion.div
           className="text-center mb-12 lg:mb-16"
-          style={{ animation: "fadeInUp 0.5s ease forwards", opacity: 0 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInUp}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="inline-flex items-center gap-2 mb-4">
             <div className="h-px w-6 bg-primary" />
@@ -102,18 +128,22 @@ const TestimonialsSection = () => {
             Don't just take our word for it — hear from the businesses we've
             helped succeed.
           </p>
-        </div>
+        </motion.div>
 
         {/* Desktop Grid View */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div
+          className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+        >
           {testimonials.map((testimonial, i) => (
-            <TestimonialCard
-              key={testimonial.id}
-              testimonial={testimonial}
-              index={i}
-            />
+            <motion.div key={testimonial.id} variants={cardVariants} transition={{ duration: 0.5, ease: "easeOut" }}>
+              <TestimonialCard testimonial={testimonial} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Mobile Carousel View */}
         <div className="md:hidden">
@@ -192,15 +222,8 @@ const TestimonialsSection = () => {
   );
 };
 
-const TestimonialCard = ({ testimonial, index = 0 }) => (
-  <div
-    className="group flex flex-col items-center text-center p-6 sm:p-8 rounded-xl border-2 border-primary/30 bg-dark-light/30 hover:border-primary/60 hover:bg-primary/5 transition-all duration-300"
-    style={{
-      animation: `fadeInUp 0.5s ease forwards`,
-      animationDelay: `${0.1 + (index || 0) * 0.1}s`,
-      opacity: 0,
-    }}
-  >
+const TestimonialCard = ({ testimonial }) => (
+  <div className="group flex flex-col items-center text-center p-6 sm:p-8 rounded-xl border-2 border-primary/30 bg-dark-light/30 hover:border-primary/60 hover:bg-primary/5 transition-all duration-300">
     {/* Profile Image */}
     <div className="relative mb-4 flex-shrink-0">
       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-primary-light to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur" />
