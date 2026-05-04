@@ -1,5 +1,6 @@
 import React from "react";
 import { Linkedin, Facebook, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
 
 const TeamSection = () => {
   const teamMembers = [
@@ -41,144 +42,159 @@ const TeamSection = () => {
     },
   ];
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <>
-      <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-        .team-header  { animation: fadeInUp 0.6s ease forwards; }
-        .team-card-1  { animation: fadeInUp 0.6s ease 0.15s both; }
-        .team-card-2  { animation: fadeInUp 0.6s ease 0.30s both; }
-        .team-card-3  { animation: fadeInUp 0.6s ease 0.45s both; }
-      `}</style>
+    <section className="relative bg-dark py-16 sm:py-20 lg:py-28 overflow-hidden">
+      {/* ── Background glow orbs ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-20" />
+      </div>
 
-      <section className="relative bg-dark py-16 sm:py-20 lg:py-28 overflow-hidden">
+      {/* ── Top border ── */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
-        {/* ── Background glow orbs ── */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-30" />
-          <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-20" />
-        </div>
-
-        {/* ── Top border ── */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* ── Section header ── */}
-          <div className="team-header text-center mb-14 lg:mb-20">
-            {/* eyebrow */}
-            <div className="inline-flex items-center gap-3 mb-5">
-              <div className="h-px w-8 bg-primary" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary font-orbitron">
-                Our People
-              </span>
-              <div className="h-px w-8 bg-primary" />
-            </div>
-
-            {/* main title — fully visible, no opacity:0 trap */}
-            <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              <span className="text-white">Meet Our&nbsp;</span>
-              <span
-                style={{
-                  backgroundImage: "linear-gradient(90deg, #06b6d4 0%, #67e8f9 60%, #06b6d4 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  backgroundSize: "200% auto",
-                }}
-              >
-                Team
-              </span>
-            </h2>
-
-            {/* subtitle */}
-            <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-              The engineers, and leaders building software that moves businesses forward.
-            </p>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ── Section header ── */}
+        <motion.div
+          className="text-center mb-14 lg:mb-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInUp}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          {/* eyebrow */}
+          <div className="inline-flex items-center gap-3 mb-5">
+            <div className="h-px w-8 bg-primary" />
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary font-orbitron">
+              Our People
+            </span>
+            <div className="h-px w-8 bg-primary" />
           </div>
 
-          {/* ── Team grid ── */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {teamMembers.map((member, index) => (
-              <div
-                key={member.id}
-                className={`team-card-${index + 1} group flex flex-col rounded-2xl border border-primary/20 hover:border-primary/50 bg-dark-light transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1`}
-              >
-             
-                <div className="relative rounded-t-2xl overflow-hidden flex-shrink-0">
-                  <div className="h-64 sm:h-72 bg-dark-lighter">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+          {/* main title — fully visible, no opacity:0 trap */}
+          <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+            <span className="text-white">Meet Our&nbsp;</span>
+            <span
+              style={{
+                backgroundImage: "linear-gradient(90deg, #06b6d4 0%, #67e8f9 60%, #06b6d4 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                backgroundSize: "200% auto",
+              }}
+            >
+              Team
+            </span>
+          </h2>
 
-                  {/* bottom fade so content reads over image edge */}
-                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-dark-light to-transparent" />
+          {/* subtitle */}
+          <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+            The engineers, and leaders building software that moves businesses forward.
+          </p>
+        </motion.div>
 
-                  {/* Role badge — inside image wrapper so it doesn't escape the card */}
-                  <div className="absolute top-4 right-4 bg-primary px-3 py-1 rounded-full shadow-lg shadow-primary/30">
-                    <span className="text-xs font-bold uppercase tracking-widest text-dark font-orbitron whitespace-nowrap">
-                      {member.role}
-                    </span>
-                  </div>
+        {/* ── Team grid ── */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+        >
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={member.id}
+              variants={cardVariants}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="group flex flex-col rounded-2xl border border-primary/20 hover:border-primary/50 bg-dark-light transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1"
+            >
+              <div className="relative rounded-t-2xl overflow-hidden flex-shrink-0">
+                <div className="h-64 sm:h-72 bg-dark-lighter">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
 
-                {/* ── Card body ── */}
-                <div className="flex flex-col flex-1 p-6 sm:p-7">
-                  {/* Name */}
-                  <h3 className="font-orbitron text-lg sm:text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors duration-300">
-                    {member.name}
-                  </h3>
+                {/* bottom fade so content reads over image edge */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-dark-light to-transparent" />
 
-                  {/* Divider */}
-                  <div className="w-8 h-0.5 bg-primary/50 mb-3 group-hover:w-16 transition-all duration-300" />
-
-                  {/* Bio */}
-                  <p className="text-gray-400 text-xs sm:text-sm leading-relaxed flex-1 mb-6">
-                    {member.bio}
-                  </p>
-
-                  {/* Social links */}
-                  <div className="flex gap-3">
-                    {member.socials.map((social, idx) => {
-                      const Icon = social.icon;
-                      return (
-                        <a
-                          key={idx}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={social.label}
-                          className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-dark hover:border-primary transition-all duration-300"
-                        >
-                          <Icon className="w-4 h-4" strokeWidth={1.5} />
-                        </a>
-                      );
-                    })}
-                  </div>
+                {/* Role badge — inside image wrapper so it doesn't escape the card */}
+                <div className="absolute top-4 right-4 bg-primary px-3 py-1 rounded-full shadow-lg shadow-primary/30">
+                  <span className="text-xs font-bold uppercase tracking-widest text-dark font-orbitron whitespace-nowrap">
+                    {member.role}
+                  </span>
                 </div>
-
-                {/* bottom accent line */}
-                <div className="h-px mx-6 mb-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl" />
               </div>
-            ))}
-          </div>
 
-        </div>
+              {/* ── Card body ── */}
+              <div className="flex flex-col flex-1 p-6 sm:p-7">
+                {/* Name */}
+                <h3 className="font-orbitron text-lg sm:text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors duration-300">
+                  {member.name}
+                </h3>
 
-        {/* ── Bottom border ── */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      </section>
-    </>
+                {/* Divider */}
+                <div className="w-8 h-0.5 bg-primary/50 mb-3 group-hover:w-16 transition-all duration-300" />
+
+                {/* Bio */}
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed flex-1 mb-6">
+                  {member.bio}
+                </p>
+
+                {/* Social links */}
+                <div className="flex gap-3">
+                  {member.socials.map((social, idx) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={idx}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-dark hover:border-primary transition-all duration-300"
+                      >
+                        <Icon className="w-4 h-4" strokeWidth={1.5} />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* bottom accent line */}
+              <div className="h-px mx-6 mb-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl" />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* ── Bottom border ── */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+    </section>
   );
 };
 
